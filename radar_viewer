@@ -1,0 +1,35 @@
+#!/bin/bash
+set -euo pipefail
+
+GIF="/tmp/radar_lightning/final_radar_lightning.gif"
+
+# Wait until the file exists
+echo "Waiting for radar GIF..."
+while [ ! -f "$GIF" ]; do
+    sleep 2
+done
+
+echo "Launching radar viewer..."
+
+while true; do
+    # Start feh in background
+    feh --fullscreen --auto-zoom --reload 1 "$GIF" &
+    FEH_PID=$!
+
+    echo "feh running (PID $FEH_PID)"
+
+    # Monitor the file and process
+    while kill -0 $FEH_PID 2>/dev/null; do
+        sleep 5
+
+        # If file disappears or is being rebuilt, restart feh
+        if [ ! -f "$GIF" ]; then
+            echo "GIF missing, restarting viewer..."
+            kill $FEH_PID 2>/dev/null || true
+            break
+        fi
+    done
+
+    echo "Restarting feh..."
+    sleep 2
+done
