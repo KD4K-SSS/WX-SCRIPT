@@ -12,24 +12,41 @@ KLTX_URL="https://radar.weather.gov/ridge/standard/KLTX/KLTX_loop.gif"
 
 echo "Starting radar workstation..."
 
-# Launch mpv once (it will keep running)
-mpv --fs --no-border --geometry=100%x100% \
-    --loop-file=inf \
-    --title="RADAR WORKSTATION" \
-    "$SE" "$KLTX" &
+# Download initial frames BEFORE launching mpv
+curl -s -o "$SE" "$SE_URL"
+curl -s -o "$KLTX" "$KLTX_URL"
+
+# Start mpv properly (THIS is the critical fix)
+mpv \
+  --fs \
+  --no-border \
+  --force-window=yes \
+  --loop-file=inf \
+  --geometry=100%x100% \
+  "$SE" "$KLTX" &
 MPV_PID=$!
 
-echo "mpv PID: $MPV_PID"
+echo "mpv started: $MPV_PID"
 
 while true; do
-    echo "Updating radar feeds..."
+    sleep 600
+
+    echo "Refreshing radar data..."
 
     curl -s -o "$SE" "$SE_URL"
     curl -s -o "$KLTX" "$KLTX_URL"
 
-    # Force mpv to reload files
-    kill -HUP "$MPV_PID" 2>/dev/null || true
+    # Restart mpv to force reload (reliable method)
+    kill $MPV_PID 2>/dev/null || true
+    wait $MPV_PID 2>/dev/null || true
 
-    echo "Updated. Sleeping 10 minutes..."
-    sleep 600
+    mpv \
+      --fs \
+      --no-border \
+      --force-window=yes \
+      --loop-file=inf \
+      --geometry=100%x100% \
+      "$SE" "$KLTX" &
+    MPV_PID=$!
+
 done
