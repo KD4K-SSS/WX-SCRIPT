@@ -2,10 +2,13 @@
 
 set -euo pipefail
 
-OUTPUT_FINAL="/tmp/atis.wav"
-TEMP_OUTPUT="/tmp/atis_new.wav"
-RAW_AUDIO="/tmp/atis_raw.wav"
-BEEP_FILE="/tmp/atis_beep.wav"
+TMPDIR="/dev/shm/atis"
+mkdir -p "$TMPDIR"
+
+OUTPUT_FINAL="$TMPDIR/atis.wav"
+TEMP_OUTPUT="$TMPDIR/atis_new.wav"
+RAW_AUDIO="$TMPDIR/atis_raw.wav"
+BEEP_FILE="$TMPDIR/atis_beep.wav"
 
 for cmd in jq awk sox pico2wave cvlc curl aplay; do
   command -v "$cmd" >/dev/null || { echo "$cmd not installed"; exit 1; }
@@ -16,23 +19,22 @@ trap "echo 'Stopping ATIS'; kill 0; exit 0" SIGINT
 math() { awk "BEGIN { print $* }"; }
 
 # ---------------- AIRPORT PROFILES ----------------
-declare -A STATION_NAME OBS_URL ALERT_URL METAR_URL FORECAST_URL
+declare -A STATION_NAME OBS_URL ALERT_URL METAR_URL FORECAST_URL FORECAST_GRID_URL
 
-STATION_NAME[HYW]="Kilo Hotel Yankee Whiskey"
+STATION_NAME[HYW]="Conway, South Carolina"
 OBS_URL[HYW]="https://api.weather.gov/stations/KHYW/observations/latest"
 ALERT_URL[HYW]="https://api.weather.gov/alerts/active?point=33.80,-79.04"
 METAR_URL[HYW]="https://tgftp.nws.noaa.gov/data/observations/metar/stations/KHYW.TXT"
-FORECAST_URL[HYW]="https://wttr.in/HYW?format=%t+↑%w+%p"
+FORECAST_GRID_URL[HYW]="https://api.weather.gov/gridpoints/ILM/90,60/forecast"
 
-STATION_NAME[MYR]="Kilo Mike Yankee Romeo"
+STATION_NAME[MYR]="Myrtle Beach, South Carolina"
 OBS_URL[MYR]="https://api.weather.gov/stations/KMYR/observations/latest"
 ALERT_URL[MYR]="https://api.weather.gov/alerts/active?point=33.68,-78.89"
 METAR_URL[MYR]="https://tgftp.nws.noaa.gov/data/observations/metar/stations/KMYR.TXT"
-FORECAST_URL[MYR]="https://wttr.in/MYR?format=%t+↑%w+%p"
+FORECAST_GRID_URL[MYR]="https://api.weather.gov/gridpoints/ILM/89,64/forecast"
 
 # ---------------- VERBOSE SYSTEM ----------------
 VERBOSE_FILE="/home/sss/Downloads/atis_verbose_state.txt"
-
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VERBOSE_LOG_DIR="$SCRIPT_DIR"
 
@@ -138,8 +140,37 @@ STATION="$1"
 OBS_JSON=$(curl -s --max-time 10 "${OBS_URL[$STATION]}")
 ALERTS_JSON=$(curl -s --max-time 10 "${ALERT_URL[$STATION]}")
 METAR=$(curl -s --max-time 10 "${METAR_URL[$STATION]}" | tail -1)
-FORECAST_RAW=$(curl -s --max-time 10 "${FORECAST_URL[$STATION]}")
 
+FORECAST_JSON=$(curl -s --max-time 10 "${FORECAST_GRID_URL[$STATION]}")
+
+# ---------------- FORECAST FIX (TEMP + WIND RESTORED) ----------------
+HIGH_TEMP=$(echo "$FORECAST_JSON" | jq -r '
+.properties.periods[]
+| select(.isDaytime==true)
+| .temperature
+' | head -1)
+
+LOW_TEMP=$(echo "$FORECAST_JSON" | jq -r '
+.properties.periods[]
+| select(.isDaytime==false)
+| .temperature
+' | head -1)
+
+FORECAST_WIND=$(echo "$FORECAST_JSON" | jq -r '
+.properties.periods[]
+| select(.isDaytime==true)
+| .windSpeed
+' | head -1)
+
+if [[ -n "$HIGH_TEMP" && -n "$LOW_TEMP" ]]; then
+  FORECAST_PHRASE="Forecast high ${HIGH_TEMP} degrees, low ${LOW_TEMP} degrees, winds ${FORECAST_WIND}"
+else
+  FORECAST_PHRASE="Forecast unavailable"
+fi
+
+VERBOSE_LOG "Forecast" "$FORECAST_PHRASE"
+
+# ---------------- ALERTS ----------------
 EVENTS=$(echo "$ALERTS_JSON" | jq -r '.features[].properties.event? // empty' | sort -u)
 ALERT_PHRASE="No advisories"
 
@@ -152,6 +183,7 @@ fi
 
 VERBOSE_LOG "Alerts" "$ALERT_PHRASE"
 
+# ---------------- LIGHTNING ----------------
 LIGHTNING_PHRASE="Lightning chance low in the area"
 if echo "$ALERTS_JSON" | grep -qi "severe"; then
   LIGHTNING_PHRASE="Severe weather warning in effect"
@@ -162,6 +194,7 @@ elif echo "$ALERTS_JSON" | grep -qi "lightning"; then
 fi
 VERBOSE_LOG "Lightning" "$LIGHTNING_PHRASE"
 
+# ---------------- WIND ----------------
 if [[ "$METAR" =~ ([0-9]{3})([0-9]{2})KT ]]; then
   WIND_DIR=${BASH_REMATCH[1]}
   WIND_SPEED=${BASH_REMATCH[2]}
@@ -180,11 +213,13 @@ else
 fi
 VERBOSE_LOG "Wind" "$WIND_PHRASE"
 
+# ---------------- VISIBILITY ----------------
 VIS_METERS=$(echo "$OBS_JSON" | jq -r '.properties.visibility.value // 16093')
 VIS_MILES=$(math "int(($VIS_METERS / 1609.34) + 0.5)")
 VIS_PHRASE="Visibility ${VIS_MILES} miles"
 VERBOSE_LOG "Visibility" "$VIS_PHRASE"
 
+# ---------------- TEMP / DEWPOINT ----------------
 TEMP_DP=$(echo "$METAR" | grep -oE '[M]?[0-9]{2}/[M]?[0-9]{2}' | head -1)
 
 if [[ "$TEMP_DP" =~ ([M]?[0-9]{2})/([M]?[0-9]{2}) ]]; then
@@ -206,6 +241,7 @@ HUMIDITY=$(awk -v T="$TEMP_C" -v DP="$DP_C" 'BEGIN{
 }')
 VERBOSE_LOG "Humidity" "${HUMIDITY}%"
 
+# ---------------- HEAT INDEX ----------------
 HEAT_INDEX=$(awk -v T="$TEMP" -v RH="$HUMIDITY" 'BEGIN{
   if(T >= 75 && RH >= 40){
     HI = -42.379 + 2.04901523*T + 10.14333127*RH \
@@ -217,30 +253,40 @@ HEAT_INDEX=$(awk -v T="$TEMP" -v RH="$HUMIDITY" 'BEGIN{
 }')
 VERBOSE_LOG "Heat Index" "${HEAT_INDEX}F"
 
-CLOUD_PHRASE=$(echo "$OBS_JSON" | jq -r '
+# ---------------- CLOUDS ----------------
+# ---------------- CLOUDS (FIXED + SAFE + METAR FALLBACK) ----------------
+CLOUD_PHRASE=""
+
+# Try NWS cloud layers first
+NWS_CLOUDS=$(echo "$OBS_JSON" | jq -r '
 .properties.cloudLayers[]? |
 if .amount=="FEW" then "few clouds at \(.base.value * 3.28084 | floor) feet"
 elif .amount=="SCT" then "scattered clouds at \(.base.value * 3.28084 | floor) feet"
 elif .amount=="BKN" then "broken ceiling at \(.base.value * 3.28084 | floor) feet"
 elif .amount=="OVC" then "overcast ceiling at \(.base.value * 3.28084 | floor) feet"
 else empty end
-' | paste -sd ", " -)
+' 2>/dev/null | paste -sd ", " -)
 
-[[ -z "$CLOUD_PHRASE" ]] && CLOUD_PHRASE="clear skies"
+if [[ -n "$NWS_CLOUDS" ]]; then
+  CLOUD_PHRASE="$NWS_CLOUDS"
+else
+  # METAR fallback (safe parse)
+  SKY_CODE=$(echo "$METAR" | grep -oE 'SKC|CLR|FEW[0-9]{3}|SCT[0-9]{3}|BKN[0-9]{3}|OVC[0-9]{3}' | head -1 || true)
+
+  case "$SKY_CODE" in
+    SKC|CLR) CLOUD_PHRASE="clear skies" ;;
+    FEW*) CLOUD_PHRASE="few clouds" ;;
+    SCT*) CLOUD_PHRASE="scattered clouds" ;;
+    BKN*) CLOUD_PHRASE="broken ceiling" ;;
+    OVC*) CLOUD_PHRASE="overcast ceiling" ;;
+    *) CLOUD_PHRASE="clear skies" ;;
+  esac
+fi
+
 VERBOSE_LOG "Clouds" "$CLOUD_PHRASE"
-
-TEMP_F=$(echo "$FORECAST_RAW" | grep -oE '[0-9]+°F' | head -1 | tr -d '°F')
-WIND_F=$(echo "$FORECAST_RAW" | grep -oE '[0-9]+mph' | head -1 | tr -d 'mph')
-RAIN_F=$(echo "$FORECAST_RAW" | grep -oE '[0-9.]+in' | head -1 | tr -d 'in')
-
-FORECAST_PHRASE="Forecast temperature ${TEMP_F} degrees, wind ${WIND_F} miles per hour, precipitation ${RAIN_F} inches"
-
-[[ -z "$TEMP_F" && -z "$WIND_F" && -z "$RAIN_F" ]] && FORECAST_PHRASE="Forecast unavailable"
-VERBOSE_LOG "Forecast" "$FORECAST_PHRASE"
-
+# ---------------- TIME ----------------
 TIME=$(date +"%H%M")
 TIME_SPOKEN=$(speak_aviation_time "$TIME")
-
 ATIS="${STATION_NAME[$STATION]} Weather Update.
 Time ${TIME_SPOKEN} local.
 ${WIND_PHRASE}.
@@ -252,11 +298,12 @@ Heat index ${HEAT_INDEX} degrees.
 ${ALERT_PHRASE}.
 ${LIGHTNING_PHRASE}.
 ${FORECAST_PHRASE}.
-End transmission."
+End transmission. Kilo Delta Four Kilo."
 
 ATIS_FORMATTED=$(capitalize_sentences "$ATIS")
 
 echo ""
+echo "KD4K WEATHER STATION"
 echo "=============================="
 echo "$ATIS_FORMATTED"
 echo "=============================="
@@ -271,7 +318,6 @@ mv "$TEMP_OUTPUT" "$OUTPUT_FINAL"
 
 # ---------------- MAIN LOOP ----------------
 while true; do
-
   generate_atis HYW
   cvlc --play-and-exit --quiet "$OUTPUT_FINAL" >/dev/null 2>&1
 
