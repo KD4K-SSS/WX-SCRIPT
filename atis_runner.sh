@@ -3,11 +3,11 @@
 # ==========================================
 # KD4K AUTO-RESTART LAUNCHER
 # ==========================================
-
+sudo sysctl vm.swappiness=10
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Main script
-ATIS_SCRIPT="$SCRIPT_DIR/kd4k_wx.sh"
+ATIS_SCRIPT="$SCRIPT_DIR/kd4k_wx1.sh"
 
 # Launcher log
 LAUNCHER_LOG="$SCRIPT_DIR/atis_launcher.log"
