@@ -1,0 +1,16 @@
+{
+  "updated":"2026-06-14 10:33:53",
+  "station":"Surfside Beach, South Carolina",
+  "wind":"Wind calm",
+  "visibility":"Visibility 10 miles",
+  "clouds":"clear skies",
+  "temperature":84,
+  "dewpoint":75,
+  "humidity":74,
+  "heat_index":92,
+  "lightning_phrase":"Lightning chance low in the area",
+  "lightning_percent":5,
+  "rain_percent":6,
+  "forecast":"Forecast high 90 degrees, low 79 degrees, air speed 9 to 16 mph",
+  "alerts":"No advisories"
+}

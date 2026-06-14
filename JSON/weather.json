@@ -1,0 +1,16 @@
+{
+  "updated":"2026-06-08 17:27:54",
+  "station":"Conway, South Carolina",
+  "wind":"Wind from the south at 7 miles per hour",
+  "visibility":"Visibility 10 miles",
+  "clouds":"clear skies",
+  "temperature":90,
+  "dewpoint":64,
+  "humidity":43,
+  "heat_index":92,
+  "lightning_phrase":"Lightning chance low in the area",
+  "lightning_percent":5,
+  "rain_percent":4,
+  "forecast":"Forecast high 86 degrees, low 75 degrees, air speed 8 mph",
+  "alerts":"No advisories"
+}
