@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Surfside Beach Weather Dashboard</title>
+
+<style>
+body{
+    background:#111;
+    color:#fff;
+    font-family:monospace;
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+}
+
+.left{ flex:0.9; max-width:360px; }
+.center{ flex:1.2; position:relative; min-height:620px; }
+.right{ flex:1; max-width:340px; }
+
+.card{
+    background:#1e1e1e;
+    padding:10px;
+    border-radius:5px;
+    margin-bottom:10px;
+    font-size:12px;
+    line-height:1.35em;
+    color:#ddd;
+    border:1px solid #2a2a2a;
+}
+
+.big{
+    font-size:13px;
+    font-weight:bold;
+    color:#00d4ff;
+    margin-bottom:6px;
+}
+
+.wx{
+    font-size:12px;
+    margin:2px 0;
+    color:#bbb;
+}
+
+pre{
+    margin:0;
+    white-space:pre-wrap;
+    font-size:12px;
+    line-height:1.35em;
+    color:#ddd;
+    font-family:monospace;
+}
+
+.radar{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    max-width:600px;
+    height:600px;
+    object-fit:contain;
+    border-radius:10px;
+    border:1px solid #333;
+    background:#000;
+    transition:opacity 1s ease-in-out;
+}
+
+.visible{
+    opacity:1;
+    z-index:2;
+}
+
+.hidden{
+    opacity:0;
+    z-index:1;
+}
+
+@media (max-width:1100px){
+    .container{
+        flex-direction:column;
+    }
+
+    .left,
+    .right{
+        max-width:100%;
+    }
+
+    .center{
+        min-height:420px;
+    }
+
+    .radar{
+        position:relative;
+        width:100%;
+        height:auto;
+        max-height:400px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT -->
+    <div class="left">
+
+        <div class="card">
+            <div class="big">GOES-19 LIGHTNING RADAR</div>
+            <pre id="lightning_text">Loading...</pre>
+        </div>
+
+    </div>
+
+    <!-- CENTER -->
+    <div class="center">
+        <img id="gif1" class="radar visible" alt="Local Stormscope">
+        <img id="gif2" class="radar hidden" alt="GOES Lightning">
+        <img id="gif3" class="radar hidden" alt="KLTX Radar">
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+
+        <div class="card">
+            <div class="big">MYR</div>
+            <div id="myr_updated" class="wx"></div>
+            <div id="myr_wind" class="wx"></div>
+            <div id="myr_visibility" class="wx"></div>
+            <div id="myr_temp" class="wx"></div>
+            <div id="myr_humidity" class="wx"></div>
+            <div id="myr_heat" class="wx"></div>
+            <div id="myr_lightning" class="wx"></div>
+            <div id="myr_rain" class="wx"></div>
+            <div id="myr_forecast" class="wx"></div>
+            <div id="myr_alerts" class="wx"></div>
+        </div>
+
+        <div class="card">
+            <div class="big">HYW</div>
+            <div id="hyw_updated" class="wx"></div>
+            <div id="hyw_wind" class="wx"></div>
+            <div id="hyw_visibility" class="wx"></div>
+            <div id="hyw_temp" class="wx"></div>
+            <div id="hyw_humidity" class="wx"></div>
+            <div id="hyw_heat" class="wx"></div>
+            <div id="hyw_lightning" class="wx"></div>
+            <div id="hyw_rain" class="wx"></div>
+            <div id="hyw_forecast" class="wx"></div>
+            <div id="hyw_alerts" class="wx"></div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* ---------------- LIGHTNING ---------------- */
+
+async function loadData() {
+
+    try {
+
+        const r = await fetch('/data/data.json?t=' + Date.now());
+        const d = await r.json();
+
+        const lat = Number(d.closest_lat).toFixed(5);
+        const lon = Number(d.closest_lon).toFixed(5);
+        const dist = Number(d.nearest_distance).toFixed(2);
+
+        const mapLink =
+`<a href="https://www.google.com/maps?q=${d.closest_lat},${d.closest_lon}&z=4"
+target="_blank" style="color:#00ff66;text-decoration:underline;">
+MAP
+</a>`;
+
+        const txt =
+`GOES-19 SOUTHEAST LIGHTNING RADAR DASHBOARD
+Time (EDT): ${d.timestamp}
+Location: Surfside Beach SC
+------------------------------------
+GLM Data Updated - Strikes: ${d.flash_count}
+------------------------------------
+Lightning Activity in Surfside Beach Radius:
+  Strike Score: ${Number(d.strike_score).toFixed(3)}
+  Status: ${d.strike_score < 0.05 ? "Quiet" : "Active"}
+------------------------------------
+Closest lightning strike (Surfside Beach):
+  Lat: ${lat}
+  Lon: ${lon}
+  Distance: ${dist} miles
+  Bearing: ${d.heading}° ${d.direction}
+  Direction trend: ${d.movement}
+  ${mapLink}
+------------------------------------
+Lightning within radius:
+  10 mi : ${d.count10}
+  25 mi : ${d.count25}
+  50 mi : ${d.count50}
+ 100 mi : ${d.count100}
+
+Flash rate (strikes/min):
+  10 mi : ${d.rate10}
+  25 mi : ${d.rate25}
+  50 mi : ${d.rate50}
+ 100 mi : ${d.rate100}`;
+
+        document.getElementById("lightning_text").innerHTML = txt;
+
+    } catch(e){
+        console.error(e);
+    }
+}
+
+/* ---------------- WEATHER ---------------- */
+
+async function loadWeather(prefix,file){
+
+    try{
+
+        const r = await fetch(file + '?t=' + Date.now());
+        const w = await r.json();
+
+        document.getElementById(prefix+'_updated').textContent =
+            "Updated: " + w.updated;
+
+        document.getElementById(prefix+'_wind').textContent =
+            w.wind;
+
+        document.getElementById(prefix+'_visibility').textContent =
+            w.visibility;
+
+        document.getElementById(prefix+'_temp').textContent =
+            `Temp ${w.temperature}°F  Dew ${w.dewpoint}°F`;
+
+        document.getElementById(prefix+'_humidity').textContent =
+            `Humidity ${w.humidity}%`;
+
+        document.getElementById(prefix+'_heat').textContent =
+            `Heat Index ${w.heat_index}°F`;
+
+        document.getElementById(prefix+'_lightning').textContent =
+            `Lightning ${w.lightning_percent}%`;
+
+        document.getElementById(prefix+'_rain').textContent =
+            `Rain ${w.rain_percent}%`;
+
+        document.getElementById(prefix+'_forecast').textContent =
+            w.forecast;
+
+        document.getElementById(prefix+'_alerts').textContent =
+            w.alerts;
+
+    } catch(e){
+        console.error(e);
+    }
+}
+
+/* ---------------- RADAR ---------------- */
+
+const stormscope =
+"/data/lightning_map.png";
+
+const goesGif =
+"https://cdn.star.nesdis.noaa.gov/GOES19/GLM/SECTOR/se/EXTENT3/GOES19-SE-EXTENT3-600x600.gif";
+
+const radarGif =
+"https://radar.weather.gov/ridge/standard/KLTX_loop.gif";
+
+let currentRadar = 0;
+
+function loadGif(id,url){
+
+    document.getElementById(id).src =
+        url + "?t=" + Date.now();
+}
+
+function swapRadar(){
+
+    const images = [
+        document.getElementById("gif1"),
+        document.getElementById("gif2"),
+        document.getElementById("gif3")
+    ];
+
+    images.forEach(img => {
+
+        img.classList.remove("visible");
+        img.classList.add("hidden");
+
+    });
+
+    currentRadar = (currentRadar + 1) % images.length;
+
+    images[currentRadar].classList.remove("hidden");
+    images[currentRadar].classList.add("visible");
+}
+
+/* ---------------- INIT ---------------- */
+
+loadData();
+
+loadWeather("myr","/data/myr_weather.json");
+loadWeather("hyw","/data/hyw_weather.json");
+
+loadGif("gif1", stormscope);
+loadGif("gif2", goesGif);
+loadGif("gif3", radarGif);
+
+/* ---------------- LOOPS ---------------- */
+
+setInterval(loadData, 30000);
+
+setInterval(() => {
+
+    loadWeather("myr","/data/myr_weather.json");
+    loadWeather("hyw","/data/hyw_weather.json");
+
+}, 30000);
+
+setInterval(swapRadar, 15000);
+
+setInterval(() => {
+
+    loadGif("gif1", stormscope);
+    loadGif("gif2", goesGif);
+    loadGif("gif3", radarGif);
+
+}, 30000);
+
+</script>
+
+</body>
+</html>
