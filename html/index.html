@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 <title>Surfside Beach Weather Dashboard</title>
 
 <style>
@@ -10,7 +11,7 @@ body{
     color:#fff;
     font-family:monospace;
     margin:0;
-    padding:20px;
+    padding:15px; /* Slight reduction for mobile edge padding */
 }
 
 .container{
@@ -25,11 +26,11 @@ body{
 
 .card{
     background:#1e1e1e;
-    padding:10px;
+    padding:12px;
     border-radius:5px;
     margin-bottom:10px;
     font-size:12px;
-    line-height:1.35em;
+    line-height:1.45em;
     color:#ddd;
     border:1px solid #2a2a2a;
 }
@@ -43,7 +44,7 @@ body{
 
 .wx{
     font-size:12px;
-    margin:2px 0;
+    margin:4px 0;
     color:#bbb;
 }
 
@@ -51,9 +52,10 @@ pre{
     margin:0;
     white-space:pre-wrap;
     font-size:12px;
-    line-height:1.35em;
+    line-height:1.4em;
     color:#ddd;
     font-family:monospace;
+    overflow-x:auto; /* Fallback to prevent layout breaking on tiny screens */
 }
 
 .radar{
@@ -80,25 +82,39 @@ pre{
     z-index:1;
 }
 
+/* Optimizing mobile break point layout */
 @media (max-width:1100px){
+    body {
+        padding: 10px;
+    }
+
     .container{
         flex-direction:column;
+        align-items: stretch;
     }
 
     .left,
-    .right{
-        max-width:100%;
-    }
-
+    .right,
     .center{
-        min-height:420px;
+        max-width:100%;
+        flex: none;
     }
 
+    /* Fixed absolute positioning conflict on mobile stack */
+    .center{
+        min-height: auto; 
+        aspect-ratio: 1 / 1; /* Keeps a perfect square layout for standard radars */
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto 16px auto; /* Centers the radar container */
+    }
+
+    /* Ensure hidden images don't disrupt stacking layout flow */
     .radar{
-        position:relative;
+        position: absolute; 
         width:100%;
-        height:auto;
-        max-height:400px;
+        height:100%;
+        max-height: none;
     }
 }
 </style>
@@ -108,24 +124,19 @@ pre{
 
 <div class="container">
 
-    <!-- LEFT -->
     <div class="left">
-
         <div class="card">
             <div class="big">GOES-19 LIGHTNING RADAR</div>
             <pre id="lightning_text">Loading...</pre>
         </div>
-
     </div>
 
-    <!-- CENTER -->
     <div class="center">
         <img id="gif1" class="radar visible" alt="Local Stormscope">
         <img id="gif2" class="radar hidden" alt="GOES Lightning">
         <img id="gif3" class="radar hidden" alt="KLTX Radar">
     </div>
 
-    <!-- RIGHT -->
     <div class="right">
 
         <div class="card">
@@ -161,13 +172,9 @@ pre{
 </div>
 
 <script>
-
 /* ---------------- LIGHTNING ---------------- */
-
 async function loadData() {
-
     try {
-
         const r = await fetch('/data/data.json?t=' + Date.now());
         const d = await r.json();
 
@@ -220,43 +227,21 @@ Flash rate (strikes/min):
 }
 
 /* ---------------- WEATHER ---------------- */
-
 async function loadWeather(prefix,file){
-
     try{
-
         const r = await fetch(file + '?t=' + Date.now());
         const w = await r.json();
 
-        document.getElementById(prefix+'_updated').textContent =
-            "Updated: " + w.updated;
-
-        document.getElementById(prefix+'_wind').textContent =
-            w.wind;
-
-        document.getElementById(prefix+'_visibility').textContent =
-            w.visibility;
-
-        document.getElementById(prefix+'_temp').textContent =
-            `Temp ${w.temperature}°F  Dew ${w.dewpoint}°F`;
-
-        document.getElementById(prefix+'_humidity').textContent =
-            `Humidity ${w.humidity}%`;
-
-        document.getElementById(prefix+'_heat').textContent =
-            `Heat Index ${w.heat_index}°F`;
-
-        document.getElementById(prefix+'_lightning').textContent =
-            `Lightning ${w.lightning_percent}%`;
-
-        document.getElementById(prefix+'_rain').textContent =
-            `Rain ${w.rain_percent}%`;
-
-        document.getElementById(prefix+'_forecast').textContent =
-            w.forecast;
-
-        document.getElementById(prefix+'_alerts').textContent =
-            w.alerts;
+        document.getElementById(prefix+'_updated').textContent = "Updated: " + w.updated;
+        document.getElementById(prefix+'_wind').textContent = w.wind;
+        document.getElementById(prefix+'_visibility').textContent = w.visibility;
+        document.getElementById(prefix+'_temp').textContent = `Temp ${w.temperature}°F  Dew ${w.dewpoint}°F`;
+        document.getElementById(prefix+'_humidity').textContent = `Humidity ${w.humidity}%`;
+        document.getElementById(prefix+'_heat').textContent = `Heat Index ${w.heat_index}°F`;
+        document.getElementById(prefix+'_lightning').textContent = `Lightning ${w.lightning_percent}%`;
+        document.getElementById(prefix+'_rain').textContent = `Rain ${w.rain_percent}%`;
+        document.getElementById(prefix+'_forecast').textContent = w.forecast;
+        document.getElementById(prefix+'_alerts').textContent = w.alerts;
 
     } catch(e){
         console.error(e);
@@ -264,26 +249,17 @@ async function loadWeather(prefix,file){
 }
 
 /* ---------------- RADAR ---------------- */
-
-const stormscope =
-"/data/lightning_map.png";
-
-const goesGif =
-"https://cdn.star.nesdis.noaa.gov/GOES19/GLM/SECTOR/se/EXTENT3/GOES19-SE-EXTENT3-600x600.gif";
-
-const radarGif =
-"https://radar.weather.gov/ridge/standard/KLTX_loop.gif";
+const stormscope = "/data/lightning_map.png";
+const goesGif = "https://cdn.star.nesdis.noaa.gov/GOES19/GLM/SECTOR/se/EXTENT3/GOES19-SE-EXTENT3-600x600.gif";
+const radarGif = "https://radar.weather.gov/ridge/standard/KLTX_loop.gif";
 
 let currentRadar = 0;
 
 function loadGif(id,url){
-
-    document.getElementById(id).src =
-        url + "?t=" + Date.now();
+    document.getElementById(id).src = url + "?t=" + Date.now();
 }
 
 function swapRadar(){
-
     const images = [
         document.getElementById("gif1"),
         document.getElementById("gif2"),
@@ -291,22 +267,17 @@ function swapRadar(){
     ];
 
     images.forEach(img => {
-
         img.classList.remove("visible");
         img.classList.add("hidden");
-
     });
 
     currentRadar = (currentRadar + 1) % images.length;
-
     images[currentRadar].classList.remove("hidden");
     images[currentRadar].classList.add("visible");
 }
 
 /* ---------------- INIT ---------------- */
-
 loadData();
-
 loadWeather("myr","/data/myr_weather.json");
 loadWeather("hyw","/data/hyw_weather.json");
 
@@ -315,26 +286,18 @@ loadGif("gif2", goesGif);
 loadGif("gif3", radarGif);
 
 /* ---------------- LOOPS ---------------- */
-
 setInterval(loadData, 30000);
-
 setInterval(() => {
-
     loadWeather("myr","/data/myr_weather.json");
     loadWeather("hyw","/data/hyw_weather.json");
-
 }, 30000);
 
 setInterval(swapRadar, 15000);
-
 setInterval(() => {
-
     loadGif("gif1", stormscope);
     loadGif("gif2", goesGif);
     loadGif("gif3", radarGif);
-
 }, 30000);
-
 </script>
 
 </body>
