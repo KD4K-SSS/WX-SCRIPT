@@ -11,7 +11,7 @@ body{
     color:#fff;
     font-family:monospace;
     margin:0;
-    padding:15px; /* Slight reduction for mobile edge padding */
+    padding:15px;
 }
 
 .container{
@@ -55,7 +55,7 @@ pre{
     line-height:1.4em;
     color:#ddd;
     font-family:monospace;
-    overflow-x:auto; /* Fallback to prevent layout breaking on tiny screens */
+    overflow-x:auto;
 }
 
 .radar{
@@ -69,7 +69,7 @@ pre{
     border-radius:10px;
     border:1px solid #333;
     background:#000;
-    transition:opacity 1s ease-in-out;
+    transition:opacity 0.5s ease-in-out;
 }
 
 .visible{
@@ -82,40 +82,18 @@ pre{
     z-index:1;
 }
 
-/* Optimizing mobile break point layout */
 @media (max-width:1100px){
-    body {
-        padding: 10px;
-    }
-
-    .container{
-        flex-direction:column;
-        align-items: stretch;
-    }
-
-    .left,
-    .right,
-    .center{
-        max-width:100%;
-        flex: none;
-    }
-
-    /* Fixed absolute positioning conflict on mobile stack */
+    body { padding: 10px; }
+    .container{ flex-direction:column; align-items: stretch; }
+    .left, .right, .center{ max-width:100%; flex: none; }
     .center{
         min-height: auto; 
-        aspect-ratio: 1 / 1; /* Keeps a perfect square layout for standard radars */
+        aspect-ratio: 1 / 1;
         max-width: 600px;
         width: 100%;
-        margin: 0 auto 16px auto; /* Centers the radar container */
+        margin: 0 auto 16px auto;
     }
-
-    /* Ensure hidden images don't disrupt stacking layout flow */
-    .radar{
-        position: absolute; 
-        width:100%;
-        height:100%;
-        max-height: none;
-    }
+    .radar{ position: absolute; width:100%; height:100%; max-height: none; }
 }
 </style>
 </head>
@@ -132,15 +110,14 @@ pre{
     </div>
 
     <div class="center">
-        <img id="gif1" class="radar visible" alt="Local Stormscope">
-        <img id="gif2" class="radar hidden" alt="GOES Lightning">
-        <img id="gif3" class="radar hidden" alt="KLTX Radar">
+        <img id="gif1" class="radar visible" width="600" height="600" alt="Local Stormscope">
+        <img id="gif2" class="radar hidden" width="600" height="600" alt="GOES Lightning">
+        <img id="gif3" class="radar hidden" width="600" height="600" alt="KLTX Radar">
     </div>
 
     <div class="right">
-
         <div class="card">
-            <div class="big">MYR</div>
+            <div class="big">Surfside Beach</div>
             <div id="myr_updated" class="wx"></div>
             <div id="myr_wind" class="wx"></div>
             <div id="myr_visibility" class="wx"></div>
@@ -154,7 +131,7 @@ pre{
         </div>
 
         <div class="card">
-            <div class="big">HYW</div>
+            <div class="big">Conway</div>
             <div id="hyw_updated" class="wx"></div>
             <div id="hyw_wind" class="wx"></div>
             <div id="hyw_visibility" class="wx"></div>
@@ -166,67 +143,72 @@ pre{
             <div id="hyw_forecast" class="wx"></div>
             <div id="hyw_alerts" class="wx"></div>
         </div>
-
     </div>
 
 </div>
 
 <script>
-/* ---------------- LIGHTNING ---------------- */
+/* ---------------- LIGHTNING FUNCTION ---------------- */
 async function loadData() {
     try {
-        const r = await fetch('/data/data.json?t=' + Date.now());
-        const d = await r.json();
+        const cacheBust = '?t=' + Date.now();
+        
+        const [flashRes, groupRes] = await Promise.all([
+            fetch('/data/data.json' + cacheBust),
+            fetch('/data/group_data.json' + cacheBust)
+        ]);
 
-        const lat = Number(d.closest_lat).toFixed(5);
-        const lon = Number(d.closest_lon).toFixed(5);
-        const dist = Number(d.nearest_distance).toFixed(2);
+        const d = await flashRes.json();
+        const g = await groupRes.json();
 
-        const mapLink =
-`<a href="https://www.google.com/maps?q=${d.closest_lat},${d.closest_lon}&z=4"
-target="_blank" style="color:#00ff66;text-decoration:underline;">
-MAP
-</a>`;
+        let lat = "N/A", lon = "N/A", dist = "N/A", mapLink = "";
 
-        const txt =
-`GOES-19 SOUTHEAST LIGHTNING RADAR DASHBOARD
-Time (EDT): ${d.timestamp}
+        if(d.closest_lat && d.closest_lon) {
+            lat = Number(d.closest_lat).toFixed(5);
+            lon = Number(d.closest_lon).toFixed(5);
+            dist = Number(d.nearest_distance).toFixed(2);
+            mapLink = `<a href="http://googleusercontent.com/maps.google.com/?q=${lat},${lon}&z=9" target="_blank" style="color:#00ff66;text-decoration:underline;">MAP</a>`;
+        }
+
+        const txt = `GOES-19 SOUTHEAST LIGHTNING RADAR DASHBOARD
+Time (EDT): ${d.timestamp || "N/A"}
 Location: Surfside Beach SC
 ------------------------------------
-GLM Data Updated - Strikes: ${d.flash_count}
+GLM Data Updated - Storm Cells: ${d.flash_count || 0}
+GLM Data Updated - Total Groups: ${g.total_file_groups || 0}
 ------------------------------------
 Lightning Activity in Surfside Beach Radius:
-  Strike Score: ${Number(d.strike_score).toFixed(3)}
-  Status: ${d.strike_score < 0.05 ? "Quiet" : "Active"}
+  Strike Score: ${Number(d.strike_score || 0).toFixed(3)}
+  Status: ${d.movement || "Quiet"}
 ------------------------------------
 Closest lightning strike (Surfside Beach):
   Lat: ${lat}
   Lon: ${lon}
-  Distance: ${dist} miles
-  Bearing: ${d.heading}° ${d.direction}
-  Direction trend: ${d.movement}
+  Distance: ${dist !== "N/A" ? dist + " miles" : "N/A"}
+  Bearing: ${d.heading ? d.heading + "°" : ""} ${d.direction || ""}
+  Direction trend: ${d.movement || "N/A"}
   ${mapLink}
 ------------------------------------
 Lightning within radius:
-  10 mi : ${d.count10}
-  25 mi : ${d.count25}
-  50 mi : ${d.count50}
- 100 mi : ${d.count100}
+  10 mi : ${g.count10 || 0}
+  25 mi : ${g.count25 || 0}
+  50 mi : ${g.count50 || 0}
+ 100 mi : ${g.count100 || 0}
 
-Flash rate (strikes/min):
-  10 mi : ${d.rate10}
-  25 mi : ${d.rate25}
-  50 mi : ${d.rate50}
- 100 mi : ${d.rate100}`;
+Group Flash Rate:
+  10 mi : ${g.rate10 || "0.0"}/min
+  25 mi : ${g.rate25 || "0.0"}/min
+  50 mi : ${g.rate50 || "0.0"}/min
+ 100 mi : ${g.rate100 || "0.0"}/min`;
 
         document.getElementById("lightning_text").innerHTML = txt;
 
     } catch(e){
-        console.error(e);
+        console.error("Error updating hybrid lightning telemetry:", e);
     }
 }
 
-/* ---------------- WEATHER ---------------- */
+/* ---------------- WEATHER FUNCTION ---------------- */
 async function loadWeather(prefix,file){
     try{
         const r = await fetch(file + '?t=' + Date.now());
@@ -248,15 +230,22 @@ async function loadWeather(prefix,file){
     }
 }
 
-/* ---------------- RADAR ---------------- */
+/* ---------------- RADAR SEAMLESS CACHING ---------------- */
 const stormscope = "/data/lightning_map.png";
 const goesGif = "https://cdn.star.nesdis.noaa.gov/GOES19/GLM/SECTOR/se/EXTENT3/GOES19-SE-EXTENT3-600x600.gif";
 const radarGif = "https://radar.weather.gov/ridge/standard/KLTX_loop.gif";
 
 let currentRadar = 0;
 
-function loadGif(id,url){
-    document.getElementById(id).src = url + "?t=" + Date.now();
+function loadGifSeamless(id, url) {
+    const imgEl = document.getElementById(id);
+    const cacheBustedUrl = url + "?t=" + Date.now();
+    const tempImg = new Image();
+    
+    tempImg.onload = function() {
+        imgEl.src = cacheBustedUrl;
+    };
+    tempImg.src = cacheBustedUrl;
 }
 
 function swapRadar(){
@@ -276,16 +265,16 @@ function swapRadar(){
     images[currentRadar].classList.add("visible");
 }
 
-/* ---------------- INIT ---------------- */
+/* ---------------- INITIALIZE ---------------- */
 loadData();
 loadWeather("myr","/data/myr_weather.json");
 loadWeather("hyw","/data/hyw_weather.json");
 
-loadGif("gif1", stormscope);
-loadGif("gif2", goesGif);
-loadGif("gif3", radarGif);
+loadGifSeamless("gif1", stormscope);
+loadGifSeamless("gif2", goesGif);
+loadGifSeamless("gif3", radarGif);
 
-/* ---------------- LOOPS ---------------- */
+/* ---------------- BACKGROUND INTERVALS ---------------- */
 setInterval(loadData, 30000);
 setInterval(() => {
     loadWeather("myr","/data/myr_weather.json");
@@ -294,9 +283,9 @@ setInterval(() => {
 
 setInterval(swapRadar, 15000);
 setInterval(() => {
-    loadGif("gif1", stormscope);
-    loadGif("gif2", goesGif);
-    loadGif("gif3", radarGif);
+    loadGifSeamless("gif1", stormscope);
+    loadGifSeamless("gif2", goesGif);
+    loadGifSeamless("gif3", radarGif);
 }, 30000);
 </script>
 
