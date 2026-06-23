@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Surfside Beach Weather Dashboard</title>
+
+<style>
+body{
+    background:#111;
+    color:#fff;
+    font-family:monospace;
+    margin:0;
+    padding:15px;
+}
+
+.container{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+}
+
+.left{ flex:0.9; max-width:360px; }
+.center{ flex:1.2; position:relative; min-height:620px; }
+.right{ flex:1; max-width:340px; }
+
+.card{
+    background:#1e1e1e;
+    padding:12px;
+    border-radius:5px;
+    margin-bottom:10px;
+    font-size:12px;
+    line-height:1.45em;
+    color:#ddd;
+    border:1px solid #2a2a2a;
+}
+
+.big{
+    font-size:13px;
+    font-weight:bold;
+    color:#00d4ff;
+    margin-bottom:6px;
+}
+
+.wx{
+    font-size:12px;
+    margin:4px 0;
+    color:#bbb;
+}
+
+pre{
+    margin:0;
+    white-space:pre-wrap;
+    font-size:12px;
+    line-height:1.4em;
+    color:#ddd;
+    font-family:monospace;
+    overflow-x:auto;
+}
+
+.radar{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    max-width:600px;
+    height:600px;
+    object-fit:contain;
+    border-radius:10px;
+    border:1px solid #333;
+    background:#000;
+    transition:opacity 0.5s ease-in-out;
+    cursor:pointer;
+}
+
+.visible{
+    opacity:1;
+    z-index:2;
+}
+
+.hidden{
+    opacity:0;
+    z-index:1;
+}
+
+/* ---------------- LIGHTBOX FOR PLOT IMAGE ---------------- */
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-img {
+    max-width: 95%;
+    max-height: 90%;
+    object-fit: contain;
+    border: 1px solid #333;
+    border-radius: 6px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 35px;
+    color: #ff3333;
+    cursor: pointer;
+    font-weight: bold;
+    user-select: none;
+    font-family: Arial, sans-serif;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0 12px;
+    border-radius: 4px;
+}
+
+.lightbox-close:hover {
+    color: #ff6666;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+@media (max-width:1100px){
+    body { padding: 10px; }
+    .container{ flex-direction:column; align-items: stretch; }
+    .left, .right, .center{ max-width:100%; flex: none; }
+    .center{
+        min-height: auto; 
+        aspect-ratio: 1 / 1;
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto 16px auto;
+    }
+    .radar{ position: absolute; width:100%; height:100%; max-height: none; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="left">
+        <div class="card">
+            <div class="big">GOES-19 LIGHTNING RADAR</div>
+            <pre id="lightning_text">Loading...</pre>
+        </div>
+    </div>
+
+    <div class="center">
+        <img id="gif1" class="radar visible" width="600" height="600" alt="Local Stormscope" onclick="openActiveRadarPlot()">
+        <img id="gif2" class="radar hidden" width="600" height="600" alt="GOES Lightning" onclick="openActiveRadarPlot()">
+        <img id="gif3" class="radar hidden" width="600" height="600" alt="KLTX Radar" onclick="openActiveRadarPlot()">
+    </div>
+
+    <div class="right">
+        <div class="card">
+            <div class="big">Surfside Beach</div>
+            <div id="myr_updated" class="wx"></div>
+            <div id="myr_wind" class="wx"></div>
+            <div id="myr_visibility" class="wx"></div>
+            <div id="myr_temp" class="wx"></div>
+            <div id="myr_humidity" class="wx"></div>
+            <div id="myr_heat" class="wx"></div>
+            <div id="myr_lightning" class="wx"></div>
+            <div id="myr_rain" class="wx"></div>
+            <div id="myr_forecast" class="wx"></div>
+            <div id="myr_alerts" class="wx"></div>
+        </div>
+
+        <div class="card">
+            <div class="big">Conway</div>
+            <div id="hyw_updated" class="wx"></div>
+            <div id="hyw_wind" class="wx"></div>
+            <div id="hyw_visibility" class="wx"></div>
+            <div id="hyw_temp" class="wx"></div>
+            <div id="hyw_humidity" class="wx"></div>
+            <div id="hyw_heat" class="wx"></div>
+            <div id="hyw_lightning" class="wx"></div>
+            <div id="hyw_rain" class="wx"></div>
+            <div id="hyw_forecast" class="wx"></div>
+            <div id="hyw_alerts" class="wx"></div>
+        </div>
+    </div>
+
+</div>
+
+<div id="plotLightbox" class="lightbox-overlay" onclick="closePlot()">
+    <span class="lightbox-close" onclick="closePlot()">&times;</span>
+    <img id="lightboxTargetImg" class="lightbox-img" src="" onclick="event.stopPropagation()">
+</div>
+
+<script>
+/* ---------------- GLOBAL IMAGE PATHS ---------------- */
+const stormscope = "/data/lightning_map.png";
+const goesGif = "https://cdn.star.nesdis.noaa.gov/GOES19/GLM/SECTOR/se/EXTENT3/GOES19-SE-EXTENT3-600x600.gif";
+const radarGif = "https://radar.weather.gov/ridge/standard/KLTX_loop.gif";
+
+let currentRadar = 0;
+
+/* ---------------- LIGHTBOX ACTIONS ---------------- */
+// Force the textual PLOT link to load the stormscope image file explicitly
+function openStormscopePlot() {
+    document.getElementById("lightboxTargetImg").src = stormscope + "?t=" + Date.now();
+    document.getElementById("plotLightbox").style.display = "flex";
+}
+
+// Clicking the center big images still displays whatever visual image loop is up
+function openActiveRadarPlot() {
+    const currentId = "gif" + (currentRadar + 1);
+    const currentSrc = document.getElementById(currentId).src;
+    document.getElementById("lightboxTargetImg").src = currentSrc;
+    document.getElementById("plotLightbox").style.display = "flex";
+}
+
+function closePlot() {
+    document.getElementById("plotLightbox").style.display = "none";
+    document.getElementById("lightboxTargetImg").src = "";
+}
+
+/* ---------------- LIGHTNING FUNCTION ---------------- */
+async function loadData() {
+    try {
+        const cacheBust = '?t=' + Date.now();
+        
+        const [flashRes, groupRes] = await Promise.all([
+            fetch('/data/data.json' + cacheBust),
+            fetch('/data/group_data.json' + cacheBust)
+        ]);
+
+        const d = await flashRes.json();
+        const g = await groupRes.json();
+
+        let lat = "N/A", lon = "N/A", dist = "N/A", mapLink = "", plotLink = "";
+
+        if(d.closest_lat && d.closest_lon) {
+            lat = Number(d.closest_lat).toFixed(5);
+            lon = Number(d.closest_lon).toFixed(5);
+            dist = Number(d.nearest_distance).toFixed(2);
+            
+            // Cleaned string syntax concatenation for Windy map tracking
+            mapLink = '<a href="https://www.windy.com/?radar,' + lat + ',' + lon + ',9" target="_blank" style="color:#00ff66;text-decoration:underline;">MAP</a>';
+            // Tied text link click action explicitly to openStormscopePlot function 
+            plotLink = '<a href="#" onclick="openStormscopePlot(); return false;" style="color:#00ff66;text-decoration:underline; margin-left:10px;">PLOT</a>';
+        }
+
+        const txt = `GOES-19 SOUTHEAST LIGHTNING RADAR DASHBOARD
+Time (EDT): ${d.timestamp || "N/A"}
+Location: Surfside Beach SC
+------------------------------------
+GLM Data Updated - Storm Cells: ${d.flash_count || 0}
+GLM Data Updated - Total Groups: ${g.total_file_groups || 0}
+------------------------------------
+Lightning Activity in Surfside Beach Radius:
+  Strike Score: ${Number(d.strike_score || 0).toFixed(3)}
+  Status: ${d.movement || "Quiet"}
+------------------------------------
+Closest lightning strike (Surfside Beach):
+  Lat: ${lat}
+  Lon: ${lon}
+  Distance: ${dist !== "N/A" ? dist + " miles" : "N/A"}
+  Bearing: ${d.heading ? d.heading + "°" : ""} ${d.direction || ""}
+  Direction trend: ${d.movement || "N/A"}
+  ${mapLink} ${plotLink}
+------------------------------------
+Lightning within radius:
+  10 mi : ${g.count10 || 0}
+  25 mi : ${g.count25 || 0}
+  50 mi : ${g.count50 || 0}
+ 100 mi : ${g.count100 || 0}
+
+Group Flash Rate:
+  10 mi : ${g.rate10 || "0.0"}/min
+  25 mi : ${g.rate25 || "0.0"}/min
+  50 mi : ${g.rate50 || "0.0"}/min
+ 100 mi : ${g.rate100 || "0.0"}/min`;
+
+        document.getElementById("lightning_text").innerHTML = txt;
+
+    } catch(e){
+        console.error("Error updating hybrid lightning telemetry:", e);
+    }
+}
+
+/* ---------------- WEATHER FUNCTION ---------------- */
+async function loadWeather(prefix,file){
+    try{
+        const r = await fetch(file + '?t=' + Date.now());
+        const w = await r.json();
+
+        document.getElementById(prefix+'_updated').textContent = "Updated: " + w.updated;
+        document.getElementById(prefix+'_wind').textContent = w.wind;
+        document.getElementById(prefix+'_visibility').textContent = w.visibility;
+        document.getElementById(prefix+'_temp').textContent = `Temp ${w.temperature}°F  Dew ${w.dewpoint}°F`;
+        document.getElementById(prefix+'_humidity').textContent = `Humidity ${w.humidity}%`;
+        document.getElementById(prefix+'_heat').textContent = `Heat Index ${w.heat_index}°F`;
+        document.getElementById(prefix+'_lightning').textContent = `Lightning ${w.lightning_percent}%`;
+        document.getElementById(prefix+'_rain').textContent = `Rain ${w.rain_percent}%`;
+        document.getElementById(prefix+'_forecast').textContent = w.forecast;
+        document.getElementById(prefix+'_alerts').textContent = w.alerts;
+
+    } catch(e){
+        console.error(e);
+    }
+}
+
+/* ---------------- RADAR SEAMLESS CACHING ---------------- */
+function loadGifSeamless(id, url) {
+    const imgEl = document.getElementById(id);
+    const cacheBustedUrl = url + "?t=" + Date.now();
+    const tempImg = new Image();
+    
+    tempImg.onload = function() {
+        imgEl.src = cacheBustedUrl;
+    };
+    tempImg.src = cacheBustedUrl;
+}
+
+function swapRadar(){
+    const images = [
+        document.getElementById("gif1"),
+        document.getElementById("gif2"),
+        document.getElementById("gif3")
+    ];
+
+    images.forEach(img => {
+        img.classList.remove("visible");
+        img.classList.add("hidden");
+    });
+
+    currentRadar = (currentRadar + 1) % images.length;
+    images[currentRadar].classList.remove("hidden");
+    images[currentRadar].classList.add("visible");
+}
+
+/* ---------------- INITIALIZE ---------------- */
+loadData();
+loadWeather("myr","/data/myr_weather.json");
+loadWeather("hyw","/data/hyw_weather.json");
+
+loadGifSeamless("gif1", stormscope);
+loadGifSeamless("gif2", goesGif);
+loadGifSeamless("gif3", radarGif);
+
+/* ---------------- BACKGROUND INTERVALS ---------------- */
+setInterval(loadData, 30000);
+setInterval(() => {
+    loadWeather("myr","/data/myr_weather.json");
+    loadWeather("hyw","/data/hyw_weather.json");
+}, 30000);
+
+setInterval(swapRadar, 15000);
+setInterval(() => {
+    loadGifSeamless("gif1", stormscope);
+    loadGifSeamless("gif2", goesGif);
+    loadGifSeamless("gif3", radarGif);
+}, 30000);
+</script>
+
+</body>
+</html>
