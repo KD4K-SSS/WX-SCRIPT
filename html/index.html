@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
@@ -70,6 +70,7 @@ pre{
     border:1px solid #333;
     background:#000;
     transition:opacity 0.5s ease-in-out;
+    cursor:pointer;
 }
 
 .visible{
@@ -80,6 +81,48 @@ pre{
 .hidden{
     opacity:0;
     z-index:1;
+}
+
+/* ---------------- LIGHTBOX FOR PLOT IMAGE ---------------- */
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-img {
+    max-width: 95%;
+    max-height: 90%;
+    object-fit: contain;
+    border: 1px solid #333;
+    border-radius: 6px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 35px;
+    color: #ff3333;
+    cursor: pointer;
+    font-weight: bold;
+    user-select: none;
+    font-family: Arial, sans-serif;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0 12px;
+    border-radius: 4px;
+}
+
+.lightbox-close:hover {
+    color: #ff6666;
+    background: rgba(0, 0, 0, 0.9);
 }
 
 @media (max-width:1100px){
@@ -110,9 +153,9 @@ pre{
     </div>
 
     <div class="center">
-        <img id="gif1" class="radar visible" width="600" height="600" alt="Local Stormscope">
-        <img id="gif2" class="radar hidden" width="600" height="600" alt="GOES Lightning">
-        <img id="gif3" class="radar hidden" width="600" height="600" alt="KLTX Radar">
+        <img id="gif1" class="radar visible" width="600" height="600" alt="Local Stormscope" onclick="openActiveRadarPlot()">
+        <img id="gif2" class="radar hidden" width="600" height="600" alt="GOES Lightning" onclick="openActiveRadarPlot()">
+        <img id="gif3" class="radar hidden" width="600" height="600" alt="KLTX Radar" onclick="openActiveRadarPlot()">
     </div>
 
     <div class="right">
@@ -147,7 +190,39 @@ pre{
 
 </div>
 
+<div id="plotLightbox" class="lightbox-overlay" onclick="closePlot()">
+    <span class="lightbox-close" onclick="closePlot()">&times;</span>
+    <img id="lightboxTargetImg" class="lightbox-img" src="" onclick="event.stopPropagation()">
+</div>
+
 <script>
+/* ---------------- GLOBAL IMAGE PATHS ---------------- */
+const stormscope = "/data/lightning_map.png";
+const goesGif = "https://cdn.star.nesdis.noaa.gov/GOES19/GLM/SECTOR/se/EXTENT3/GOES19-SE-EXTENT3-600x600.gif";
+const radarGif = "https://radar.weather.gov/ridge/standard/KLTX_loop.gif";
+
+let currentRadar = 0;
+
+/* ---------------- LIGHTBOX ACTIONS ---------------- */
+// Force the textual PLOT link to load the stormscope image file explicitly
+function openStormscopePlot() {
+    document.getElementById("lightboxTargetImg").src = stormscope + "?t=" + Date.now();
+    document.getElementById("plotLightbox").style.display = "flex";
+}
+
+// Clicking the center big images still displays whatever visual image loop is up
+function openActiveRadarPlot() {
+    const currentId = "gif" + (currentRadar + 1);
+    const currentSrc = document.getElementById(currentId).src;
+    document.getElementById("lightboxTargetImg").src = currentSrc;
+    document.getElementById("plotLightbox").style.display = "flex";
+}
+
+function closePlot() {
+    document.getElementById("plotLightbox").style.display = "none";
+    document.getElementById("lightboxTargetImg").src = "";
+}
+
 /* ---------------- LIGHTNING FUNCTION ---------------- */
 async function loadData() {
     try {
@@ -161,13 +236,17 @@ async function loadData() {
         const d = await flashRes.json();
         const g = await groupRes.json();
 
-        let lat = "N/A", lon = "N/A", dist = "N/A", mapLink = "";
+        let lat = "N/A", lon = "N/A", dist = "N/A", mapLink = "", plotLink = "";
 
         if(d.closest_lat && d.closest_lon) {
             lat = Number(d.closest_lat).toFixed(5);
             lon = Number(d.closest_lon).toFixed(5);
             dist = Number(d.nearest_distance).toFixed(2);
-            mapLink = `<a href="http://googleusercontent.com/maps.google.com/?q=${lat},${lon}&z=9" target="_blank" style="color:#00ff66;text-decoration:underline;">MAP</a>`;
+            
+            // Cleaned string syntax concatenation for Windy map tracking
+            mapLink = '<a href="https://www.windy.com/?radar,' + lat + ',' + lon + ',9" target="_blank" style="color:#00ff66;text-decoration:underline;">MAP</a>';
+            // Tied text link click action explicitly to openStormscopePlot function 
+            plotLink = '<a href="#" onclick="openStormscopePlot(); return false;" style="color:#00ff66;text-decoration:underline; margin-left:10px;">PLOT</a>';
         }
 
         const txt = `GOES-19 SOUTHEAST LIGHTNING RADAR DASHBOARD
@@ -187,7 +266,7 @@ Closest lightning strike (Surfside Beach):
   Distance: ${dist !== "N/A" ? dist + " miles" : "N/A"}
   Bearing: ${d.heading ? d.heading + "°" : ""} ${d.direction || ""}
   Direction trend: ${d.movement || "N/A"}
-  ${mapLink}
+  ${mapLink} ${plotLink}
 ------------------------------------
 Lightning within radius:
   10 mi : ${g.count10 || 0}
@@ -231,12 +310,6 @@ async function loadWeather(prefix,file){
 }
 
 /* ---------------- RADAR SEAMLESS CACHING ---------------- */
-const stormscope = "/data/lightning_map.png";
-const goesGif = "https://cdn.star.nesdis.noaa.gov/GOES19/GLM/SECTOR/se/EXTENT3/GOES19-SE-EXTENT3-600x600.gif";
-const radarGif = "https://radar.weather.gov/ridge/standard/KLTX_loop.gif";
-
-let currentRadar = 0;
-
 function loadGifSeamless(id, url) {
     const imgEl = document.getElementById(id);
     const cacheBustedUrl = url + "?t=" + Date.now();
