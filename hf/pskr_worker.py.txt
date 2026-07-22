@@ -1,0 +1,299 @@
+#!/usr/bin/env python3
+import sys
+import time
+import json
+import os
+import subprocess
+
+# Configuration
+WINDOW_MINUTES = 15
+WRITE_INTERVAL = 300  # 5 minutes
+# Adjustable
+MIN_SNR = -15
+OUTPUT_JSON = "/var/www/html/data/hf/pskr.json"
+SUMMARY_JSON = "/var/www/html/data/hf/pskr_summary.json"
+IMG_OUTPUT = "/var/www/html/data/hf/pskr_heatmap.png"
+TMPDIR = "/dev/shm/pskr_tmp"
+
+NA_PREFIXES = {
+    "AK","AL","AM","AN","AO","AP",
+    "BK","BL","BM","BN","BO","BP",
+    "CK","CL","CM","CN","CO","CP",
+    "DK","DL","DM","DN","DO","DP",
+    "EK","EL","EM","EN","EO","EP",
+    "FK","FL","FM","FN","FO","FP",
+    "GK","GL","GM","GN","GO","GP"
+}
+
+BANDS = ["160m", "80m", "40m", "30m", "20m", "17m", "15m", "12m", "10m"]
+
+# Memory Matrix
+spots = []
+total_raw = 0
+accepted_na = 0
+last_write_time = time.time()
+
+os.makedirs(os.path.dirname(OUTPUT_JSON), exist_ok=True)
+os.makedirs(TMPDIR, exist_ok=True)
+
+def cleanup_old_spots():
+    global spots
+    now = time.time()
+    keep_threshold = now - (WINDOW_MINUTES * 60)
+    spots = [s for s in spots if s['ts'] > keep_threshold]
+
+def render_heatmap_async():
+    """Compiles the exact original ImageMagick visual matrix and fires it off safely via atomic swap"""
+    band_counts = {b: 0 for b in BANDS}
+    for s in spots:
+        if s['band'] in band_counts:
+            band_counts[s['band']] += 1
+
+    max_val = max(band_counts.values()) if band_counts.values() else 1
+    if max_val < 1:
+        max_val = 1
+
+    total_spots = len(spots)
+    ztime = time.strftime('%d %b %Y %H:%MZ', time.gmtime())
+    
+    frame_file = os.path.join(TMPDIR, "frame_counter")
+    frame = 1
+    if os.path.exists(frame_file):
+        try:
+            with open(frame_file, "r") as ff:
+                frame = int(ff.read().strip()) + 1
+        except Exception:
+            pass
+    with open(frame_file, "w") as ff:
+        ff.write(str(frame))
+
+    framestamp = f"Frame {frame} | {ztime}"
+
+    im = "magick" if subprocess.call("type magick", shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) == 0 else "convert"
+
+    # Write to a temporary file first to prevent web browser read race conditions
+    tmp_img = os.path.join(TMPDIR, "tmp_heatmap.png")
+
+    cmd = [
+        im, "-size", "2200x1100", "xc:#101010",
+        "-stroke", "#303030", "-strokewidth", "2",
+        "-draw", "line 160,240 2000,240",
+        "-draw", "line 160,440 2000,440",
+        "-draw", "line 160,640 2000,640",
+        "-draw", "line 160,800 2000,800",
+        "-font", "DejaVu-Sans-Bold", "-fill", "white",
+        "-stroke", "none", "-pointsize", "48",
+        "-draw", f"text 280,80 'North America FT8 Activity Monitor'",
+        "-draw", f"text 1680,80 'Spots: {total_spots}'",
+        "-pointsize", "36", "-draw", f"text 1200,140 '{framestamp}'",
+        "-pointsize", "40",
+        "-draw", "text 20,250 'GOOD'",
+        "-draw", "text 20,450 'WEAK'",
+        "-draw", "text 20,650 'POOR'"
+    ]
+
+    left, bottom, bar_w, gap = 200, 800, 140, 70
+    
+    for idx, b in enumerate(BANDS):
+        count = band_counts[b]
+        color = "#101010"
+        status = "Closed"
+
+        if 0 < count < 25:
+            color, status = "#ff0000", "Poor"
+        elif 25 <= count < 150:
+            color, status = "#ffff00", "Weak"
+        elif count >= 150:
+            color, status = "#00ff00", "Good"
+
+        height = 100 + int(count * 500 / max_val)
+        if height > 600:
+            height = 600
+
+        x0 = left + idx * (bar_w + gap)
+        x1 = x0 + bar_w
+        y0 = bottom - height
+        count_y = y0 - 24
+
+        cmd.extend([
+            "-stroke", "#505050", "-strokewidth", "3", "-fill", color,
+            "-draw", f"rectangle {x0},{y0} {x1},{bottom}"
+        ])
+        cmd.extend([
+            "-stroke", "none", "-fill", "white",
+            "-pointsize", "40", "-draw", f"text {x0+10},{count_y} '{count}'",
+            "-pointsize", "48", "-draw", f"text {x0+5},950 '{b}'",
+            "-pointsize", "28", "-draw", f"text {x0+5},1010 '{status}'"
+        ])
+
+    cmd.extend([
+        "-filter", "Lanczos", "-resize", "1100x550", tmp_img
+    ])
+
+    try:
+        proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        proc.wait()  # Wait for rendering to complete before replacing
+        if os.path.exists(tmp_img):
+            os.replace(tmp_img, IMG_OUTPUT)
+    except Exception as e:
+        sys.stderr.write(f"\n[Heatmap Error] Failed to generate image: {e}\n")
+
+def write_json_file():
+    cleanup_old_spots()
+    now_str = time.strftime('%Y-%m-%d %H:%M:%S')
+    
+    # 1. Initialize summary fields for lean web tracking
+    band_counts = {b: 0 for b in BANDS}
+    band_snrs = {b: [] for b in BANDS}
+    
+    aggregated = {}
+    for s in spots:
+        if s['band'] in band_counts:
+            band_counts[s['band']] += 1
+            band_snrs[s['band']].append(s['snr'])
+            
+        key = f"{s['tx']}|{s['rx']}|{s['band']}"
+        if key not in aggregated:
+            aggregated[key] = {"count": 0, "total_snr": 0, "best_snr": -999, "last_seen": 0}
+        
+        aggregated[key]["count"] += 1
+        aggregated[key]["total_snr"] += s["snr"]
+        if s["snr"] > aggregated[key]["best_snr"]:
+            aggregated[key]["best_snr"] = s["snr"]
+        if s["ts"] > aggregated[key]["last_seen"]:
+            aggregated[key]["last_seen"] = int(s["ts"])
+
+    # 2. Write the 1KB Front-End Web Summary File
+    summary_stats = []
+    for b in BANDS:
+        count = band_counts[b]
+        avg_snr = int(sum(band_snrs[b]) / count) if count > 0 else 0
+        max_snr = max(band_snrs[b]) if count > 0 else 0
+        
+        summary_stats.append({
+            "band": b,
+            "active_spots": count,
+            "avg_snr": avg_snr,
+            "max_snr": max_snr
+        })
+
+    summary_data = {
+        "timestamp": now_str,
+        "window_minutes": WINDOW_MINUTES,
+        "total_spots": len(spots),
+        "bands": summary_stats
+    }
+
+    tmp_summary = SUMMARY_JSON + ".tmp"
+    with open(tmp_summary, "w") as f:
+        json.dump(summary_data, f, indent=2)
+    os.replace(tmp_summary, SUMMARY_JSON)
+
+    # 3. Write the Heavy Master Raw Aggregation File
+    paths_list = []
+    for key, data in aggregated.items():
+        tx, rx, band = key.split("|")
+        paths_list.append({
+            "tx": tx,
+            "rx": rx,
+            "band": band,
+            "count": data["count"],
+            "avg_snr": int(data["total_snr"] / data["count"]),
+            "best_snr": data["best_snr"],
+            "last_seen": data["last_seen"]
+        })
+
+    output_data = {
+        "timestamp": now_str,
+        "window_minutes": WINDOW_MINUTES,
+        "total_spots": len(spots),
+        "paths": paths_list
+    }
+
+    tmp_json = OUTPUT_JSON + ".tmp"
+    with open(tmp_json, "w") as f:
+        json.dump(output_data, f, indent=2)
+    os.replace(tmp_json, OUTPUT_JSON)
+
+# Reconfigure standard input to handle corrupted byte characters safely
+sys.stdin = open(sys.stdin.fileno(), mode='r', encoding='utf-8', errors='ignore', buffering=1)
+
+# Stream processing loop
+buffer = ""
+while True:
+    chunk = sys.stdin.read(4096)
+    if not chunk:
+        break
+    
+    buffer += chunk
+    while "pskr/filter/v2raw/" in buffer:
+        parts_split = buffer.split("pskr/filter/v2raw/", 2)
+        if len(parts_split) < 3:
+            break
+            
+        raw_block = "pskr/filter/v2raw/" + parts_split[1]
+        buffer = "pskr/filter/v2raw/" + parts_split[2]
+        
+        total_raw += 1
+        
+        try:
+            space_idx = raw_block.find(" ")
+            if space_idx == -1: 
+                continue
+            
+            topic = raw_block[:space_idx]
+            payload = raw_block[space_idx+1:]
+            
+            parts = topic.split("/")
+            if len(parts) < 9: 
+                continue
+            
+            band = parts[3]
+            tx_grid = parts[7].upper()
+            rx_grid = parts[8].upper()
+            
+            if tx_grid.startswith("UNK") or rx_grid.startswith("UNK"): 
+                continue
+            if len(tx_grid) < 2 or len(rx_grid) < 2: 
+                continue
+            if band not in BANDS: 
+                continue
+
+            clean_json = payload.strip()
+            if not clean_json.endswith("}"):
+                end_brace = clean_json.rfind("}")
+                if end_brace != -1:
+                    clean_json = clean_json[:end_brace+1]
+            
+            data = json.loads(clean_json)
+            if data.get("md") != "FT8": 
+                continue
+                
+            snr = int(data.get("rp", 0))
+
+# Ignore signals below the minimum SNR threshold
+            if snr < MIN_SNR:
+            continue
+
+            if tx_grid[:2] in NA_PREFIXES or rx_grid[:2] in NA_PREFIXES:
+                accepted_na += 1
+                spots.append({
+                    "ts": time.time(),
+                    "tx": tx_grid[:4],
+                    "rx": rx_grid[:4],
+                    "band": band,
+                    "snr": snr
+                })
+
+            if time.time() - last_write_time >= WRITE_INTERVAL:
+                write_json_file()
+                render_heatmap_async()
+                last_write_time = time.time()
+                sys.stderr.write(f"\n[{time.strftime('%H:%M:%S')}] 💾 JSON outputs & Heatmap Image saved successfully! Matrix size: {len(spots)}\n")
+
+            if total_raw % 50 == 0:
+                sys.stderr.write(f"\r{time.strftime('%H:%M:%S')} | Total Raw: {total_raw} | NA Tracks: {accepted_na} | Matrix: {len(spots)} ")
+                sys.stderr.flush()
+
+        except Exception:
+            continue
