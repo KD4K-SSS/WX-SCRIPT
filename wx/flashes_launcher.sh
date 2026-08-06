@@ -6,7 +6,7 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 FLASHES_SCRIPT="$SCRIPT_DIR/flashes.sh"
-LAUNCHER_LOG="$SCRIPT_DIR/flashes_launcher.log"
+LAUNCHER_LOG="/mnt/ssbwx_tmp/flashes_launcher.log"
 
 RESTART_DELAY=5
 MAX_RESTARTS=1000

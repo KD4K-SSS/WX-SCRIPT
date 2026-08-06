@@ -10,7 +10,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 RADAR_SCRIPT="$SCRIPT_DIR/test.sh"
 
 # Launcher log
-LAUNCHER_LOG="$SCRIPT_DIR/radar_launcher.log"
+LAUNCHER_LOG="/mnt/ssbwx_tmp/radar_launcher.log"
 
 RESTART_DELAY=5
 MAX_RESTARTS=1000

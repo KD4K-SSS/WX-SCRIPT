@@ -1,0 +1,24 @@
+========================================================
+       KD4K GOES-19 FLEET REAL-TIME HEARTBEAT MONITOR   
+========================================================
+  Current Time: 2026-06-25 17:11:53
+
+[ STORAGE SUBSYSTEM ]
+  Mount Point: [ MOUNTED ] /mnt/ssbwx_tmp (1% Used)
+
+[ PROCESS ENGINE TELEMETRY ]
+  [ ONLINE ] (PID: 5426) -> nc_runner.sh
+  [ ONLINE ] (PID: 5430) -> atis_runner.sh
+  [ ONLINE ] (PID: 5436) -> strike_launcher.sh
+  [ ONLINE ] (PID: 5443) -> flashes_launcher.sh
+  [ ONLINE ] (PID: 5458) -> glmdash_launcher.sh
+  [ ONLINE ] (PID: 5469) -> plot_launcher.sh
+
+[ RECENT ERROR ALERT LOGS (Last 3 Lines) ]
+  [2026-06-24 18:24:47] All subsystems deployed. Verifying background process states...
+  ==========================================
+  [2026-06-24 18:24:50] SUCCESS: Full weather stack is verified ONLINE and running silently.
+
+[ SYSTEM VITALS ]
+  CPU Usage:    9.3%
+  Memory (RAM): 2.7Gi/11Gi

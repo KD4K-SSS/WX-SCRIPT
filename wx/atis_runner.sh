@@ -7,7 +7,7 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ATIS_SCRIPT="$SCRIPT_DIR/kd4k_wx1.sh"
-LAUNCHER_LOG="$SCRIPT_DIR/atis_launcher.log"
+LAUNCHER_LOG="/mnt/ssbwx_tmp/atis_launcher.log"
 
 RESTART_DELAY=5
 MAX_RESTARTS=1000

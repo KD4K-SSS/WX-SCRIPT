@@ -6,7 +6,7 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 STRIKE_SCRIPT="$SCRIPT_DIR/strike_data.sh"
-LAUNCHER_LOG="$SCRIPT_DIR/strike_data_launcher.log"
+LAUNCHER_LOG="/mnt/ssbwx_tmp/strike_data_launcher.log"
 
 RESTART_DELAY=5
 MAX_RESTARTS=1000

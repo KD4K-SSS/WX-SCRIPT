@@ -6,7 +6,7 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PLOT_SCRIPT="$SCRIPT_DIR/plot_lightning.sh"
-LAUNCHER_LOG="$SCRIPT_DIR/plot_lightning_launcher.log"
+LAUNCHER_LOG="/mnt/ssbwx_tmp/plot_lightning_launcher.log"
 
 RESTART_DELAY=5
 MAX_RESTARTS=1000

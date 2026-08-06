@@ -5,7 +5,7 @@
 # ==========================================
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LAUNCHER_LOG="$SCRIPT_DIR/master_fleet_launcher.log"
+LAUNCHER_LOG="/mnt/ssbwx_tmp/master_fleet_launcher.log"
 
 # Array of your specific watchdog launcher scripts in recommended startup order
 LAUNCHERS=(

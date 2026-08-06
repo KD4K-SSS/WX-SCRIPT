@@ -7,7 +7,7 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 INGESTOR_SCRIPT="$SCRIPT_DIR/nc_glm.sh"
-LAUNCHER_LOG="$SCRIPT_DIR/glm_ingestor_launcher.log"
+LAUNCHER_LOG="/mnt/ssbwx_tmp/glm_ingestor_launcher.log"
 
 RESTART_DELAY=5
 MAX_RESTARTS=1000

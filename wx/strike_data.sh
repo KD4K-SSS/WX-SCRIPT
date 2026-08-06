@@ -9,7 +9,7 @@ FILE="$WORKDIR/latest.nc"
 
 RING_FILE="$WORKDIR/ring_history.txt"
 JSON_FILE="/var/www/html/data/group_data.json"
-LOG_FILE="$WORKDIR/group_event_log.csv"
+LOG_FILE="/mnt/ssbwx_tmp/group_event_log.csv"
 
 # Ensure log and ring files exist cleanly
 if [ ! -f "$LOG_FILE" ] || [ ! -s "$LOG_FILE" ]; then

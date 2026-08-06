@@ -6,7 +6,7 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DASH_SCRIPT="$SCRIPT_DIR/glm_dash.sh" # Assumes your dashboard script name
-LAUNCHER_LOG="$SCRIPT_DIR/glm_dash_launcher.log"
+LAUNCHER_LOG="/mnt/ssbwx_tmp/glm_dash_launcher.log"
 
 RESTART_DELAY=5
 MAX_RESTARTS=1000
