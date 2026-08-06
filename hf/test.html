@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="300"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>KD4K HF Propagation Dashboard</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #0d1117; --card-bg: #161b22; --border-color: #30363d;
+            --text-main: #c9d1d9; --text-dim: #8b949e; --cyan: #58a6ff;
+            --green: #2ea043; --yellow: #d29922; --red: #f85149;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        header { text-align: center; border-bottom: 2px solid var(--cyan); padding-bottom: 15px; margin-bottom: 25px; }
+        h1 { color: var(--cyan); margin: 0 0 5px 0; font-size: 1.8rem; }
+        .timestamp { color: var(--text-dim); font-size: 0.9rem; font-family: monospace; }
+        .refresh-notice { color: var(--yellow); font-size: 0.85rem; font-style: italic; margin-top: 2px; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 30px; }
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+        .card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-title { font-weight: bold; font-size: 1rem; }
+        .card-value { font-size: 1.5rem; font-weight: bold; margin: 8px 0; font-family: monospace; }
+        .card-scale { font-size: 0.8rem; color: var(--text-dim); border-top: 1px dashed var(--border-color); padding-top: 6px; margin-top: 6px; }
+        
+        /* Engine Stat Cards */
+        .engine-stat-value { font-size: 2.2rem; font-weight: bold; color: var(--green); font-family: monospace; margin: 8px 0; }
+        .chart-container { position: relative; flex: 1; min-height: 220px; }
+
+        /* Regional Matrix Grid Styling */
+        .matrix-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; background: var(--card-bg); padding: 15px; border-radius: 6px; border: 1px solid var(--border-color); margin-bottom: 30px; }
+        @media (max-width: 900px) { .matrix-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 600px) { .matrix-grid { grid-template-columns: repeat(2, 1fr); } }
+        .matrix-cell { padding: 10px; border: 1px solid var(--border-color); border-radius: 4px; background: #1f242c; }
+        .matrix-cell-title { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; font-weight: bold; }
+        .matrix-cell-value { font-size: 1.2rem; font-family: monospace; margin: 4px 0; }
+        .matrix-cell-spots { font-size: 0.7rem; color: var(--text-dim); }
+
+        /* Dynamic matching targets */
+        .good, [class*="good"], [class*="Good"] { color: var(--green) !important; font-weight: bold; }
+        .fair, [class*="fair"], [class*="Fair"] { color: var(--yellow) !important; font-weight: bold; }
+        .poor, [class*="poor"], [class*="Poor"] { color: var(--red) !important; font-weight: bold; }
+        .unknown { color: var(--text-dim) !important; }
+        
+        h2 { color: var(--cyan); margin-top: 30px; font-size: 1.4rem; border-left: 4px solid var(--cyan); padding-left: 10px; }
+        table { width: 100%; border-collapse: collapse; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; overflow: hidden; margin-bottom: 20px; }
+        th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border-color); }
+        th { background-color: #1f242c; color: var(--cyan); }
+        .band-status { font-weight: bold; font-family: monospace; }
+        
+        .forecast-box { background-color: #090d13; border: 1px solid var(--border-color); border-radius: 6px; padding: 15px; font-family: monospace; font-size: 0.85rem; line-height: 1.5; color: #ffffff; white-space: pre-wrap; max-height: 500px; overflow-y: auto; }
+        .disclaimer { margin-top: 40px; padding: 15px; border-top: 1px solid var(--border-color); font-size: 0.8rem; color: var(--text-dim); text-align: center; }
+
+        .table-scroll { max-height: 350px; overflow-y: auto; border: 1px solid var(--border-color); border-radius: 6px; margin-bottom: 30px; background: var(--card-bg); }
+        .table-scroll table { margin-bottom: 0; border: none; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>KD4K PROPAGATION MONITOR</h1>
+        <div class="timestamp">Observations Timestamp: <span id="data-updated">Syncing data stream...</span></div>
+        <div class="refresh-notice">&#x21BB; Background tracking telemetry refreshes every 15 minutes</div>
+    </header>
+    
+    <div class="grid">
+        <div class="card"><div class="card-title">Solar Flux Index (SFI)</div><div id="val-sfi" class="card-value">TARGET_SFI</div><div class="card-scale">[Scale: Poor &lt;90 | Fair 90-140 | Good 141+]</div></div>
+        <div class="card"><div class="card-title">Sunspot Number</div><div id="val-ss" class="card-value">TARGET_SUNSPOTS</div><div class="card-scale">[Scale: Poor &lt;40 | Fair 40-100 | Good 101+]</div></div>
+        <div class="card"><div class="card-title">X-Ray Flare Level</div><div id="val-xray" class="card-value">TARGET_XRAY</div><div class="card-scale">[Scale: Good A-B | Fair C | Poor M-X]</div></div>
+        <div class="card"><div class="card-title">Solar Wind Speed</div><div id="val-wind" class="card-value">TARGET_WIND</div><div class="card-scale">[Scale: Good &lt;400 | Fair 400-550 | Poor 551+]</div></div>
+        <div class="card"><div class="card-title">Planetary K-Index</div><div id="val-k" class="card-value">TARGET_KINDEX</div><div class="card-scale">[Scale: Good 0-2 | Fair 3-4 | Poor 5+]</div></div>
+        <div class="card"><div class="card-title">A-Index</div><div id="val-a" class="card-value">TARGET_AINDEX</div><div class="card-scale">[Scale: Good 0-9 | Fair 10-19 | Poor 20+]</div></div>
+        <div class="card"><div class="card-title">Bz Magnetic Field</div><div id="val-imf" class="card-value">TARGET_IMF</div><div class="card-scale">[Scale: Good Positive(+) | Poor Negative(-)]</div></div>
+        <div class="card"><div class="card-title">Signal Noise Level</div><div id="val-noise" class="card-value">TARGET_SIGNAL_NOISE</div><div class="card-scale">[Scale: Good S0-S2 | Fair S3-S5 | Poor S6+]</div></div>
+        
+        <div class="card">
+            <div class="card-title">Real-Time MUF / LUF Node</div>
+            <div class="card-value">
+                <span id="muf-display">Loading...</span>
+                <div id="luf-display" style="font-size: 1.1rem; color: var(--yellow); margin-top: 4px; font-family: monospace;">LUF: -- MHz</div>
+            </div>
+            <div id="muf-source" class="card-scale" style="font-style: italic;">Syncing multi-tier daemon...</div>
+        </div>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 10px; margin-top: 30px;">
+        <h2 style="margin: 0; border-left: 4px solid var(--cyan); padding-left: 10px;">US Call District Live WSPR Baseline Matrix</h2>
+        <a href="#methodology-lightbox" class="legend-trigger" style="padding: 2px 8px; font-size: 0.8rem; margin: 0;">ⓘ Methodology</a>
+    </div>
+    
+    <div id="methodology-lightbox" class="lightbox-overlay">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close">&times;</a>
+            <h2 style="margin-top:0; border-left:none; padding-left:0; color:var(--cyan); font-size:1.4rem">WSPR-to-SSB Voice MUF Methodology</h2>
+            <hr style="border:0; border-top:1px solid var(--border-color); margin-bottom:15px">
+            <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main);">
+                Real-time Maximum Usable Frequency (MUF) is traditionally calculated using professional ionosonde radar arrays. This matrix takes a crowdsourced, real-world alternative approach by parsing live packet telemetry from the global WSPR network over the last 15 minutes.
+            </p>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main);">
+                To translate low-power, ultra-weak digital WSPR signals into a reliable estimate for <strong>SSB Voice contact</strong>, a strict filter is applied via the backend engine:
+            </p>
+            <div class="legend-item" style="border-left: 3px solid var(--yellow); padding-left: 10px; margin-left: 5px;">
+                <strong>The -3 dB SNR Filter:</strong> WSPR possesses a massive <strong>+37 dB processing advantage</strong> over standard SSB voice due to its ultra-narrow bandwidth and digital integration. However, stepping up from a 5-Watt beacon to a standard 100-Watt HF transceiver awards you a <strong>+13 dB power advantage</strong>. 
+                <br><br>
+                Subtracting that power delta from the digital mode offset means any path reporting a WSPR signal stronger than <strong>-3 dB SNR</strong> contains enough atmospheric ionization to support a readable, human SSB voice circuit.
+            </div>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); margin-top: 15px;">
+                The highest frequency band in each Maidenhead grid target meeting this criteria (minimum 4 concurrent spots) is designated as the active Voice MUF limit.
+            </p>
+        </div>
+    </div>
+    
+    <div id="wspr-matrix" class="matrix-grid" style="margin-top: 15px;">
+        <div style="color: var(--text-dim); grid-column: 1 / -1; padding: 10px; font-style: italic;">Parsing live regional digital telemetry paths...</div>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 10px; margin-top: 30px;">
+        <h2 style="margin: 0; border-left: 4px solid var(--cyan); padding-left: 10px;">Live North America Digital Band Propagation Matrix</h2>
+        <a href="#heatmap-lightbox" class="legend-trigger" style="padding: 2px 8px; font-size: 0.8rem; margin: 0;">View Animation</a>
+    </div>
+
+    <div id="heatmap-lightbox" class="lightbox-overlay">
+        <div class="lightbox-content" style="max-width: 850px; text-align: center;">
+            <a href="#" class="lightbox-close">&times;</a>
+            <h2 style="margin-top:0; border-left:none; padding-left:0; color:var(--cyan); font-size:1.4rem; text-align: left;">
+                24 Hour History - Zulu Time
+            </h2>
+            <hr style="border:0; border-top:1px solid var(--border-color); margin-bottom:15px">
+            
+            <div style="position: relative; display: inline-block; width: 100%; background: #000; border-radius: 4px; border: 1px solid var(--border-color); cursor: pointer;"
+                 onclick="document.getElementById('static-png').style.opacity='0'; document.getElementById('anim-gif').style.visibility='visible'; document.getElementById('anim-gif').style.opacity='1';">
+                
+                <img id="static-png" 
+                     src="https://www.ssbwx.net/data/hf/pskr_heatmap.png" 
+                     alt="Digital Spectrum Static" 
+                     style="width: 100%; height: auto; display: block; transition: opacity 0.1s ease;">
+                
+                <img id="anim-gif" 
+                     src="https://www.ssbwx.net/data/hf/pskr_history.gif" 
+                     alt="Digital Spectrum Animated" 
+                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: fill; visibility: hidden; opacity: 0; transition: opacity 0.1s ease;">
+            </div>
+            
+            <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 10px; font-style: italic;">
+                Click the static image above to load the GIF animation loop. Click X to close.
+            </p>
+        </div>
+    </div>
+    
+    <div id="ft8-matrix" class="matrix-grid">
+        <div style="color: var(--text-dim); grid-column: 1 / -1; padding: 10px; font-style: italic;">Aggregating live digital band telemetry data stream...</div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 30px;">
+        <h2 style="margin: 0; border-left: 4px solid var(--cyan); padding-left: 10px;">Real-Time HF Propagation Engine</h2>
+        <div style="font-family: monospace; color: var(--text-dim); font-size: 0.85rem;" id="engine-update-time">Loading engine telemetry...</div>
+    </div>
+
+    <div class="grid" style="margin-top: 15px;">
+        <div class="card">
+            <div class="card-title">Observed Max Usable Frequency (MUF)</div>
+            <div class="engine-stat-value" id="muf-val">-- MHz</div>
+            <div class="card-scale">Highest band completing active propagation paths across North America</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Longest Single-Hop Distance</div>
+            <div class="engine-stat-value" id="max-dist-val">-- km</div>
+            <div class="card-scale" id="max-dist-path">Path: -- &rarr; --</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Refraction Zone Density</div>
+            <div class="engine-stat-value" id="midpoint-count">--</div>
+            <div class="card-scale">Active F2-layer reflection points tracked in 15m window</div>
+        </div>
+    </div>
+
+    <div class="grid" style="margin-top: 15px;">
+        <div class="card" style="grid-column: 1 / -1;">
+            <div class="card-title" style="margin-bottom: 10px;">Propagation Distance Spread (Skip Zones)</div>
+            <div class="chart-container">
+                <canvas id="distanceChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <h2>HF Band Propagation Status</h2>
+    <table>
+        <thead>
+            <tr><th>Band Range</th><th>Daytime</th><th>Nighttime</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>160m-40m</strong></td><td id="b40d">TARGET_B40_D</td><td id="b40n">TARGET_B40_N</td></tr>
+            <tr><td><strong>30m-20m</strong></td><td id="b20d">TARGET_B20_D</td><td id="b20n">TARGET_B20_N</td></tr>
+            <tr><td><strong>17m-15m</strong></td><td id="b15d">TARGET_B15_D</td><td id="b15n">TARGET_B15_N</td></tr>
+            <tr><td><strong>12m-10m</strong></td><td id="b10d">TARGET_B10_D</td><td id="b10n">TARGET_B10_N</td></tr>
+        </tbody>
+    </table>
+        
+    <h2>Official NOAA SWPC 3-Day Space Weather Forecast</h2>
+    <div class="forecast-box">TARGET_TEXT_FORECAST</div>
+    
+    <div class="disclaimer"><strong>Disclaimer:</strong> Ingested data sources: SWPC, NOAA, GIRO, PSK Reporter, and LDAP Ionosonde. These sites are the derivative sources for verification.</div>
+</div>
+
+<script>
+    // 1. Fetch Primary Local Telemetry Object & Compute Global Baseline LUF
+    fetch('muf.json?v=' + Date.now())
+        .then(r => r.json())
+        .then(data => {
+            const display = document.getElementById('muf-display');
+            const sourceInfo = document.getElementById('muf-source');
+            const globalLufDisplay = document.getElementById('luf-display');
+            
+            let globalLuf = 3.5;
+            const xrayElement = document.getElementById('val-xray');
+            if (xrayElement) {
+                let xrayText = xrayElement.textContent.trim().toUpperCase();
+                if (xrayText.startsWith('C')) globalLuf = 5.0;
+                else if (xrayText.startsWith('M')) globalLuf = 10.0;
+                else if (xrayText.startsWith('X')) globalLuf = 18.2;
+                else {
+                    let currentHour = new Date().getUTCHours();
+                    if (currentHour < 10 || currentHour > 23) globalLuf = 1.8;
+                }
+            }
+            globalLufDisplay.textContent = `LUF: ${globalLuf.toFixed(1)} MHz`;
+            
+            if(data && data.muf && data.muf !== "Offline") {
+                display.innerHTML = data.muf + " &rarr; " + data.status_text;
+                display.className = "card-value " + data.css_class;
+                if(data.source) {
+                    sourceInfo.textContent = "Source: " + data.source;
+                }
+            } else { 
+                display.innerHTML = "MUF System Running"; 
+                display.className = "good"; 
+                sourceInfo.textContent = "MUF/LUF GIRO/WSPR/X-RAY running.";
+            }
+        })
+        .catch(() => { 
+            document.getElementById('muf-display').innerHTML = "MUF System Down"; 
+            document.getElementById('muf-display').className = "poor"; 
+        });
+
+    // 2. FETCH LOGIC: Fetch and Populate Regional US WSPR Data File
+    fetch('/data/hf/regional_muf.json?v=' + Date.now())
+        .then(r => r.json())
+        .then(data => {
+            const container = document.getElementById('wspr-matrix');
+            if (data && data.last_updated) {
+                const dateObj = new Date(data.last_updated);
+                document.getElementById('data-updated').textContent = dateObj.toLocaleString();
+            }
+            
+            const previousSpotsCache = JSON.parse(localStorage.getItem('wspr_spots_cache')) || {};
+            const currentSpotsCache = {};
+            const fragment = document.createDocumentFragment();
+            
+            if (data && data.regions) {
+                Object.keys(data.regions).forEach(zone => {
+                    const node = data.regions[zone];
+                    const cleanName = zone.replace(/_([^_]+)$/, ' ($1)').replace(/_/g, ' ');
+                    const valMuf = parseFloat(node.muf);
+                    const displayMuf = valMuf > 0 ? valMuf.toFixed(0) + " MHz" : "Quiet / Closed";
+                    
+                    let scaleClass = "poor";
+                    if (valMuf >= 21.0) scaleClass = "good";
+                    else if (valMuf >= 14.0) scaleClass = "fair";
+
+                    const currentSpots = parseInt(node.active_spots) || 0;
+                    currentSpotsCache[zone] = currentSpots;
+                    
+                    let arrowHtml = '';
+                    if (previousSpotsCache[zone] !== undefined) {
+                        const prevSpots = previousSpotsCache[zone];
+                        if (currentSpots > prevSpots) {
+                            arrowHtml = '<span style="color: var(--green); margin-left: 6px; font-weight: bold;">&#9650;</span>';
+                        } else if (currentSpots < prevSpots) {
+                            arrowHtml = '<span style="color: var(--red); margin-left: 6px; font-weight: bold;">&#9660;</span>';
+                        }
+                    }
+
+                    const cell = document.createElement('div');
+                    cell.className = 'matrix-cell';
+                    cell.innerHTML = `
+                        <div class="matrix-cell-title">${cleanName}</div>
+                        <div class="matrix-cell-value ${scaleClass}">${displayMuf}</div>
+                        <div class="matrix-cell-spots">${currentSpots} spots${arrowHtml}</div>
+                    `;
+                    fragment.appendChild(cell);
+                });
+                container.innerHTML = '';
+                container.appendChild(fragment);
+            }
+            localStorage.setItem('wspr_spots_cache', JSON.stringify(currentSpotsCache));
+        })
+        .catch(() => {
+            document.getElementById('wspr-matrix').innerHTML = 
+                '<div style="color: var(--red); grid-column: 1 / -1; padding: 10px;">Regional WSPR Matrix Service Offline</div>';
+        });
+
+    // 3. OPTIMIZED AGGREGATOR ENGINE: Parse pskr_summary.json into Band Cards
+    fetch('/data/hf/pskr_summary.json?v=' + Date.now())
+        .then(r => r.json())
+        .then(data => {
+            const container = document.getElementById('ft8-matrix');
+            if(!data || !data.bands || data.bands.length === 0) {
+                container.innerHTML = '<div style="color: var(--yellow); grid-column: 1 / -1; padding: 10px;">No active digital band data found inside rolling framework window.</div>';
+                return;
+            }
+
+            const fragment = document.createDocumentFragment();
+
+            data.bands.forEach(bandNode => {
+                const band = bandNode.band;
+                const spots = parseInt(bandNode.active_spots || 0);
+                const avgSnr = parseInt(bandNode.avg_snr || 0);
+
+                let displayStatus = "Poor";
+                let scaleClass = "poor";
+
+                if (spots > 0) {
+                    if (spots >= 15 && avgSnr >= -12) {
+                        displayStatus = "Open";
+                        scaleClass = "good";
+                    } else {
+                        displayStatus = "Fair / Weak";
+                        scaleClass = "fair";
+                    }
+                }
+
+                const cell = document.createElement('div');
+                cell.className = 'matrix-cell';
+                cell.innerHTML = `
+                    <div class="matrix-cell-title">${band} Band Status</div>
+                    <div class="matrix-cell-value ${scaleClass}">${displayStatus}</div>
+                    <div class="matrix-cell-spots" style="font-family: monospace;">
+                        ${spots} spots | Avg: ${spots > 0 ? avgSnr : '--'} dB
+                    </div>
+                `;
+                fragment.appendChild(cell);
+            });
+
+            container.innerHTML = '';
+            container.appendChild(fragment);
+        })
+        .catch(() => {
+            document.getElementById('ft8-matrix').innerHTML = 
+                '<div style="color: var(--red); grid-column: 1 / -1; padding: 10px; font-weight: bold;">PSKReporter Telemetry Local Matrix Engine Offline</div>';
+        });
+
+    // =========================================================================
+    // 4. REAL-TIME HF PROPAGATION ENGINE (Chart.js & pskr_engine.json)
+    // =========================================================================
+    let distChart;
+
+    function initCharts() {
+        const ctx = document.getElementById('distanceChart').getContext('2d');
+        distChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['< 500km', '500-1000km', '1000-2000km', '2000-3000km', '3000km+'],
+                datasets: [{
+                    label: 'Active Path Count',
+                    data: [0, 0, 0, 0, 0],
+                    backgroundColor: '#58a6ff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { ticks: { color: '#8b949e' }, grid: { color: '#30363d' } },
+                    y: { ticks: { color: '#8b949e' }, grid: { color: '#30363d' } }
+                }
+            }
+        });
+    }
+
+    function loadEngineData() {
+        fetch('/data/hf/pskr_engine.json?v=' + Date.now())
+            .then(res => res.json())
+            .then(data => {
+                const timeElem = document.getElementById('engine-update-time');
+                if (timeElem) timeElem.textContent = 'Last Refreshed: ' + data.timestamp;
+
+                const spots = data.spots || [];
+                if (spots.length === 0) return;
+
+                let highestFreq = 0.0;
+                let maxDist = 0;
+                let maxDistPath = "--";
+                let distBins = [0, 0, 0, 0, 0];
+
+                spots.forEach(s => {
+                    if (s.freq_mhz > highestFreq) highestFreq = s.freq_mhz;
+
+                    if (s.distance_km > maxDist) {
+                        maxDist = s.distance_km;
+                        maxDistPath = `${s.tx} \u2192 ${s.rx} (${s.band})`;
+                    }
+
+                    const d = s.distance_km;
+                    if (d < 500) distBins[0]++;
+                    else if (d < 1000) distBins[1]++;
+                    else if (d < 2000) distBins[2]++;
+                    else if (d < 3000) distBins[3]++;
+                    else distBins[4]++;
+                });
+
+                document.getElementById('muf-val').textContent = highestFreq.toFixed(1) + ' MHz';
+                document.getElementById('max-dist-val').textContent = Math.round(maxDist) + ' km';
+                document.getElementById('max-dist-path').textContent = 'Path: ' + maxDistPath;
+                document.getElementById('midpoint-count').textContent = spots.length;
+
+                distChart.data.datasets[0].data = distBins;
+                distChart.update();
+            })
+            .catch(err => console.error("Error fetching engine data:", err));
+    }
+
+    // Initialize Propagation Engine Chart & Load Telemetry Data
+    initCharts();
+    loadEngineData();
+    setInterval(loadEngineData, 60000); // Refresh engine telemetry every 60s
+</script>
+
+<script>
+    // 5. Lightbox & Dynamic UI Scripts
+    window.addEventListener('DOMContentLoaded', () => {
+        const s = document.createElement('style');
+        s.textContent = `
+            .button-group { display: flex; justify-content: center; gap: 12px; margin-top: 10px; }
+            .legend-trigger { color: var(--cyan); text-decoration: none; font-size: 0.9rem; border: 1px solid var(--border-color); padding: 4px 12px; border-radius: 4px; background: var(--card-bg); transition: 0.2s; cursor: pointer; display: inline-block; }
+            .legend-trigger:hover { background: #1f242c; border-color: var(--cyan); }
+            .lightbox-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; z-index: 9999; }
+            .lightbox-overlay:target { display: flex !important; opacity: 1; pointer-events: auto; }
+            .lightbox-content { background: var(--card-bg); border: 1px solid var(--border-color); padding: 25px; border-radius: 8px; max-width: 650px; width: 90%; max-height: 80vh; overflow-y: auto; position: relative; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); text-align: left; }
+            .lightbox-close { position: absolute; top: 15px; right: 20px; color: var(--text-dim); text-decoration: none; font-size: 1.8rem; line-height: 1; transition: 0.2s; }
+            .lightbox-close:hover { color: var(--red); }
+            .legend-item { font-size: 0.9rem; line-height: 1.5; margin-bottom: 12px; border-bottom: 1px dashed #21262d; padding-bottom: 12px; color: var(--text-main); }
+            .legend-item strong { color: var(--cyan); display: inline-block; margin-right: 4px; }
+            .legend-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        `;
+        document.head.appendChild(s);
+
+        const h = document.querySelector('header');
+        if (h) {
+            const d = document.createElement('div');
+            d.className = 'button-group';
+            d.innerHTML = `
+                <a href="#legend-lightbox" class="legend-trigger">Data Glossary</a>
+                <a href="gallery.html" class="legend-trigger">Live Imagery Gallery</a>
+            `;
+            h.appendChild(d);
+        }
+
+        const m = document.createElement('div');
+        m.id = 'legend-lightbox';
+        m.className = 'lightbox-overlay';
+        m.innerHTML = `
+            <div class="lightbox-content">
+                <a href="#" class="lightbox-close">&times;</a>
+                <h2 style="margin-top:0; border-left:none; padding-left:0; color:var(--cyan); font-size:1.4rem;">
+                    Dashboard Telemetry Glossary
+                </h2>
+
+                <hr style="border:0; border-top:1px solid var(--border-color); margin-bottom:15px">
+
+                <div class="legend-item">
+                    <strong>Solar Flux Index (SFI)</strong><br>
+                    Measures solar radio energy emitted at 10.7 cm wavelength. Higher values generally indicate stronger ionization of the F-layer and improved HF propagation, especially on higher bands.
+                </div>
+
+                <div class="legend-item">
+                    <strong>Sunspot Number</strong><br>
+                    Count of visible sunspots and active solar regions. Higher values typically correlate with improved long-distance HF communication potential.
+                </div>
+
+                <div class="legend-item">
+                    <strong>X-Ray Flare Level</strong><br>
+                    Current solar flare intensity. M and X-class flares can cause sudden ionospheric disturbances and HF radio blackouts.
+                </div>
+
+                <div class="legend-item">
+                    <strong>Solar Wind Speed</strong><br>
+                    Speed of charged particles flowing from the Sun toward Earth. Elevated wind speeds can increase geomagnetic disturbance.
+                </div>
+
+                <div class="legend-item">
+                    <strong>Planetary K Index (Kp)</strong><br>
+                    Three-hour measure of geomagnetic activity from 0 to 9. Lower values indicate a quieter geomagnetic environment and generally better HF conditions.
+                </div>
+
+                <div class="legend-item">
+                    <strong>A Index</strong><br>
+                    Daily average geomagnetic activity level. Lower values indicate more stable propagation conditions.
+                </div>
+
+                <div class="legend-item">
+                    <strong>Bz Magnetic Field</strong><br>
+                    North/South orientation of the Interplanetary Magnetic Field (IMF). Positive Bz typically supports stability. Sustained negative Bz can trigger geomagnetic storms.
+                </div>
+
+                <div class="legend-item">
+                    <strong>Signal Noise Level</strong><br>
+                    Estimated RF background noise. Lower noise levels improve reception of weak DX signals.
+                </div>
+
+                <div class="legend-item">
+                    <strong>MUF (Maximum Usable Frequency)</strong><br>
+                    Highest frequency expected to support reliable ionospheric propagation between two locations.
+                </div>
+
+                <div class="legend-item">
+                    <strong>LUF (Lowest Usable Frequency)</strong><br>
+                    Lowest frequency capable of overcoming atmospheric absorption and local noise.
+                </div>
+
+                <div class="legend-item">
+                    <strong>WSPR Matrix</strong><br>
+                    Regional MUF estimate derived from crowdsourced Weak Signal Propagation Reporter (WSPR) telemetry collected during the previous analysis window.
+                </div>
+
+                <div class="legend-item">
+                    <strong>FT8 Matrix</strong><br>
+                    Real-time propagation assessment generated from PSKReporter FT8 telemetry throughout North America.
+                </div>
+            </div>
+        `;
+        document.body.appendChild(m);
+
+        // Check IMF value for coloring
+        const imfElement = document.getElementById('val-imf');
+        if (imfElement) {
+            const valText = imfElement.textContent.trim();
+            if (valText !== "TARGET_IMF" && valText !== "") {
+                const valNum = parseFloat(valText);
+                if (!isNaN(valNum)) {
+                    if (valNum < 0) imfElement.classList.add('poor');
+                    else imfElement.classList.add('good');
+                } else if (valText.includes('-')) {
+                    imfElement.classList.add('poor');
+                } else {
+                    imfElement.classList.add('good');
+                }
+            }
+        }
+    });
+
+    // Clean up placeholders on load
+    window.addEventListener('DOMContentLoaded', () => {
+        const b6d = document.getElementById('b6d');
+        const b6n = document.getElementById('b6n');
+
+        if (b6d && b6d.textContent.includes('TARGET_B6_D')) {
+            b6d.textContent = 'Poor';
+            b6d.className = 'poor';
+        }
+        if (b6n && b6n.textContent.includes('TARGET_B6_N')) {
+            b6n.textContent = 'Poor';
+            b6n.className = 'poor';
+        }
+    });
+</script>
+</body>
+</html>

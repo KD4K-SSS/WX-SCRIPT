@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About & User Guide - OMISS Propagation Engine</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --text-main: #c9d1d9;
+            --text-dim: #8b949e;
+            --accent-blue: #58a6ff;
+            --accent-gold: #f0883e;
+            --open-green: #2ea043;
+            --marginal-yellow: #d29922;
+            --closed-red: #f85149;
+            --purple-digital: #bc8cff;
+            --code-bg: #21262d;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            color: var(--accent-blue);
+            font-size: 2rem;
+            margin: 0 0 5px 0;
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--accent-blue);
+            font-size: 1.05rem;
+            margin-top: 18px;
+            margin-bottom: 6px;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background-color: var(--code-bg);
+            color: var(--purple-digital);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .formula-box {
+            background: var(--code-bg);
+            border-left: 3px solid var(--accent-blue);
+            padding: 12px 16px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .disclaimer-box {
+            background: var(--code-bg);
+            border-left: 3px solid var(--accent-gold);
+            padding: 12px 16px;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .step-num {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: #ffffff;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.85rem;
+            line-height: 22px;
+            margin-right: 8px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="#" class="nav-link">← Back to Real-Time Guide</a>
+
+    <header>
+        <h1>About the OMISS Propagation Engine</h1>
+        <div class="subtitle">Technical Overview, Mathematical Foundation & User Instructions</div>
+    </header>
+
+    <div class="card">
+        <h2>What This System Does</h2>
+        <p>
+            Traditional solar indices (SFI, K-index, A-index) provide a global, macro-level estimate of ionospheric conditions, but often fail to predict localized HF propagation for regional nets.
+        </p>
+        <p>
+            The <strong>OMISS Real-Time Band Propagation Guide</strong> translates live digital ionospheric probes into actionable predictions specifically calibrated for <strong>SSB Voice Communications</strong>. It measures real-time path openings from your operating QTH across all HF bands and projects which US states and Canadian provinces are reachable for OMISS net participation.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Data Sources & Accuracy Realities</h2>
+        <ul>
+            <li>
+                <strong>PSKReporter Real-Time Feeds:</strong> Uses thousands of live FT8/FT4 reception reports as active ionospheric probes to establish path existence and measure raw signal-to-noise ratios (SNR).
+            </li>
+            <li>
+                <strong>Maidenhead Grid & Great-Circle Calculations:</strong> Converts 4- and 6-character grid squares into exact geographic coordinates to compute accurate distance radiuses from your station.
+            </li>
+            <li>
+                <strong>State & Province Mapping Engine:</strong> Maps active grid locator squares directly to US states and Canadian provinces to determine regional availability for net awards.
+            </li>
+            <li>
+                <strong>OMISS Net Schedule Feeds:</strong> Cross-references live band conditions against active OMISS operating frequencies and net check-in logs.
+            </li>
+        </ul>
+
+        <div class="disclaimer-box">
+            <strong>⚠️ Propagation Realities & Data Limitations:</strong><br>
+            No HF propagation prediction system is exact. Ionospheric conditions are constantly shifting, and actual contact success depends on antenna gain, local takeoff angles, noise floors, and operator skill. Furthermore, <strong>this system is only as good as the live data obtained from PSKReporter</strong>—if digital activity is low in a specific region, fewer spots will be reported regardless of band opening status.
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>How the Calculation Works</h2>
+        <p>
+            Digital modes like FT8 can decode signals well below the human hearing threshold (down to <code>-24 dB</code>). Single Sideband (SSB) voice requires significantly higher signal strength to be intelligible (typically <code>-3 dB</code> or better).
+        </p>
+        
+        <p>The engine converts digital metrics into estimated SSB voice conditions using the following formula:</p>
+
+        <div class="formula-box">
+            Peak Voice SNR = Peak Digital SNR - 14 dB (SSB Bandwidth Penalty) + Power Offset (dB) - Local Noise Penalty (dB)
+        </div>
+
+        <h3>Key Variables:</h3>
+        <ul>
+            <li>
+                <strong>SSB Bandwidth Penalty (14 dB):</strong> Accounts for the wide bandwidth of voice (~2400 Hz) compared to digital modes (~50 Hz), spreading transmitter power across a wider frequency spectrum.
+            </li>
+            <li>
+                <strong>Power Offset (dB):</strong> Adjusts expectations based on transmitter power relative to a 100W baseline:
+                <ul>
+                    <li><code>100 W</code> = 0 dB (Baseline)</li>
+                    <li><code>600 W</code> = +7.8 dB</li>
+                    <li><code>1200 W</code> = +10.8 dB</li>
+                    <li><code>1500 W</code> = +11.8 dB</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Local Noise Penalty:</strong> Deducts dB based on your local S-meter noise floor (from 0 dB at S0 up to 38 dB at S9+20).
+            </li>
+            <li>
+                <strong>Voice Readability Threshold:</strong> Paths with an estimated Voice SNR of <code>-3 dB</code> or higher are classified as active SSB paths and populate the active states list.
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>How to Use the Guide</h2>
+
+        <p><span class="step-num">1</span><strong> Set Your Location (Precise GPS vs. Grid)</strong></p>
+        <p>
+            Clicking <code>📍 Detect My Location</code> triggers a high-precision GPS detection that is <strong>exact to your current location</strong>, giving you the most accurate radius and path distance calculations possible. Alternatively, you can enter a 4- or 6-character Maidenhead grid square (e.g., <code>EM73</code>) and click <code>Set Grid</code>.
+        </p>
+
+        <p><span class="step-num">2</span><strong> Choose Search Radius & Data Sample Density</strong></p>
+        <p>
+            Select a 150, 250, or 400-mile base radius. Choosing a wider radius expands the geographical area, capturing <strong>significantly more active data points</strong>. A larger dataset gives a much clearer, statistically reliable indication of overall regional band conditions, especially during periods of light local activity.
+        </p>
+
+        <p><span class="step-num">3</span><strong> Select Your Operating Power</strong></p>
+        <p>
+            Choose your transmitter output power (100W, 600W, 1200W, or 1500W). Increasing power instantly recalculates estimated Voice SNR, expands reachable state listings, and updates path readability status.
+        </p>
+
+        <p><span class="step-num">4</span><strong> Set Your Local Noise Floor</strong></p>
+        <p>
+            Match the dropdown to your receiver's current S-meter noise level. If you have an S7 noise floor, setting it accurately prevents the system from overestimating readable voice paths.
+        </p>
+
+        <p><span class="step-num">5</span><strong> Read the Metrics Matrix</strong></p>
+        <ul>
+            <li><strong style="color:var(--open-green);">OPEN:</strong> Strong voice signals expected; multiple states reachable.</li>
+            <li><strong style="color:var(--marginal-yellow);">MARGINAL:</strong> Readable voice possible with weak signals or QSB.</li>
+            <li><strong style="color:var(--closed-red);">CLOSED:</strong> Digital spots exist, but signals are too weak for intelligible voice.</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

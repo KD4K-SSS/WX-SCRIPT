@@ -1,0 +1,249 @@
+KD4K PSKReporter-Derived Voice MUF System
+Technical Design, Mathematical Basis, and Implementation Documentation
+Purpose
+The KD4K Voice MUF System was developed to estimate real-world SSB voice propagation capability using live FT8 propagation reports collected from PSKReporter. Traditional MUF prediction systems rely on ionosondes, oblique sounding networks, and ionospheric modeling software. While scientifically valuable, those systems do not directly answer the question most radio operators ask:
+"What bands are actually working for voice communication right now?"
+This system takes a fundamentally different approach. Rather than modeling ionospheric behavior, it measures actual RF activity occurring on the air and uses those observations to derive a practical estimate of voice-capable propagation.
+The goal is not to determine whether a digital signal can be decoded. The goal is to estimate the highest frequency likely capable of supporting practical SSB voice communications under current operating conditions.
+
+Data Source
+The propagation engine consumes real-time FT8 reports from the PSKReporter MQTT broker:
+mqtt.pskreporter.info
+using the topic:
+pskr/filter/v2raw/#
+Every received report contains:
+
+Operating mode
+Signal-to-noise ratio
+Band
+Transmitting grid square
+Receiving grid square
+Timestamp
+
+Only FT8 reports are processed. Other digital modes are ignored.
+The system continuously collects reports and stores them in memory for processing.
+
+North American Filtering
+Because the system is intended to characterize North American propagation conditions, only paths involving North American grid fields are accepted.
+A report is retained when either the transmitter or receiver falls within predefined North American Maidenhead field prefixes.
+Examples include:
+EM, EN, EL, FM, FN, CM, DM and other North American field designators.
+This filtering removes unrelated worldwide traffic while retaining propagation paths that are useful for continental HF analysis.
+
+Rolling Observation Window
+The propagation database operates using a rolling observation window of fifteen minutes.
+Any observation older than fifteen minutes is removed automatically.
+Mathematically:
+Keep Report If
+Timestamp > (Current Time − 15 Minutes)
+This approach ensures that all calculations represent current ionospheric conditions rather than historical activity.
+The rolling window permits rapid reaction to changing propagation conditions caused by:
+
+Sunrise and sunset transitions
+Geomagnetic disturbances
+Sporadic-E openings
+F-layer enhancement
+Solar flare absorption events
+
+
+Original FT8 Processing Model
+The original implementation accepted every FT8 report regardless of signal level.
+Consequently, a path reported at -24 dB SNR contributed equally to the propagation model as a path reported at +5 dB SNR.
+While technically valid from a digital communication perspective, this produced overly optimistic propagation estimates for voice communications because FT8 can reliably decode signals that would be completely unintelligible to a human operator.
+The result was an estimate of digital propagation rather than practical voice propagation.
+
+Introduction of a Voice Qualification Threshold
+To improve correlation with actual SSB performance, a minimum FT8 signal threshold was introduced.
+Current threshold:
+MIN_SNR = -15 dB
+Any FT8 report weaker than -15 dB is discarded.
+This modification serves as the first stage of translating digital observations into estimates of voice-capable propagation.
+The threshold was intentionally chosen as a compromise. Raising the threshold further would reduce false positives but risk underestimating actual openings. Lowering the threshold would increase sensitivity but allow many digital-only paths into the model.
+
+Mathematical Relationship Between FT8 and SSB
+Comparing FT8 directly with SSB is not trivial because the two modes operate under very different technical conditions.
+A typical FT8 signal occupies approximately 50 Hz of receiver bandwidth.
+A typical SSB signal occupies approximately 3000 Hz of receiver bandwidth.
+Thermal noise power is proportional to receiver bandwidth.
+The theoretical bandwidth advantage can therefore be calculated as:
+10 × log10(3000 / 50)
+Result:
+17.8 dB
+This means FT8 immediately enjoys nearly 18 dB of sensitivity improvement simply because it operates in a much narrower bandwidth.
+FT8 then gains additional sensitivity through:
+
+Forward Error Correction
+Symbol integration
+Coherent detection
+Precise synchronization
+Structured message construction
+
+Combined, these factors provide approximately 20-25 dB of additional decode capability compared to casual voice communication.
+
+Power Compensation
+A typical FT8 station often transmits between 5 and 20 watts.
+A typical HF SSB station often transmits approximately 100 watts.
+The power advantage of SSB can be calculated using:
+10 × log10(P₂/P₁)
+Assuming:
+P₂ = 100 W
+P₁ = 5 W
+The result is:
+13 dB
+Therefore a 100-watt SSB station enjoys approximately 13 dB of transmitter power advantage compared to a 5-watt FT8 station.
+This does not completely overcome FT8's processing gain, but it significantly narrows the difference.
+
+Path Existence Versus Voice Readability
+The system intentionally avoids directly converting FT8 SNR into equivalent SSB SNR.
+Instead, FT8 is treated as a path existence detector.
+An FT8 decode proves that:
+
+The ionosphere supported the path.
+Energy successfully propagated between locations.
+The path currently exists.
+
+The remaining question becomes:
+"Does sufficient path margin exist for useful voice communication?"
+This distinction is central to the entire system design.
+
+Adopted Voice Threshold Interpretation
+The following practical interpretation is used:
+FT8 greater than -10 dB represents a strong voice path.
+FT8 between -10 dB and -15 dB represents a reliable voice path.
+FT8 between -15 dB and -18 dB represents a marginal voice path.
+FT8 below -18 dB increasingly represents digital-only propagation.
+The current operating threshold of -15 dB was chosen as the best compromise between sensitivity and realism.
+
+Incorporation of HF Noise Conditions
+An important limitation of propagation-only analysis is that propagation and readability are not the same thing.
+For example, a 28 MHz path may exist under both S1 and S8 noise conditions.
+The ionosphere has not changed.
+The operating experience has.
+A weak voice signal that is perfectly workable in an S1 environment may become unusable in an S8 environment.
+To address this issue, the system now incorporates live noise measurements.
+
+Noise Data Source
+The dashboard receives signal noise data from the HamQSL solar feed.
+Typical reports include:
+S0
+S1
+S4
+S6
+S8
+The dashboard stores the current noise estimate in:
+/var/www/html/data/hf/noise_level.txt
+The FT8 worker reads this file continuously.
+
+Dynamic Noise Penalty Model
+Instead of changing the base FT8 threshold, a dynamic penalty is applied.
+Current implementation:
+Noise levels S0 through S2 receive no penalty.
+Noise levels S3 through S4 receive a 2 dB penalty.
+Noise levels S5 through S6 receive a 4 dB penalty.
+Noise levels S7 through S9 receive a 6 dB penalty.
+The system calculates:
+Effective SNR = Observed FT8 SNR − Noise Penalty
+This effective value is then compared against the voice threshold.
+
+Example
+Suppose a PSKReporter observation reports:
+FT8 SNR = -13 dB
+The current dashboard noise level is:
+S5
+The S5 noise category applies a 4 dB penalty.
+Therefore:
+Effective SNR = -13 − 4
+Effective SNR = -17 dB
+Since -17 dB is weaker than the -15 dB acceptance threshold, the report is rejected.
+Under quieter conditions, the very same FT8 report might qualify.
+
+Effective Acceptance Thresholds
+The dynamic model produces the following equivalent voice thresholds:
+S0-S2 Noise:
+Accept FT8 signals stronger than -15 dB.
+S3-S4 Noise:
+Accept FT8 signals stronger than -13 dB.
+S5-S6 Noise:
+Accept FT8 signals stronger than -11 dB.
+S7-S9 Noise:
+Accept FT8 signals stronger than -9 dB.
+As environmental noise increases, the system automatically becomes more conservative.
+No user interaction is required.
+
+Path Aggregation
+Accepted observations are aggregated by:
+Transmit Grid
+Receive Grid
+Band
+Each unique path maintains:
+
+Path count
+Average SNR
+Best SNR
+Last observed timestamp
+
+This dramatically reduces storage requirements while preserving meaningful propagation statistics.
+
+Grid Interrogation System
+The original dashboard required exact four-character Maidenhead grid squares.
+Example:
+EM73
+This behavior was expanded to support partial Maidenhead lookups.
+The system now allows:
+EM
+EM7
+EM73
+using prefix matching.
+This permits operators to examine propagation conditions at three geographic scales.
+A two-character lookup provides a broad field-level estimate.
+A three-character lookup provides a regional estimate.
+A four-character lookup provides a local grid-square estimate.
+The maximum permitted input remains four characters because five- and six-character Maidenhead locators generally produce insufficient path density for meaningful analysis.
+
+Dashboard Terminology
+The dashboard originally displayed the total number of "spots."
+This was changed to "paths."
+The displayed number represents aggregated propagation paths rather than individual FT8 decodes.
+The term "paths" more accurately describes what the user is observing.
+
+Heatmap Classification
+The system generates a heatmap every five minutes using the summary dataset.
+Current bands:
+160m
+80m
+40m
+30m
+20m
+17m
+15m
+12m
+10m
+Bands are classified using path count.
+Good:
+150 or more paths.
+Weak:
+25 to 149 paths.
+Poor:
+1 to 24 paths.
+Closed:
+0 paths.
+These values drive the color-coded propagation display shown on the dashboard.
+
+Future Expansion
+A future enhancement under consideration is the addition of 6 meters to the Voice MUF model.
+Because 6-meter propagation is often highly localized, a higher acceptance threshold will likely be required.
+The current recommendation is a minimum of approximately ten qualified propagation paths before declaring 6-meter voice propagation open.
+This should reduce false positives caused by small Sporadic-E clusters while preserving legitimate openings.
+
+Conclusion
+The KD4K Voice MUF System is no longer a digital propagation monitor.
+It is a real-world Voice MUF estimation system that combines:
+
+Live FT8 propagation observations
+Geographic path aggregation
+SNR quality filtering
+FT8-to-voice translation logic
+Dynamic HF noise compensation
+Real-world path density analysis
+
+The result is a practical estimate of current SSB voice capability derived from observed RF activity rather than theoretical ionospheric prediction alone.

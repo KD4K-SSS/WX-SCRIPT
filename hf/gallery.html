@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="300"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>KD4K Space Weather Live Imagery</title>
+    <style>
+        :root {
+            --bg-color: #0d1117; --card-bg: #161b22; --border-color: #30363d;
+            --text-main: #c9d1d9; --text-dim: #8b949e; --cyan: #58a6ff;
+            --yellow: #d29922;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; border-bottom: 2px solid var(--cyan); padding-bottom: 15px; margin-bottom: 25px; }
+        h1 { color: var(--cyan); margin: 0 0 5px 0; font-size: 1.8rem; }
+        .nav-link { display: inline-block; margin-top: 10px; color: var(--cyan); text-decoration: none; border: 1px solid var(--border-color); padding: 5px 15px; border-radius: 4px; background: var(--card-bg); font-size: 0.9rem; }
+        .nav-link:hover { background: #1f242c; border-color: var(--cyan); }
+        
+        /* Layout Grid for Images */
+        .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 20px; margin-top: 20px; }
+        @media (max-width: 500px) { .image-grid { grid-template-columns: 1fr; } }
+        
+        .img-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; padding: 15px; display: flex; flex-direction: column; }
+        .img-title { font-weight: bold; font-size: 1.1rem; color: var(--cyan); margin-bottom: 4px; }
+        .img-desc { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 12px; line-height: 1.4; }
+        
+        .img-wrapper { background: #090d13; border: 1px solid var(--border-color); border-radius: 4px; overflow: hidden; text-align: center; display: flex; align-items: center; justify-content: center; min-height: 250px; }
+        .img-wrapper img { width: 100%; height: auto; display: block; object-fit: contain; }
+        
+        .footer-notice { margin-top: 40px; text-align: center; font-size: 0.8rem; color: var(--text-dim); border-top: 1px solid var(--border-color); padding-top: 15px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>KD4K SPACE WEATHER IMAGERY GALLERY</h1>
+        <div style="color: var(--text-dim); font-size: 0.9rem;">Live NOAA Satellite Data & Model Map Imagery</div>
+        <a href="index.html" class="nav-link">&larr; Return to Telemetry Dashboard</a>
+    </header>
+
+    <div class="image-grid">
+        <div class="img-card">
+            <div class="img-title">D-Region Absorption Predictions (D-RAP)</div>
+            <div class="img-desc">Real-time global HF propagation attenuation map. Shows signal absorption levels in dB caused by planetary solar X-ray exposure.</div>
+            <div class="img-wrapper">
+                <img id="d-rap" src="" alt="Global D-RAP Map Loading...">
+            </div>
+        </div>
+
+        <div class="img-card">
+            <div class="img-title">Station K-Index Trend</div>
+            <div class="img-desc">Displays recent 3-hour logarithmic geomagnetic disturbance metrics from individual ground stations. Spikes show active storming.</div>
+            <div class="img-wrapper">
+                <img id="station-k" src="" alt="Station K-Index Loading...">
+            </div>
+        </div>
+
+        <div class="img-card">
+            <div class="img-title">Station A-Index Trend</div>
+            <div class="img-desc">Plots the linear daily geomagnetic activity trend. Higher baselines reflect increased background static and unstable propagation paths.</div>
+            <div class="img-wrapper">
+                <img id="station-a" src="" alt="Station A-Index Loading...">
+            </div>
+        </div>
+
+        <div class="img-card">
+            <div class="img-title">Space Weather Conditions Overview</div>
+            <div class="img-desc">A rolling summary tracking the past 24 hours of Solar Radiation (S), Geomagnetic Storms (G), and Radio Blackouts (R) against current alert thresholds.</div>
+            <div class="img-wrapper">
+                <img id="swx-overview" src="" alt="Space Weather Overview Summary Loading...">
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-notice">
+        &#x21BB; Images refresh automatically. Resource streams served directly via NOAA SWPC pipelines.
+    </div>
+</div>
+
+<script>
+    // Appends a unique query variable to pull down fresh files bypassing caches
+    window.addEventListener('DOMContentLoaded', () => {
+        const cacheBuster = '?v=' + Date.now();
+        
+        const images = {
+            'd-rap': 'https://services.swpc.noaa.gov/images/animations/d-rap/global/latest.png',
+            'station-k': 'https://services.swpc.noaa.gov/images/station-k-index.png',
+            'station-a': 'https://services.swpc.noaa.gov/images/station-a-index.png',
+            'swx-overview': 'https://services.swpc.noaa.gov/images/swx-overview-small.gif'
+        };
+
+        for (const [id, url] of Object.entries(images)) {
+            const imgElement = document.getElementById(id);
+            if (imgElement) {
+                imgElement.src = url + cacheBuster;
+            }
+        }
+    });
+</script>
+</body>
+</html>

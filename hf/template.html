@@ -49,7 +49,9 @@
         .stat-node span { display: block; color: var(--text-dim); font-size: 0.8rem; font-family: sans-serif; text-transform: uppercase; margin-bottom: 2px; }
         .stat-node strong { font-size: 1.2rem; color: var(--cyan); }
 
-        /* Bash injected style dynamic matching targets */
+        /* Buttons & Dynamic Styling */
+        .legend-trigger { display: inline-block; background: #1f242c; color: var(--cyan); border: 1px solid var(--border-color); border-radius: 4px; padding: 6px 12px; text-decoration: none; font-size: 0.85rem; font-weight: bold; transition: background 0.2s; }
+        .legend-trigger:hover { background: var(--border-color); color: #fff; }
         .good, [class*="good"], [class*="Good"] { color: var(--green) !important; font-weight: bold; }
         .fair, [class*="fair"], [class*="Fair"] { color: var(--yellow) !important; font-weight: bold; }
         .poor, [class*="poor"], [class*="Poor"] { color: var(--red) !important; font-weight: bold; }
@@ -64,9 +66,17 @@
         .forecast-box { background-color: #090d13; border: 1px solid var(--border-color); border-radius: 6px; padding: 15px; font-family: monospace; font-size: 0.85rem; line-height: 1.5; color: #ffffff; white-space: pre-wrap; max-height: 500px; overflow-y: auto; }
         .disclaimer { margin-top: 40px; padding: 15px; border-top: 1px solid var(--border-color); font-size: 0.8rem; color: var(--text-dim); text-align: center; }
 
-        /* Scrollable layout table style container custom addition */
-        .table-scroll { max-height: 350px; overflow-y: auto; border: 1px solid var(--border-color); border-radius: 6px; margin-bottom: 30px; background: var(--card-bg); }
-        .table-scroll table { margin-bottom: 0; border: none; }
+        /* Lightbox CSS */
+        .lightbox-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); display: none; justify-content: center; align-items: center; z-index: 1000; }
+        .lightbox-overlay:target { display: flex; }
+        .lightbox-content { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; max-width: 650px; width: 90%; position: relative; }
+        .lightbox-close { position: absolute; top: 10px; right: 15px; color: var(--text-dim); text-decoration: none; font-size: 1.5rem; font-weight: bold; }
+        .lightbox-close:hover { color: var(--cyan); }
+
+        @media (max-width: 768px) {
+            #noise-grid { grid-template-columns: 1fr !important; text-align: center; }
+            #noise-grid > div { text-align: center !important; }
+        }
     </style>
 </head>
 <body>
@@ -129,78 +139,154 @@
     </div>
 
     <div style="display: flex; align-items: center; gap: 10px; margin-top: 30px;">
-    <h2 style="margin: 0; border-left: 4px solid var(--cyan); padding-left: 10px;">Live North America Digital Band Propagation Matrix</h2>
-    <a href="#heatmap-lightbox" class="legend-trigger" style="padding: 2px 8px; font-size: 0.8rem; margin: 0;">View Animation</a>
-</div>
-
-<div id="heatmap-lightbox" class="lightbox-overlay">
-    <div class="lightbox-content" style="max-width: 850px; text-align: center;">
-        <a href="#" class="lightbox-close">&times;</a>
-        <h2 style="margin-top:0; border-left:none; padding-left:0; color:var(--cyan); font-size:1.4rem; text-align: left;">
-            24 Hour History - Zulu Time
-        </h2>
-        <hr style="border:0; border-top:1px solid var(--border-color); margin-bottom:15px">
-        
-        <div style="position: relative; display: inline-block; width: 100%; background: #000; border-radius: 4px; border: 1px solid var(--border-color); cursor: pointer;"
-             onclick="document.getElementById('static-png').style.opacity='0'; document.getElementById('anim-gif').style.visibility='visible'; document.getElementById('anim-gif').style.opacity='1';">
-            
-            <img id="static-png" 
-                 src="https://www.ssbwx.net/data/hf/pskr_heatmap.png" 
-                 alt="Digital Spectrum Static" 
-                 style="width: 100%; height: auto; display: block; transition: opacity 0.1s ease;">
-            
-            <img id="anim-gif" 
-                 src="https://www.ssbwx.net/data/hf/pskr_history.gif" 
-                 alt="Digital Spectrum Animated" 
-                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: fill; visibility: hidden; opacity: 0; transition: opacity 0.1s ease;">
-        </div>
-        
-        <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 10px; font-style: italic;">
-            Click the static image above to load the GIF animation loop. Click X to close.
-        </p>
+        <h2 style="margin: 0; border-left: 4px solid var(--cyan); padding-left: 10px;">Live North America Digital Band Propagation Matrix</h2>
+        <a href="#heatmap-lightbox" class="legend-trigger" style="padding: 2px 8px; font-size: 0.8rem; margin: 0;">View Animation</a>
     </div>
-</div>
-    <div id="ft8-matrix" class="matrix-grid">
+
+    <div id="heatmap-lightbox" class="lightbox-overlay">
+        <div class="lightbox-content" style="max-width: 850px; text-align: center;">
+            <a href="#" class="lightbox-close">&times;</a>
+            <h2 style="margin-top:0; border-left:none; padding-left:0; color:var(--cyan); font-size:1.4rem; text-align: left;">
+                24 Hour History - Zulu Time
+            </h2>
+            <hr style="border:0; border-top:1px solid var(--border-color); margin-bottom:15px">
+            
+            <div style="position: relative; display: inline-block; width: 100%; background: #000; border-radius: 4px; border: 1px solid var(--border-color); cursor: pointer;"
+                 onclick="document.getElementById('static-png').style.opacity='0'; document.getElementById('anim-gif').style.visibility='visible'; document.getElementById('anim-gif').style.opacity='1';">
+                
+                <img id="static-png" 
+                     src="https://www.ssbwx.net/data/hf/pskr_heatmap.png" 
+                     alt="Digital Spectrum Static" 
+                     style="width: 100%; height: auto; display: block; transition: opacity 0.1s ease;">
+                
+                <img id="anim-gif" 
+                     src="https://www.ssbwx.net/data/hf/pskr_history.gif" 
+                     alt="Digital Spectrum Animated" 
+                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: fill; visibility: hidden; opacity: 0; transition: opacity 0.1s ease;">
+            </div>
+            
+            <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 10px; font-style: italic;">
+                Click the static image above to load the GIF animation loop. Click X to close.
+            </p>
+        </div>
+    </div>
+
+    <div id="ft8-matrix" class="matrix-grid" style="margin-top: 15px;">
         <div style="color: var(--text-dim); grid-column: 1 / -1; padding: 10px; font-style: italic;">Aggregating live digital band telemetry data stream...</div>
     </div>
 
-    <h2>Localized Real-World Grid Square Interrogation [Up To 6M]</h2>
-    <div class="explorer-box">
-        <div class="explorer-row">
-            <label for="grid-entry" style="font-weight: bold; color: var(--cyan);">
-            Enter Grid Locator (2-4 Characters):
-            </label>
+    <div style="
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        background: linear-gradient(135deg, rgba(88, 166, 255, 0.1) 0%, var(--card-bg) 60%); 
+        border: 1px solid var(--cyan); 
+        border-radius: 8px; 
+        padding: 16px 20px; 
+        margin-top: 30px; 
+        margin-bottom: 25px;
+        box-shadow: 0 0 15px rgba(88, 166, 255, 0.15);
+    ">
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="
+                width: 10px; 
+                height: 10px; 
+                background-color: var(--cyan); 
+                border-radius: 50%; 
+                display: inline-block; 
+                box-shadow: 0 0 8px var(--cyan);
+            "></span>
 
-<input type="text"
-       id="grid-entry"
-       class="grid-input"
-       maxlength="4"
-       placeholder="EM, EM7, EM73"
-       value="EM73">
-            <span id="grid-status-meta" style="font-size: 0.85rem; color: var(--text-dim); font-family: monospace;"></span>
+            <h2 style="margin: 0; border-left: none; padding-left: 0; font-size: 1.25rem; font-weight: 700; color: #ffffff; letter-spacing: 0.5px;">
+                Detailed Propagation Engine — OMISS Net Status <span style="color: var(--green); font-weight: normal;">----->ONLINE</span>
+            </h2>
         </div>
-        <div class="explorer-stats" style="grid-template-columns: repeat(3, 1fr);">
-            <div class="stat-node"><span>Localized Voice MUF</span><strong id="grid-muf-val">-- MHz</strong></div>
-            <div class="stat-node"><span>Estimated LUF (X-Ray Derived)</span><strong id="grid-luf-val" style="color: var(--yellow);">-- MHz</strong></div>
-            <div class="stat-node"><span>Active Paths Tracked</span><strong id="grid-spots-val">-- Paths</strong></div>
+
+        <a href="prop_engine.html" target="_blank" rel="noopener noreferrer" class="legend-trigger" style="
+            background: var(--cyan); 
+            color: #0d1117; 
+            font-weight: bold; 
+            padding: 8px 16px; 
+            border-radius: 6px; 
+            border: none;
+            box-shadow: 0 2px 8px rgba(88, 166, 255, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            Open Engine ↗
+        </a>
+    </div>
+
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 20px;">
+        <h2 style="margin: 0; border-left: 4px solid var(--cyan); padding-left: 10px;">
+            Localized Real-World Grid Square Interrogation
+        </h2>
+        <div>
+            <a href="map.html" target="_blank" rel="noopener noreferrer" class="legend-trigger" style="font-size:0.75rem; vertical-align:middle;">Interactive Map</a>
+            <a href="pskdoc.html" target="_blank" rel="noopener noreferrer" class="legend-trigger" style="font-size:0.75rem; vertical-align:middle; margin-left: 4px;">Documentation</a>
+            <a href="prop.html" target="_blank" rel="noopener noreferrer" class="legend-trigger" style="font-size:0.75rem; vertical-align:middle; margin-left: 4px;">Specifications</a>
         </div>
     </div>
 
-    <h2>Global Ionosonde Network Interrogation</h2>
-    <div class="explorer-box">
+    <div class="explorer-box" style="margin-top: 15px;">
         <div class="explorer-row">
-            <label for="station-select" style="font-weight: bold; color: var(--cyan);">Current Live Reporting Stations:</label>
-            <select id="station-select">
-                <option value="">Loading active stations...</option>
-            </select>
+            <label for="grid-entry" style="font-weight: bold; color: var(--cyan);">
+                Enter Grid Locator (2-4 Characters):
+            </label>
+            <input type="text" id="grid-entry" class="grid-input" maxlength="4" placeholder="EM, EM7, EM73" value="">
+            <span id="grid-status-meta" style="font-size:0.85rem;color:var(--text-dim);font-family:monospace;"></span>
         </div>
+
         <div class="explorer-stats">
-            <div class="stat-node"><span>MUF (3000)</span><strong id="exp-muf">--</strong></div>
-            <div class="stat-node"><span>Critical Freq (foF2)</span><strong id="exp-fof2">--</strong></div>
-            <div class="stat-node"><span>Sporadic E (foEs)</span><strong id="exp-foes">--</strong></div>
-            <div class="stat-node"><span>F2 Peak Height</span><strong id="exp-hmf2">--</strong></div>
+            <div class="stat-node">
+                <span>Localized Voice MUF</span>
+                <strong id="grid-muf-val">Loading MHz</strong>
+            </div>
+            <div class="stat-node">
+                <span>Estimated LUF (X-Ray Derived)</span>
+                <strong id="grid-luf-val" style="color: var(--yellow);">Loading MHz</strong>
+            </div>
+            <div class="stat-node">
+                <span>Active Paths Tracked</span>
+                <strong id="grid-spots-val">Loading Paths</strong>
+            </div>
         </div>
-        <div id="exp-meta" style="font-size: 0.8rem; color: var(--text-dim); margin-top: 12px; font-family: monospace;"></div>
+
+        <div id="noise-grid" style="margin-top:15px; border-top:1px solid var(--border-color); border-bottom:1px solid var(--border-color); padding:15px 0; display:grid; grid-template-columns:minmax(180px,220px) 1fr minmax(220px,260px); align-items:center; gap:20px;">
+            <div>
+                <div style="color:var(--cyan); font-weight:bold; margin-bottom:6px;">
+                    Your Local Noise Level
+                </div>
+                <select id="user-noise-level">
+                    <option value="0">S0-S1</option>
+                    <option value="3">S2-S3</option>
+                    <option value="6">S4-S5</option>
+                    <option value="12">S6-S7</option>
+                    <option value="18">S8-S9</option>
+                    <option value="28">S9 +10</option>
+                    <option value="33">S9 +15</option>
+                    <option value="38">S9 +20</option>
+                </select>
+            </div>
+
+            <div style="text-align:center; color:var(--text-dim); font-size:0.9rem; line-height:1.4;">
+                SSB
+                <div style="color:var(--green); font-weight:bold; font-size:1rem; margin-top:4px;">
+                    Voice Readable
+                </div>
+            </div>
+
+            <div style="text-align:right;">
+                <div style="color:var(--text-dim); font-size:0.8rem; text-transform:uppercase; margin-bottom:4px;">
+                    Active Paths (Noise Adjusted)
+                </div>
+                <div id="grid-adjusted-spots-val" style="color:var(--cyan); font-size:1.4rem; font-weight:bold; font-family:monospace;">
+                    Loading PATHS
+                </div>
+                <div id="grid-readable-bands-val" style="color:var(--green); font-size:0.8rem; margin-top:4px; font-family:monospace;">
+                    Bands: Loading
+                </div>
+            </div>
+        </div>
     </div>
 
     <h2>HF Band Propagation Status</h2>
@@ -219,7 +305,7 @@
     <h2>Official NOAA SWPC 3-Day Space Weather Forecast</h2>
     <div class="forecast-box">TARGET_TEXT_FORECAST</div>
     
-    <div class="disclaimer"><strong>Disclaimer:</strong> Ingested data sources: SWPC, NOAA, GIRO,PSK Reporter, and LDAP Ionosonde. These sites are the derivative sources for verification.</div>
+    <div class="disclaimer"><strong>Disclaimer:</strong> Ingested data sources: SWPC, NOAA, GIRO, PSK Reporter, and LDAP Ionosonde. These sites are the derivative sources for verification.</div>
 </div>
 
 <script>
@@ -262,7 +348,7 @@
             document.getElementById('muf-display').className = "poor"; 
         });
 
-    // FETCH LOGIC: Fetch and Populate Regional US WSPR Data File
+    // 2. Fetch and Populate Regional US WSPR Data File
     fetch('/data/hf/regional_muf.json?v=' + Date.now())
         .then(r => r.json())
         .then(data => {
@@ -319,10 +405,7 @@
                 '<div style="color: var(--red); grid-column: 1 / -1; padding: 10px;">Regional WSPR Matrix Service Offline</div>';
         });
 
-   // =========================================================================
-    // OPTIMIZED AGGREGATOR ENGINE: Parse Lean pskr_summary.json into Band Cards
-    // =========================================================================
-    // Fixed typo path and migrated engine to read pre-compiled data.bands array
+    // 3. Parse Lean pskr_summary.json into Band Cards
     fetch('/data/hf/pskr_summary.json?v=' + Date.now())
         .then(r => r.json())
         .then(data => {
@@ -334,7 +417,6 @@
 
             const fragment = document.createDocumentFragment();
 
-            // The backend Python script already filtered and sorted these for you!
             data.bands.forEach(bandNode => {
                 const band = bandNode.band;
                 const spots = parseInt(bandNode.active_spots || 0);
@@ -343,7 +425,6 @@
                 let displayStatus = "Poor";
                 let scaleClass = "poor";
 
-                // Retain your original logic thresholds using the pre-calculated metrics
                 if (spots > 0) {
                     if (spots >= 15 && avgSnr >= -12) {
                         displayStatus = "Open";
@@ -373,56 +454,71 @@
             document.getElementById('ft8-matrix').innerHTML = 
                 '<div style="color: var(--red); grid-column: 1 / -1; padding: 10px; font-weight: bold;">PSKReporter Telemetry Local Matrix Engine Offline</div>';
         });
-    // =========================================================================
-    // DYNAMIC LOOKUP ENGINE: FT8 (pskr.json) 4-Character Grid Interrogation
-    // =========================================================================
+
+    // 4. FT8 4-Character Grid Interrogation Engine
     let ft8PathsCache = [];
     const inputGrid = document.getElementById('grid-entry');
     const statusMeta = document.getElementById('grid-status-meta');
     const mufValNode = document.getElementById('grid-muf-val');
     const spotsValNode = document.getElementById('grid-spots-val');
+    const adjustedSpotsValNode = document.getElementById('grid-adjusted-spots-val');
+    const noiseSelect = document.getElementById('user-noise-level');
+
+    function getSiteNoisePenalty() {
+        const noiseText = document.getElementById('val-noise')?.textContent?.trim()?.toUpperCase() || '';
+        if (noiseText.includes('S8') || noiseText.includes('S9')) return 8;
+        if (noiseText.includes('S6') || noiseText.includes('S7')) return 6;
+        if (noiseText.includes('S4') || noiseText.includes('S5')) return 4;
+        if (noiseText.includes('S2') || noiseText.includes('S3')) return 2;
+        return 0;
+    }
+
+    function getUserNoiseDelta() {
+        if (!noiseSelect) return 0;
+        const userPenalty = parseInt(noiseSelect.value || "0");
+        return userPenalty - getSiteNoisePenalty();
+    }
 
     function loadFT8GridData() {
-        // Fetch the FT8 dataset instead of the WSPR file
         fetch('/data/hf/pskr.json?v=' + Date.now())
             .then(r => r.json())
             .then(data => {
-                if(data && data.paths) {
-                    ft8PathsCache = data.paths;
+                const spotData = data.spots || data.paths;
+                if (data && spotData) {
+                    ft8PathsCache = spotData;
                     processGridLookup();
                 }
             })
             .catch(() => {
-                statusMeta.textContent = "Error loading FT8 dataset for interrogation.";
-                statusMeta.style.color = "var(--red)";
+                if(statusMeta) {
+                    statusMeta.textContent = "Error loading FT8 dataset for interrogation.";
+                    statusMeta.style.color = "var(--red)";
+                }
             });
     }
 
     function processGridLookup() {
-        if(!ft8PathsCache || ft8PathsCache.length === 0) return;
+        if(!ft8PathsCache || ft8PathsCache.length === 0 || !inputGrid) return;
         
         let rawVal = inputGrid.value.trim().toUpperCase();
         
-        // Allow 2, 3, or 4 character lookups
-if(rawVal.length < 2) {
-    statusMeta.textContent =
-        "Enter 2-4 grid characters (EM, EM7, EM73)";
-    mufValNode.textContent = "-- MHz";
-    spotsValNode.textContent = "-- spots";
-    document.getElementById('grid-luf-val').textContent = "-- MHz";
-    return;
-}
+        if(rawVal.length < 2) {
+            if(statusMeta) statusMeta.textContent = "Enter 2-4 grid characters (EM, EM7, EM73)";
+            if(mufValNode) mufValNode.textContent = "-- MHz";
+            if(spotsValNode) spotsValNode.textContent = "-- spots";
+            document.getElementById('grid-luf-val').textContent = "-- MHz";
+            if(adjustedSpotsValNode) adjustedSpotsValNode.textContent = "-- PATHS";
+            document.getElementById('grid-readable-bands-val').textContent = "Bands: --";
+            return;
+        }
 
-// Maximum precision remains 4 characters
-let targetGrid = rawVal.substring(0, 4);
+        let targetGrid = rawVal.substring(0, 4);
 
-// Prefix matching
-let matchingPaths = ft8PathsCache.filter(p =>
-    (p.tx && p.tx.toUpperCase().startsWith(targetGrid)) ||
-    (p.rx && p.rx.toUpperCase().startsWith(targetGrid))
-);
+        let matchingPaths = ft8PathsCache.filter(p =>
+            (p.tx && p.tx.toUpperCase().startsWith(targetGrid)) ||
+            (p.rx && p.rx.toUpperCase().startsWith(targetGrid))
+        );
         
-        // Calculate Global LUF baseline
         let estimatedLuf = 3.5; 
         const xrayElement = document.getElementById('val-xray');
         
@@ -442,13 +538,23 @@ let matchingPaths = ft8PathsCache.filter(p =>
             let totalSpots = 0;
             let highestFreq = 0;
             let activeBands = new Set();
+            let readableBands = new Set();
 
-            // Interrogate the matching FT8 paths
+            const deltaPenalty = getUserNoiseDelta();
+            let adjustedSpotCount = 0;
+
             matchingPaths.forEach(p => {
-                totalSpots += parseInt(p.count || 0);
+                const pathSnr = parseInt(p.best_snr || p.snr || 0);
+                const adjustedSnr = pathSnr - deltaPenalty;
+
+                totalSpots += parseInt(p.count || 1);
                 activeBands.add(p.band);
+
+                if (adjustedSnr >= -10) {
+                    adjustedSpotCount += parseInt(p.count || 1);
+                    readableBands.add(p.band);
+                }
                 
-                // Parse the numerical frequency out of the string (e.g., "14MHz" -> 14)
                 let freqMatch = p.band.match(/([\d\.]+)/);
                 if (freqMatch) {
                     let freq = parseFloat(freqMatch[1]);
@@ -458,274 +564,44 @@ let matchingPaths = ft8PathsCache.filter(p =>
 
             mufValNode.textContent = highestFreq > 0 ? highestFreq.toFixed(1) + " MHz" : "Quiet / Closed";
             spotsValNode.textContent = totalSpots + " PATHS";
+            adjustedSpotsValNode.textContent = adjustedSpotCount + " PATHS";
             
             if (highestFreq >= 21.0) mufValNode.className = "good";
             else if (highestFreq >= 14.0) mufValNode.className = "fair";
             else mufValNode.className = "poor";
 
-            // Status output formatting
             if (estimatedLuf >= highestFreq && highestFreq > 0) {
-                statusMeta.innerHTML = `Matched [${targetGrid}]. <span style="color: var(--red); font-weight: bold;">Band Compressed:</span> LUF exceeds MUF due to absorption.`;
+                statusMeta.innerHTML = `Matched [${targetGrid}]. <span style="color: var(--red); font-weight: bold;">Band Compressed:</span> LUF exceeds MUF.`;
                 statusMeta.style.color = "var(--red)";
             } else {
-                // Convert the Set of active bands to an array and sort them
-                let sortedBands = Array.from(activeBands).sort((a, b) => parseFloat(b) - parseFloat(a));
-               let precision = "Grid Square";
+                let sortedReadable = Array.from(readableBands).sort((a, b) => parseFloat(b) - parseFloat(a));
+                const readableBandsNode = document.getElementById("grid-readable-bands-val");
 
-if(targetGrid.length === 2)
-    precision = "Field";
-else if(targetGrid.length === 3)
-    precision = "Regional Sector";
-
-statusMeta.innerHTML =
-    `Matched ${precision} [${targetGrid}]. <span style="color: var(--cyan)">Active Bands:</span> ${sortedBands.join(', ')}`;
-                statusMeta.style.color = "var(--text-dim)";
+                if (readableBandsNode) {
+                    readableBandsNode.textContent = sortedReadable.length > 0 
+                        ? "Bands: " + sortedReadable.join(", ") 
+                        : "Bands: None";
+                }
+                statusMeta.textContent = `Matched [${targetGrid}]. Live telemetry parsed successfully.`;
+                statusMeta.style.color = "var(--cyan)";
             }
         } else {
+            statusMeta.textContent = `No active digital paths detected for [${targetGrid}].`;
+            statusMeta.style.color = "var(--yellow)";
             mufValNode.textContent = "Quiet / Closed";
             mufValNode.className = "poor";
-            spotsValNode.textContent = "0 spots";
-            statusMeta.textContent = `No active FT8 spots found for grid [${targetGrid}].`;
-            statusMeta.style.color = "var(--yellow)";
+            spotsValNode.textContent = "0 PATHS";
+            adjustedSpotsValNode.textContent = "0 PATHS";
+            document.getElementById("grid-readable-bands-val").textContent = "Bands: None";
         }
     }
 
-    inputGrid.addEventListener('input', processGridLookup);
-    
-    // Replace the old load function call
+    // Attach Event Listeners
+    if(inputGrid) inputGrid.addEventListener('input', processGridLookup);
+    if(noiseSelect) noiseSelect.addEventListener('change', processGridLookup);
+
+    // Initial Load Execution
     loadFT8GridData();
-
-    // 2. Fetch and Populate Filtered Stations JSON
-    let stationDataCache = [];
-    fetch('clean_stations.json?v=' + Date.now())
-        .then(r => r.json())
-        .then(stations => {
-            stationDataCache = stations;
-            const selectEl = document.getElementById('station-select');
-            selectEl.innerHTML = '<option value="">-- Choose a Station --</option>';
-            
-            stations.sort((a, b) => a.station.name.localeCompare(b.station.name));
-            stations.forEach((item, index) => {
-                const opt = document.createElement('option');
-                opt.value = index;
-                opt.textContent = `${item.station.name} (${item.station.code})`;
-                selectEl.appendChild(opt);
-            });
-
-            if(stations.length > 0) {
-                selectEl.value = "0";
-                updateExplorerValues(stations[0]);
-            }
-        })
-        .catch(() => {
-            document.getElementById('station-select').innerHTML = '<option>Error loading station database</option>';
-        });
-
-    document.getElementById('station-select').addEventListener('change', (e) => {
-        const val = e.target.value;
-        if(val !== "") updateExplorerValues(stationDataCache[val]);
-    });
-
-    function updateExplorerValues(node) {
-        document.getElementById('exp-muf').textContent = node.mufd ? `${parseFloat(node.mufd).toFixed(2)} MHz` : 'N/A';
-        document.getElementById('exp-fof2').textContent = node.fof2 ? `${parseFloat(node.fof2).toFixed(2)} MHz` : 'N/A';
-        document.getElementById('exp-foes').textContent = node.foes ? `${parseFloat(node.foes).toFixed(2)} MHz` : 'N/A';
-        document.getElementById('exp-hmf2').textContent = node.hmf2 ? `${Math.round(node.hmf2)} km` : 'N/A';
-        
-        const obsTime = new Date(node.time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-        document.getElementById('exp-meta').textContent = 
-            `Node ID: ${node.station.id} | Lat: ${node.station.latitude}°N, Lon: ${node.station.longitude}°E | Telemetry Source: ${node.source.toUpperCase()} | Obs Run: ${obsTime}`;
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-        const imfElement = document.getElementById('val-imf');
-        if (imfElement) {
-            const valText = imfElement.textContent.trim();
-            if (valText !== "TARGET_IMF" && valText !== "") {
-                const valNum = parseFloat(valText);
-                if (!isNaN(valNum)) {
-                    if (valNum < 0) imfElement.classList.add('poor');
-                    else imfElement.classList.add('good');
-                } else if (valText.includes('-')) {
-                    imfElement.classList.add('poor');
-                } else {
-                    imfElement.classList.add('good');
-                }
-            }
-        }
-    });
-</script>
-
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        const s = document.createElement('style');
-        s.textContent = `
-            .button-group { display: flex; justify-content: center; gap: 12px; margin-top: 10px; }
-            .legend-trigger { color: var(--cyan); text-decoration: none; font-size: 0.9rem; border: 1px solid var(--border-color); padding: 4px 12px; border-radius: 4px; background: var(--card-bg); transition: 0.2s; cursor: pointer; display: inline-block; }
-            .legend-trigger:hover { background: #1f242c; border-color: var(--cyan); }
-            .lightbox-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; z-index: 9999; }
-            .lightbox-overlay:target { display: flex !important; opacity: 1; pointer-events: auto; }
-            .lightbox-content { background: var(--card-bg); border: 1px solid var(--border-color); padding: 25px; border-radius: 8px; max-width: 650px; width: 90%; max-height: 80vh; overflow-y: auto; position: relative; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); text-align: left; }
-            .lightbox-close { position: absolute; top: 15px; right: 20px; color: var(--text-dim); text-decoration: none; font-size: 1.8rem; line-height: 1; transition: 0.2s; }
-            .lightbox-close:hover { color: var(--red); }
-            .legend-item { font-size: 0.9rem; line-height: 1.5; margin-bottom: 12px; border-bottom: 1px dashed #21262d; padding-bottom: 12px; color: var(--text-main); }
-            .legend-item strong { color: var(--cyan); display: inline-block; margin-right: 4px; }
-            .legend-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        `;
-        document.head.appendChild(s);
-
-        const h = document.querySelector('header');
-        if (h) {
-            const d = document.createElement('div');
-            d.className = 'button-group';
-            d.innerHTML = `
-                <a href="#legend-lightbox" class="legend-trigger">Data Glossary</a>
-                <a href="gallery.html" class="legend-trigger">Live Imagery Gallery</a>
-            `;
-            h.appendChild(d);
-        }
-
-        const m = document.createElement('div');
-        m.id = 'legend-lightbox';
-        m.className = 'lightbox-overlay';
-        m.innerHTML = `
-            <div class="lightbox-content">
-    #
-
-    <h2 style="margin-top:0; border-left:none; padding-left:0; color:var(--cyan); font-size:1.4rem;">
-        Dashboard Telemetry Glossary
-    </h2>
-
-    <hr style="border:0; border-top:1px solid var(--border-color); margin-bottom:15px">
-
-    <div class="legend-item">
-        <strong>Solar Flux Index (SFI)</strong><br>
-        Measures solar radio energy emitted at 10.7 cm wavelength. Higher values generally indicate stronger ionization of the F-layer and improved HF propagation, especially on higher bands.
-    </div>
-
-    <div class="legend-item">
-        <strong>Sunspot Number</strong><br>
-        Count of visible sunspots and active solar regions. Higher values typically correlate with improved long-distance HF communication potential.
-    </div>
-
-    <div class="legend-item">
-        <strong>X-Ray Flare Level</strong><br>
-        Current solar flare intensity. M and X-class flares can cause sudden ionospheric disturbances and HF radio blackouts.
-    </div>
-
-    <div class="legend-item">
-        <strong>Solar Wind Speed</strong><br>
-        Speed of charged particles flowing from the Sun toward Earth. Elevated wind speeds can increase geomagnetic disturbance.
-    </div>
-
-    <div class="legend-item">
-        <strong>Planetary K Index (Kp)</strong><br>
-        Three-hour measure of geomagnetic activity from 0 to 9. Lower values indicate a quieter geomagnetic environment and generally better HF conditions.
-    </div>
-
-    <div class="legend-item">
-        <strong>A Index</strong><br>
-        Daily average geomagnetic activity level. Lower values indicate more stable propagation conditions.
-    </div>
-
-    <div class="legend-item">
-        <strong>Bz Magnetic Field</strong><br>
-        North/South orientation of the Interplanetary Magnetic Field (IMF). Positive Bz typically supports stability. Sustained negative Bz can trigger geomagnetic storms.
-    </div>
-
-    <div class="legend-item">
-        <strong>Signal Noise Level</strong><br>
-        Estimated RF background noise. Lower noise levels improve reception of weak DX signals.
-    </div>
-
-    <div class="legend-item">
-        <strong>MUF (Maximum Usable Frequency)</strong><br>
-        Highest frequency expected to support reliable ionospheric propagation between two locations.
-    </div>
-
-    <div class="legend-item">
-        <strong>LUF (Lowest Usable Frequency)</strong><br>
-        Lowest frequency capable of overcoming atmospheric absorption and local noise.
-    </div>
-
-    <div class="legend-item">
-        <strong>Voice MUF</strong><br>
-        Estimated maximum frequency capable of supporting practical SSB voice communications rather than weak-signal digital modes.
-    </div>
-
-    <div class="legend-item">
-        <strong>WSPR Matrix</strong><br>
-        Regional MUF estimate derived from crowdsourced Weak Signal Propagation Reporter (WSPR) telemetry collected during the previous analysis window.
-    </div>
-
-    <div class="legend-item">
-        <strong>FT8 Matrix</strong><br>
-        Real-time propagation assessment generated from PSKReporter FT8 telemetry throughout North America.
-    </div>
-
-    <div class="legend-item">
-        <strong>Spot Count</strong><br>
-        Number of valid received propagation reports contributing to a band or path evaluation.
-    </div>
-
-    <div class="legend-item">
-        <strong>Average SNR</strong><br>
-        Mean Signal-to-Noise Ratio of received reports. Higher values indicate stronger and more reliable propagation paths.
-    </div>
-
-    <div class="legend-item">
-        <strong>Best SNR</strong><br>
-        Highest Signal-to-Noise Ratio observed during the reporting period.
-    </div>
-
-    <div class="legend-item">
-        <strong>Grid Square</strong><br>
-        Maidenhead Locator reference used by amateur radio operators to identify geographic locations.
-    </div>
-
-    <div class="legend-item">
-        <strong>Localized Grid Interrogation</strong><br>
-        Displays calculated MUF, LUF, active paths, and current band activity for a selected Maidenhead grid square.
-    </div>
-
-    <div class="legend-item">
-        <strong>foF2</strong><br>
-        Critical frequency of the F2 ionospheric layer. One of the most important measurements for HF propagation forecasting.
-    </div>
-
-    <div class="legend-item">
-        <strong>MUF(3000)</strong><br>
-        Estimated Maximum Usable Frequency for a 3000 km radio path based on ionosonde observations.
-    </div>
-
-    <div class="legend-item">
-        <strong>foEs</strong><br>
-        Critical frequency of the Sporadic-E layer. Elevated values can support strong 10m and 6m propagation.
-    </div>
-
-    <div class="legend-item">
-        <strong>hmF2</strong><br>
-        Peak height of the F2 ionospheric layer above Earth, measured in kilometers.
-    </div>
-
-    <div class="legend-item">
-        <strong>Regional MUF Matrix</strong><br>
-        Geographic representation of current HF propagation capability across major U.S. regions using live WSPR observations.
-    </div>
-
-    <div class="legend-item">
-        <strong>North America FT8 Equalizer</strong><br>
-        Real-time band activity display using FT8 reports. Bands are displayed from 160m through 10m and color coded:
-        <br><br>
-        <span style="color:#f85149;font-weight:bold;">RED = Poor</span><br>
-        <span style="color:#d29922;font-weight:bold;">YELLOW = Weak / Marginal</span><br>
-        <span style="color:#2ea043;font-weight:bold;">GREEN = Good / Open</span>
-    </div>
-
-</div>
-        `;
-        document.body.appendChild(m);
-    });
 </script>
 </body>
 </html>

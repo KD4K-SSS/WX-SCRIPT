@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Specification - OMISS Real-Time HF Propagation Engine</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --text-main: #c9d1d9;
+            --text-dim: #8b949e;
+            --accent-blue: #58a6ff;
+            --accent-gold: #f0883e;
+            --open-green: #2ea043;
+            --marginal-yellow: #d29922;
+            --closed-red: #f85149;
+            --purple-digital: #bc8cff;
+            --code-bg: #21262d;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            color: var(--accent-blue);
+            font-size: 2.1rem;
+            margin: 0 0 5px 0;
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            font-family: monospace;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--accent-gold);
+            font-size: 1.35rem;
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--accent-blue);
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        p { margin-top: 0; margin-bottom: 12px; }
+
+        ul, ol {
+            padding-left: 20px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        li { margin-bottom: 8px; }
+
+        code {
+            background-color: var(--code-bg);
+            color: var(--purple-digital);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.88rem;
+        }
+
+        .formula-box {
+            background: var(--code-bg);
+            border-left: 4px solid var(--accent-blue);
+            padding: 14px 18px;
+            font-family: monospace;
+            font-size: 0.92rem;
+            color: #ffffff;
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+            overflow-x: auto;
+        }
+
+        .architecture-box {
+            background: #010409;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+            font-family: monospace;
+            font-size: 0.82rem;
+            color: #58a6ff;
+            white-space: pre;
+            overflow-x: auto;
+            line-height: 1.4;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: 10px 14px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--code-bg);
+            color: var(--accent-gold);
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="prop_engine.html" class="nav-link">← Back to Real-Time Engine UI</a>
+
+    <header>
+        <h1>System Architecture & Mathematical Specification</h1>
+        <div class="subtitle">Real-Time Digital-to-SSB Voice Transformation Engine & Net Scraper Architecture</div>
+    </header>
+
+    <div class="card">
+        <h2>1. System Pipeline & Data Flow</h2>
+        <p>
+            The system ingest pipeline operates as an asynchronous, non-blocking telemetry engine. It captures raw digital spot streams via MQTT, processes ionospheric refraction physics, scrapes dynamic net structures, and projects link margins onto an active web presentation layer.
+        </p>
+
+        <div class="architecture-box">
++-----------------------------------------------------------------------------------+
+|                            EXTERNAL TELEMETRY FEEDS                               |
+|   1. MQTT Stream (pskreporter.info:1883) ----> Raw FT8/FT4 Packets               |
+|   2. OMISS Web Portal (omiss.net) -----------> Active Nets & Check-in Roster      |
++----------------------------------------+------------------------------------------+
+                                         |
+                                         v
++-----------------------------------------------------------------------------------+
+|                            RAM-BACKED PIPELINE EXECUTION                          |
+|                                                                                   |
+|  [psk_muf.sh] (Process Daemon)                                                    |
+|    └─> mosquitto_sub                                                              |
+|          ├─> tee ──> [pskr_engine.py]  ==> Writes JSON: /data/hf/pskr_engine.json|
+|          └─> worker ─> [pskr_worker.py]  ==> Real-Time MUF / Distance Statistics  |
+|                                                                                   |
+|  [omiss_engine.py] (60s Loop Daemon)                                              |
+|    ├─> Scrapes: activeNets.php & checkins.php                                     |
+|    ├─> Evaluates: Roster Call-signs & State Identifiers                           |
+|    └─> Correlates: PSKR Band Status                                               |
+|    └─> Writes JSON: /var/www/html/data/hf/omiss_engine.json                       |
++----------------------------------------+------------------------------------------+
+                                         |
+                                         v
++-----------------------------------------------------------------------------------+
+|                            CLIENT-SIDE COMPUTATIONAL ENGINE                       |
+|                                                                                   |
+|  [omiss_propagation.html] (Browser Engine)                                        |
+|    ├─> Ingests JSON Telemetry Feeds                                               |
+|    ├─> Evaluates Great-Circle Spherical Trigonometry (Haversine Distance)         |
+|    ├─> Applies 85th Percentile (P85) SNR Statistical Filtering                    |
+|    ├─> Performs Link Budget Conversion (Digital FT8 -24 dB SNR to SSB -3 dB Threshold)|
+|    └─> Renders Dynamic Band Matrix & Active State Arrays                          |
++-----------------------------------------------------------------------------------+
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>2. Coordinate Mapping & Distance Calculations</h2>
+        <p>
+            Locational telemetry uses Maidenhead Grid Squares (2, 4, or 6 characters). These strings are converted to latitude ($\phi$) and longitude ($\lambda$) centerpoints in decimal degrees:
+        </p>
+        
+        <div class="formula-box">
+\begin{aligned}
+\lambda &= (\text{Char}_0 - 65) \cdot 20 - 180 + (\text{Num}_2 \cdot 2) + (\text{Char}_4 - 65) \cdot \left(\frac{2}{24}\right) + \frac{1}{24} \\
+\phi &= (\text{Char}_1 - 65) \cdot 10 - 90 + (\text{Num}_3 \cdot 1) + (\text{Char}_5 - 65) \cdot \left(\frac{1}{24}\right) + \frac{1}{48}
+\end{aligned}
+        </div>
+
+        <p>
+            Distance evaluation between observer coordinates $(\phi_1, \lambda_1)$ and spot endpoints $(\phi_2, \lambda_2)$ is calculated using the <strong>Haversine Great-Circle Distance Equation</strong> ($R_E = 3958.8 \text{ miles}$):
+        </p>
+
+        <div class="formula-box">
+a = \sin^2\left(\frac{\Delta \phi}{2}\right) + \cos(\phi_1) \cdot \cos(\phi_2) \cdot \sin^2\left(\frac{\Delta \lambda}{2}\right)
+\\[8pt]
+d = 2 \cdot R_E \cdot \arctan2\left(\sqrt{a}, \sqrt{1-a}\right)
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3. Mathematical Derivation: Digital FT8 to SSB Voice Conversion</h2>
+        <p>
+            Digital weak-signal protocols like FT8 operate in an ultra-narrow bandwidth ($B_{\text{FT8}} \approx 50\text{ Hz}$) with a minimum decoder sensitivity threshold of $\text{SNR}_{\text{FT8, min}} \approx -24\text{ dB}$.
+        </p>
+        <p>
+            Single Sideband (SSB) Voice uses a standard passband of $B_{\text{SSB}} \approx 2400\text{ Hz}$ and requires an operational minimum threshold of $\text{SNR}_{\text{SSB, min}} \approx -3\text{ dB}$ for readability.
+        </p>
+
+        <h3>3.1 Bandwidth Noise Floor Penalty ($\Delta \text{SNR}_{\text{BW}}$)</h3>
+        <p>
+            Expanding receiver bandwidth from $50\text{ Hz}$ to $2400\text{ Hz}$ increases the total integrated noise power ($P_N = k T B$). The resulting degradation in signal-to-noise ratio is calculated as:
+        </p>
+
+        <div class="formula-box">
+\Delta \text{SNR}_{\text{BW}} = 10 \cdot \log_{10}\left(\frac{B_{\text{SSB}}}{B_{\text{FT8}}}\right) = 10 \cdot \log_{10}\left(\frac{2400}{50}\right) = 10 \cdot \log_{10}(48) \approx 16.81\text{ dB}
+        </div>
+        <p>
+            <em>Note: In real-world propagation, human cognitive processing and speech processing algorithms allow readable communications at an effective operational penalty of $\approx 14\text{ dB}$.</em>
+        </p>
+
+        <h3>3.2 Transmit Power Scaling Offset ($\Delta P_{\text{TX}}$)</h3>
+        <p>
+            The baseline PSKReporter FT8 spots are assumed to transmit at a reference digital power level $P_{\text{FT8}} = 25\text{ Watts}$. A voice station operating at power $P_{\text{SSB}}$ gains a power scaling offset:
+        </p>
+
+        <div class="formula-box">
+\Delta P_{\text{TX}} = 10 \cdot \log_{10}\left(\frac{P_{\text{SSB}}}{25\text{ W}}\right)
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Operator Power ($P_{\text{SSB}}$)</th>
+                    <th>Reference Baseline</th>
+                    <th>Calculated $\Delta P_{\text{TX}}$ Offset</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>100 Watts</td><td>25 Watts</td><td>$+6.02\text{ dB}$</td></tr>
+                <tr><td>600 Watts</td><td>25 Watts</td><td>$+13.80\text{ dB}$</td></tr>
+                <tr><td>1200 Watts</td><td>25 Watts</td><td>$+16.81\text{ dB}$</td></tr>
+                <tr><td>1500 Watts (Legal Limit)</td><td>25 Watts</td><td>$+17.78\text{ dB}$</td></tr>
+            </tbody>
+        </table>
+
+        <h3>3.3 Net Link Budget & Predicted Voice SNR Equation</h3>
+        <p>
+            Combining antenna free-space gain ($G_{\text{Ant}}$), total local noise floor degradation ($N_{\text{Local}}$), bandwidth degradation, power scaling, and the 85th-percentile digital SNR baseline ($\text{SNR}_{\text{P85}}$) yields the overall Voice SNR model:
+        </p>
+
+        <div class="formula-box">
+\text{SNR}_{\text{SSB}} = \text{SNR}_{\text{P85}} + G_{\text{Ant}} - \left(14\text{ dB} - \Delta P_{\text{TX}}\right) - N_{\text{Local}} + \text{Offset}_{\text{Cal}}
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>4. Statistical Filtering: P85 vs Peak SNR</h2>
+        <p>
+            Taking the single peak digital spot on a band introduces significant errors due to localized ground reflections, anomalous ionospheric focusing, or software decoder clipping (WSJT-X caps outputs near $+12\text{ dB}$ to $+20\text{ dB}$).
+        </p>
+        <p>
+            To establish an accurate representation of a band's propagation profile, the engine sorts all $N$ valid spot SNRs within radius $R$ in ascending order:
+        </p>
+
+        <div class="formula-box">
+S = [\text{SNR}_0, \text{SNR}_1, \text{SNR}_2, \dots, \text{SNR}_{N-1}], \quad \text{where } \text{SNR}_i \le \text{SNR}_{i+1}
+\\[8pt]
+k = \lfloor 0.85 \cdot (N - 1) \rfloor \implies \text{SNR}_{\text{P85}} = S[k]
+        </div>
+
+        <p>
+            Using the **85th Percentile (P85)** focuses on the top $15\%$ of active propagation paths while filtering out single-station anomalies.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>5. OMISS Data Collection Engine (omiss_engine.py)</h2>
+        <p>
+            The backend engine runs as a system daemon on a 60-second execution loop. It interfaces with OMISS web services to map active nets and check-in rosters.
+        </p>
+
+        <h3>5.1 Web Scraping Pipeline</h3>
+        <ol>
+            <li>
+                <strong>Active Net Querying:</strong> Requests <code>https://www.omiss.net/Facelift/iPhone/activeNets.php</code>.
+            </li>
+            <li>
+                <strong>URL Parameter Parsing:</strong> Extracts the <code>net</code> query parameters from HTML anchor tags, removing NetLogger formatting string masks (e.g., <code>|NETLOGGER2</code>).
+            </li>
+            <li>
+                <strong>Check-In Roster Scraping:</strong> Queries <code>checkins.php?net={ENCODED_NAME}</code> to parse active roster items.
+            </li>
+            <li>
+                <strong>Sanitization Filtering:</strong> Excludes entries tagged as <code>inactive</code> or <code>out</code>, filters out non-callsign words (e.g., <code>NOTE</code>, <code>OFFICIAL</code>, <code>CLOSED</code>), and enforces callsign regex verification:
+                <div style="font-family:monospace; color:var(--purple-digital); margin-top:5px;">
+                    ^[A-Z0-9]{1,3}[0-9][A-Z0-9]{1,4}$
+                </div>
+            </li>
+            <li>
+                <strong>PSKR Correlation:</strong> Reads current band status from <code>/var/www/html/data/hf/pskr_engine.json</code> and injects live status flags into the output payload.
+            </li>
+            <li>
+                <strong>Atomic JSON Storage:</strong> Writes the resulting structure to <code>omiss_engine.json.tmp</code> before atomically replacing <code>omiss_engine.json</code> to prevent race conditions with front-end web reads.
+            </li>
+        </ol>
+    </div>
+</div>
+
+</body>
+</html>

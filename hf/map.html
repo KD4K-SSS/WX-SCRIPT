@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KD4K - Band Color-Coded SSB Map</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #0d1117; --card-bg: #161b22; --border-color: #30363d;
+            --text-main: #c9d1d9; --text-dim: #8b949e; --cyan: #58a6ff;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background-color: var(--bg-color); color: var(--text-main);
+            margin: 0; padding: 0; display: flex; flex-direction: column; height: 100vh;
+        }
+        header {
+            background: var(--card-bg); border-bottom: 1px solid var(--border-color);
+            padding: 12px 20px; display: flex; align-items: center;
+            justify-content: space-between; gap: 15px; flex-wrap: wrap;
+        }
+        h1 { margin: 0; font-size: 1.2rem; color: var(--cyan); }
+        .controls { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .grid-input, .select-ctrl {
+            background: #1f242c; color: var(--text-main); border: 1px solid var(--border-color);
+            padding: 6px 10px; border-radius: 4px; font-size: 0.88rem; outline: none;
+            font-family: monospace; font-weight: bold;
+        }
+        .grid-input { width: 80px; text-align: center; text-transform: uppercase; }
+        .stats-badge { font-family: monospace; font-size: 0.88rem; color: var(--text-dim); }
+        .stats-badge strong { color: var(--cyan); }
+        .back-btn {
+            color: var(--text-main); text-decoration: none; border: 1px solid var(--border-color);
+            padding: 5px 12px; border-radius: 4px; font-size: 0.85rem; background: #1f242c;
+        }
+        #map { flex: 1; width: 100%; background: #000; }
+        
+        /* Dynamic Band Color Legend Overlay */
+        .legend-overlay {
+            position: absolute; bottom: 20px; right: 20px; z-index: 1000;
+            background: rgba(22, 27, 34, 0.9); border: 1px solid var(--border-color);
+            padding: 10px 14px; border-radius: 6px; font-size: 0.8rem; font-family: monospace;
+            display: flex; flex-direction: column; gap: 4px; max-width: 200px;
+        }
+        .legend-title { font-weight: bold; color: var(--cyan); margin-bottom: 4px; font-size: 0.85rem; }
+        .legend-item { display: flex; align-items: center; gap: 8px; }
+        .color-dot { width: 12px; height: 12px; border-radius: 2px; display: inline-block; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="display: flex; align-items: center; gap: 15px;">
+        <a href="template.html" class="back-btn">&larr; Dashboard</a>
+        <h1>SSB Multi-Band Map</h1>
+    </div>
+
+    <div class="controls">
+        <label for="grid-entry" style="color: var(--cyan); font-size: 0.88rem; font-weight: bold;">Grid:</label>
+        <input type="text" id="grid-entry" class="grid-input" maxlength="4" placeholder="EM73" value="EM73">
+
+        <label for="noise-floor" style="color: var(--cyan); font-size: 0.88rem; font-weight: bold;">Noise Penalty:</label>
+        <select id="noise-floor" class="select-ctrl">
+            <option value="0" selected>0 dB (Quiet)</option>
+            <option value="3">-3 dB (S2-S3)</option>
+            <option value="6">-6 dB (S4-S5)</option>
+            <option value="12">-12 dB (S6-S7)</option>
+            <option value="18">-18 dB (S8-S9)</option>
+        </select>
+
+        <div class="stats-badge">Voice Paths: <strong id="map-paths-val">0</strong></div>
+        <div class="stats-badge">Active Bands: <strong id="map-bands-val">None</strong></div>
+    </div>
+</header>
+
+<div style="position: relative; flex: 1; display: flex;">
+    <div id="map"></div>
+    <div class="legend-overlay" id="band-legend">
+        <div class="legend-title">Band Legend</div>
+        </div>
+</div>
+
+<script>
+    const NA_PREFIXES = new Set([
+        "AK", "AL", "AM", "AN", "AO", "AP", "BK", "BL", "BM", "BN", "BO", "BP",
+        "CK", "CL", "CM", "CN", "CO", "CP", "DK", "DL", "DM", "DN", "DO", "DP",
+        "EK", "EL", "EM", "EN", "EO", "EP", "FK", "FL", "FM", "FN", "FO", "FP",
+        "GK", "GL", "GM", "GN", "GO", "GP"
+    ]);
+
+    // Distinct Colors for each HF/VHF Band
+    const BAND_COLORS = {
+        '160m': '#8b5cf6', // Violet
+        '80m':  '#3b82f6', // Blue
+        '40m':  '#06b6d4', // Cyan
+        '30m':  '#10b981', // Emerald
+        '20m':  '#2ea043', // Green
+        '17m':  '#eab308', // Yellow
+        '15m':  '#f97316', // Orange
+        '12m':  '#ef4444', // Red
+        '10m':  '#ec4899', // Pink
+        '6m':   '#a855f7'  // Purple
+    };
+
+    let map, mapLayerGroup;
+    let ft8PathsCache = [];
+
+    function isNorthAmerica(grid) {
+        if (!grid || typeof grid !== 'string' || grid.length < 2) return false;
+        return NA_PREFIXES.has(grid.substring(0, 2).toUpperCase());
+    }
+
+    function maidenheadToLatLon(grid) {
+        if (!grid || grid.length < 2) return null;
+        grid = grid.toUpperCase().trim();
+
+        let lon = (grid.charCodeAt(0) - 65) * 20 - 180;
+        let lat = (grid.charCodeAt(1) - 65) * 10 - 90;
+        let dLat = 10, dLon = 20;
+
+        if (grid.length >= 4) {
+            lon += parseInt(grid.charAt(2)) * 2;
+            lat += parseInt(grid.charAt(3)) * 1;
+            dLat = 1; dLon = 2;
+        }
+
+        return {
+            latCenter: lat + (dLat / 2),
+            lonCenter: lon + (dLon / 2),
+            bounds: [[lat, lon], [lat + dLat, lon + dLon]]
+        };
+    }
+
+    function initMap() {
+        map = L.map('map').setView([39.8283, -98.5795], 4);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; OpenStreetMap &copy; CARTO',
+            maxZoom: 10, minZoom: 2
+        }).addTo(map);
+
+        mapLayerGroup = L.layerGroup().addTo(map);
+    }
+
+    function updateLegend(activeBands) {
+        const legendContainer = document.getElementById('band-legend');
+        legendContainer.innerHTML = '<div class="legend-title">Band Colors</div>';
+
+        if (activeBands.size === 0) {
+            legendContainer.innerHTML += '<div style="color:var(--text-dim)">No active paths</div>';
+            return;
+        }
+
+        // Sort active bands descending by frequency
+        const sortedBands = Array.from(activeBands).sort((a, b) => parseFloat(b) - parseFloat(a));
+
+        sortedBands.forEach(band => {
+            const color = BAND_COLORS[band] || '#ffffff';
+            const item = document.createElement('div');
+            item.className = 'legend-item';
+            item.innerHTML = `<span class="color-dot" style="background:${color}"></span> <span>${band}</span>`;
+            legendContainer.appendChild(item);
+        });
+    }
+
+    function processMapLookup() {
+        if (!mapLayerGroup) return;
+        mapLayerGroup.clearLayers();
+
+        const inputGrid = document.getElementById('grid-entry').value.trim().toUpperCase();
+        const noisePenalty = parseInt(document.getElementById('noise-floor').value, 10);
+        
+        // Match frontend SSB cutoff formula (-10dB effective threshold)
+        const effectiveCutoff = -10 + noisePenalty; 
+
+        if (inputGrid.length < 2) return;
+        const targetGrid = inputGrid.substring(0, 4);
+
+        if (!isNorthAmerica(targetGrid)) {
+            document.getElementById('map-paths-val').textContent = "0";
+            document.getElementById('map-bands-val').textContent = "Outside NA";
+            updateLegend(new Set());
+            return;
+        }
+
+        const targetCoords = maidenheadToLatLon(targetGrid);
+        if (!targetCoords) return;
+
+        // Draw Target Square
+        L.rectangle(targetCoords.bounds, {
+            color: '#58a6ff', weight: 2, fillColor: '#58a6ff', fillOpacity: 0.3
+        }).addTo(mapLayerGroup).bindPopup(`<b>Target Grid: ${targetGrid}</b>`);
+
+        // Filter valid SSB paths
+        const matchingPaths = ft8PathsCache.filter(p => {
+            if (!p.tx || !p.rx) return false;
+            const txGrid = p.tx.toUpperCase();
+            const rxGrid = p.rx.toUpperCase();
+
+            if (!isNorthAmerica(txGrid) || !isNorthAmerica(rxGrid)) return false;
+
+            const connectsToTarget = txGrid.startsWith(targetGrid) || rxGrid.startsWith(targetGrid);
+            if (!connectsToTarget) return false;
+
+            const spotSnr = p.best_snr !== undefined ? p.best_snr : (p.snr || -99);
+            return spotSnr >= effectiveCutoff;
+        });
+
+        let totalSpots = 0;
+        const activeBands = new Set();
+        const boundsList = [targetCoords.bounds];
+
+        matchingPaths.forEach(path => {
+            const txGrid = path.tx.toUpperCase();
+            const rxGrid = path.rx.toUpperCase();
+            const remoteGrid = txGrid.startsWith(targetGrid) ? rxGrid : txGrid;
+
+            const remoteCoords = maidenheadToLatLon(remoteGrid);
+            if (!remoteCoords) return;
+
+            totalSpots += parseInt(path.count || 1);
+            if (path.band) activeBands.add(path.band);
+
+            const rawSnr = path.best_snr !== undefined ? path.best_snr : path.snr;
+            const lineColor = BAND_COLORS[path.band] || '#58a6ff'; // Default to cyan if missing
+
+            // Render Color-Coded Vector Line
+            L.polyline([
+                [targetCoords.latCenter, targetCoords.lonCenter],
+                [remoteCoords.latCenter, remoteCoords.lonCenter]
+            ], {
+                color: lineColor,
+                weight: 2.5,
+                opacity: 0.8
+            }).addTo(mapLayerGroup).bindPopup(
+                `<b>${targetGrid} &rarr; ${remoteGrid}</b><br>` +
+                `Band: <b>${path.band}</b><br>` +
+                `Raw SNR: ${rawSnr} dB<br>` +
+                `Effective SNR: ${rawSnr - noisePenalty} dB`
+            );
+
+            // Remote Endpoint Marker
+            L.circleMarker([remoteCoords.latCenter, remoteCoords.lonCenter], {
+                radius: 4, color: lineColor, fillColor: lineColor, fillOpacity: 0.9
+            }).addTo(mapLayerGroup).bindPopup(
+                `<b>Grid: ${remoteGrid}</b><br>Band: ${path.band}<br>SNR: ${rawSnr} dB`
+            );
+
+            boundsList.push(remoteCoords.bounds);
+        });
+
+        // Update Header Stats & Dynamic Legend
+        document.getElementById('map-paths-val').textContent = totalSpots;
+        const sortedReadableBands = Array.from(activeBands).sort((a, b) => parseFloat(b) - parseFloat(a));
+        document.getElementById('map-bands-val').textContent = sortedReadableBands.length > 0 ? sortedReadableBands.join(', ') : 'None';
+        
+        updateLegend(activeBands);
+
+        if (boundsList.length > 1) {
+            map.fitBounds(L.latLngBounds(boundsList), { padding: [40, 40] });
+        }
+    }
+
+    fetch('/data/hf/pskr.json?v=' + Date.now())
+        .then(r => r.json())
+        .then(data => {
+            ft8PathsCache = data.spots || data.paths || [];
+            initMap();
+            processMapLookup();
+        });
+
+    document.getElementById('grid-entry').addEventListener('input', processMapLookup);
+    document.getElementById('noise-floor').addEventListener('change', processMapLookup);
+</script>
+
+</body>
+</html>

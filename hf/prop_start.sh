@@ -5,7 +5,7 @@
 #################################################
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LAUNCHER_LOG="$SCRIPT_DIR/master_muf_launcher.log"
+LAUNCHER_LOG="/mnt/ssbwx_tmp/master_muf_launcher.log"
 
 LAUNCHERS=(
     "psk_muf.sh"
@@ -13,6 +13,7 @@ LAUNCHERS=(
     "propagation.sh"
     "muf.sh"
     "psk_gif.sh"
+    "omiss_engine.py"
 )
 
 DELAY_BETWEEN_LAUNCHES=3
@@ -95,11 +96,19 @@ do
         continue
     fi
 
-    LOG_NAME="${TARGET_SCRIPT%.sh}.log"
+    # Strip .sh or .py to create log name (e.g. omiss_engine.log)
+    LOG_NAME="${TARGET_SCRIPT%.*}.log"
 
     log_message "Starting $TARGET_SCRIPT..."
 
-    nohup "$FULL_PATH" \
+    # Determine command based on file extension
+    if [[ "$TARGET_SCRIPT" == *.py ]]; then
+        CMD=(python3 "$FULL_PATH")
+    else
+        CMD=("$FULL_PATH")
+    fi
+
+    nohup "${CMD[@]}" \
         > "$SCRIPT_DIR/$LOG_NAME" \
         2>&1 &
 

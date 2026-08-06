@@ -1,0 +1,2199 @@
+Regional US WSPR HF MUF Engine Started (Named JSON Engine)...
+[Wed Aug  5 03:46:49 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (135 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (53 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (63 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (18 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (79 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (97 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (60 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (8 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (7 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (199 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 04:02:28 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (106 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (46 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 18.11 MHz (56 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 18.11 MHz (17 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (62 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (87 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (45 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (34 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (12 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (173 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 04:18:06 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (105 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (34 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (33 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (20 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (70 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (141 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (61 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (39 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 18.11 MHz (19 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 24.93 MHz (164 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 04:33:41 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (116 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (56 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (36 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (21 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (56 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (131 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 21.10 MHz (65 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (42 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (11 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (169 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 04:49:17 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (103 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (43 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (52 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (17 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (59 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (108 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 21.10 MHz (78 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (26 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 10.14 MHz (11 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (151 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 05:04:49 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (107 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (45 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 18.11 MHz (47 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (19 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (49 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (77 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (58 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (40 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (8 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (145 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 05:20:27 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (91 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (34 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 21.10 MHz (52 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (11 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (44 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (96 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 24.93 MHz (71 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (34 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (144 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 05:36:06 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (127 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (45 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (93 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (14 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 18.11 MHz (52 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (99 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 24.93 MHz (74 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (62 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (16 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 24.93 MHz (132 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 05:51:45 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (137 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (68 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 18.11 MHz (60 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (13 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (46 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (109 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (73 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (22 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (8 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (163 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 06:07:22 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (45 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (21 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (42 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (15 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (42 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (81 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (67 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (28 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (8 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (143 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 06:22:53 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (89 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (39 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (67 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (40 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (90 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (77 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (8 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (3 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (154 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 06:38:33 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (99 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (45 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (57 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (13 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (39 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (112 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (90 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (35 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (8 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (142 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 06:54:16 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (133 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (64 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 18.11 MHz (55 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 18.11 MHz (18 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (41 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (108 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (80 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (24 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (7 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (204 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 07:09:56 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (88 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (50 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (55 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 18.11 MHz (20 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (51 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (101 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (77 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (20 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (8 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (143 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 07:25:35 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (69 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (34 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (37 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (16 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (55 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (110 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (39 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (11 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 7.04 MHz (2 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (128 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 07:41:10 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (80 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (39 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 18.11 MHz (43 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (11 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (32 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (151 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (32 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (3 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (106 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 07:56:44 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (66 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (28 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 18.11 MHz (47 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (12 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (46 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (104 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (50 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (17 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (4 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (136 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 08:12:27 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (83 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (36 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (42 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (6 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (34 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (130 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 18.11 MHz (40 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (6 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (12 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (125 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 08:28:07 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (62 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (35 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (46 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (13 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (52 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 24.93 MHz (193 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (36 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (13 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (111 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 08:43:43 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (74 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (31 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (37 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (7 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (26 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (181 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (37 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (16 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (4 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (102 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 08:59:18 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (70 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (33 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (33 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (6 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (29 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 24.93 MHz (129 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 21.10 MHz (27 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (17 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (68 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 09:14:53 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (79 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (33 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 18.11 MHz (35 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (7 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (38 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (110 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (33 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (37 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (14 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (84 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 09:30:34 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (67 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (45 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (34 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (6 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (22 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (64 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (23 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (47 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (5 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (77 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 09:46:12 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (82 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (40 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (19 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (7 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (21 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (73 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (25 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (28 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (7 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (65 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 10:01:45 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (52 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (19 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (13 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (5 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (18 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (70 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (20 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (20 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (5 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (57 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 10:17:19 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (36 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (17 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 0.00 MHz (1 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 0.00 MHz (1 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (4 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (22 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (16 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (50 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 10:32:49 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 14.10 MHz (59 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (27 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (15 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 7.04 MHz (2 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (6 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (77 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 14.10 MHz (33 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (12 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (12 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (66 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 10:48:25 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 14.10 MHz (71 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (41 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (8 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 10.14 MHz (6 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (14 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (117 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (26 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (5 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (6 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (83 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 11:03:58 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (64 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (32 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 7.04 MHz (8 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (3 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 24.93 MHz (141 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 14.10 MHz (27 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (6 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 0.00 MHz (1 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (78 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 11:19:28 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (70 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (41 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (20 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (3 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (10 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (101 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 14.10 MHz (7 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 10.14 MHz (3 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (55 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 11:34:53 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (131 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (57 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (39 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (26 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (139 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (29 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (24 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 0.00 MHz (1 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (81 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 11:50:23 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (152 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (81 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (44 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (8 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (30 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (70 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 14.10 MHz (25 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 7.04 MHz (2 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 10.14 MHz (6 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (84 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 12:05:54 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (100 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (45 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (37 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (8 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (40 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (83 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (13 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (13 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 0.00 MHz (0 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (80 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 12:21:19 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (112 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (52 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (57 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (18 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (73 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (78 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (28 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (27 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (3 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (64 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 12:36:47 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 24.93 MHz (159 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (57 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (58 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (27 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (103 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (97 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (44 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (38 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (10 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (80 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 12:52:21 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (169 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (61 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 18.11 MHz (68 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (38 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (101 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (60 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (29 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (66 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (76 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 01:07:52 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 24.93 MHz (126 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (54 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (53 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (26 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (75 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (105 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (29 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 24.93 MHz (42 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (6 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (92 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 01:23:22 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (92 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (40 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (19 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (14 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (55 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (86 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (30 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 28.13 MHz (13 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (3 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (65 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 01:38:49 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (125 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (40 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 18.11 MHz (59 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 18.11 MHz (39 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (117 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (134 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (58 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 24.93 MHz (45 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (13 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (114 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 01:54:25 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 14.10 MHz (160 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (64 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 21.10 MHz (65 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (28 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (106 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (130 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (58 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (45 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (23 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (134 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 02:10:09 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (87 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (40 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (34 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (17 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 18.11 MHz (49 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (146 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (40 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (39 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (7 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (109 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 02:25:39 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (74 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (33 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 21.10 MHz (50 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (33 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (105 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (100 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (36 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (49 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (10 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (79 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 02:41:09 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 24.93 MHz (84 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (34 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 24.93 MHz (49 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 18.11 MHz (30 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (102 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (114 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 24.93 MHz (24 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (46 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (12 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (103 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 02:56:38 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (161 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 24.93 MHz (60 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (79 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (41 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (141 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (132 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 14.10 MHz (30 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (49 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (8 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (141 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 03:12:12 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (165 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 24.93 MHz (70 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 21.10 MHz (79 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 21.10 MHz (35 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (104 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (132 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (40 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (80 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 28.13 MHz (13 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (131 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 03:27:46 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (132 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (49 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (56 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 21.10 MHz (38 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 24.93 MHz (130 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (163 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 21.10 MHz (35 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (97 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 28.13 MHz (15 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (126 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 03:43:17 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (151 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (51 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (73 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 21.10 MHz (39 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (107 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (122 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 14.10 MHz (19 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (44 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 28.13 MHz (14 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (113 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 03:58:46 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (177 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (55 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (87 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (40 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (101 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (119 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 18.11 MHz (20 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 28.13 MHz (67 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 28.13 MHz (17 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (129 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 04:14:25 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (177 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (59 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (49 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (8 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (42 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (118 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 14.10 MHz (24 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (29 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 28.13 MHz (10 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (126 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 04:30:01 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (166 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (63 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (63 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 21.10 MHz (27 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (72 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (144 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (38 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (30 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 28.13 MHz (11 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (120 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 04:45:33 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (167 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (64 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (86 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (34 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (103 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (134 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (22 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 28.13 MHz (54 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 28.13 MHz (7 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (106 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 05:01:02 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (204 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (92 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (118 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 18.11 MHz (28 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (102 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (104 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 18.11 MHz (19 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 24.93 MHz (50 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (6 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (87 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 05:16:32 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (211 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (74 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (113 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (18 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (86 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (117 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (25 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 24.93 MHz (63 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (12 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (95 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 05:32:12 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (204 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (72 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (97 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (23 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (63 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (154 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (30 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 28.13 MHz (52 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (105 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 05:47:46 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (140 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (33 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (63 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (16 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (64 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 24.93 MHz (138 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 24.93 MHz (26 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 28.13 MHz (40 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (14 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (117 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 06:03:21 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (152 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (46 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (53 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (14 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (48 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (92 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (26 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 28.13 MHz (29 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (10 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (89 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 06:18:54 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (167 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (50 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (61 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (18 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (60 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (118 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 24.93 MHz (21 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 28.13 MHz (28 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (19 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (110 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 06:34:35 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (142 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (38 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (79 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 18.11 MHz (14 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (73 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (133 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 21.10 MHz (25 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 28.13 MHz (57 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (13 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (134 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 06:50:20 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (122 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (39 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (83 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (16 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (71 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 24.93 MHz (143 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (23 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (50 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 28.13 MHz (10 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (129 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 07:05:59 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (68 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (22 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (52 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 18.11 MHz (14 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (47 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (136 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 24.93 MHz (17 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 28.13 MHz (43 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (8 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (122 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 07:21:39 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (55 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (21 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (40 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 18.11 MHz (14 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (41 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (106 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 18.11 MHz (14 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (31 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (13 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (100 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 07:37:15 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (79 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (27 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (41 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (7 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (41 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (108 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (32 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (33 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (12 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 24.93 MHz (103 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 07:52:55 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (83 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (30 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (46 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (12 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (46 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (98 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 21.10 MHz (31 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (13 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 28.13 MHz (14 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (132 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 08:08:42 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (107 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (36 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (43 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (39 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (112 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 18.11 MHz (13 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 28.13 MHz (30 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (5 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (122 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 08:24:26 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (69 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (31 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (24 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (10 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (34 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (88 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (24 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (10 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (4 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (112 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 08:49:57 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (88 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (39 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (52 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (8 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (53 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (91 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (31 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (34 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (3 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (130 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 09:05:37 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (77 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (28 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (46 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (7 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (36 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (79 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 21.10 MHz (25 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (13 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (7 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (102 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 09:21:14 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (79 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (30 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (79 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (6 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 18.11 MHz (50 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 24.93 MHz (87 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 18.11 MHz (18 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (17 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (8 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (108 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 09:36:53 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (159 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (59 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (104 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (12 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 18.11 MHz (68 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (124 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (39 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (52 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (126 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 09:52:46 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 24.93 MHz (145 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (55 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (62 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (14 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (59 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (136 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (49 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (38 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (5 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (149 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 10:08:33 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 24.93 MHz (114 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (50 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (56 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (14 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (46 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (149 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (30 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (18 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (4 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (137 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 10:24:17 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (116 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (53 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (57 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (23 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (79 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 24.93 MHz (137 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (40 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (22 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (2 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (119 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 10:39:59 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (161 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (61 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (89 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (29 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (87 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 24.93 MHz (158 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 21.10 MHz (42 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (42 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (14 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (144 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 10:55:47 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (131 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (46 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (61 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (22 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (91 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (142 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 18.11 MHz (48 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (37 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (15 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (139 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 11:11:31 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (144 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (61 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (62 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (24 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (94 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (121 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (33 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (23 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (11 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (132 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 11:27:10 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (126 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (52 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (54 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 21.10 MHz (16 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (90 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (123 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 18.11 MHz (32 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (22 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (118 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 11:42:48 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (163 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (64 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (75 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (31 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (143 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (118 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (28 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (64 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (16 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (152 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Wed Aug  5 11:58:34 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (244 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (90 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (102 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (47 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (139 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (125 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (41 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (32 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 18.11 MHz (19 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (146 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 12:14:25 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (250 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (90 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (97 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (23 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (118 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (153 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 18.11 MHz (32 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (54 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (23 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (157 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 12:30:10 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (275 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (107 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (119 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (31 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (129 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (125 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (27 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (49 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (24 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (150 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 12:45:52 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (226 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (93 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (105 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 18.11 MHz (22 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (125 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (148 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (31 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (72 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (30 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (150 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 01:01:34 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (264 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (81 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (131 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (23 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (131 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (141 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (22 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (53 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (25 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (140 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 01:17:14 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (240 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (73 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (108 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 18.11 MHz (30 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 18.11 MHz (115 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (154 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (31 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (36 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (20 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (139 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 01:33:00 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (253 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (77 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (123 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (33 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (158 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (183 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (47 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (66 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (28 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (156 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 01:48:49 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (201 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (72 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (97 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (35 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (152 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (148 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (33 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (59 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (25 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (152 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 02:04:37 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (205 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (83 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (123 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 18.11 MHz (30 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (134 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (173 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (27 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (35 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (19 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (131 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 02:20:24 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (226 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (79 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (119 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (32 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (177 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (165 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (28 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 24.93 MHz (66 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (33 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (139 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 02:36:14 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (266 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (84 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (121 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (28 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (161 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (210 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (44 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (59 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 28.13 MHz (33 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (159 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 02:52:03 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (200 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (75 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (112 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (29 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 18.11 MHz (116 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (213 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (46 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (69 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (25 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (161 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 03:07:49 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (143 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (59 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (81 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (17 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (62 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (187 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (33 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (43 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (16 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (104 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 03:23:33 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (114 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (40 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (64 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 18.11 MHz (17 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 18.11 MHz (53 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (146 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (35 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (29 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 24.93 MHz (16 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 18.11 MHz (104 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 03:39:12 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (157 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (45 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (76 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (17 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (58 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (146 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (40 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (46 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (11 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 18.11 MHz (101 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 03:54:53 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 14.10 MHz (219 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (71 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (117 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (26 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (108 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (214 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (105 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (39 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (6 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (139 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 04:10:43 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (121 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (44 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (72 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (13 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (57 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (176 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (77 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (46 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (2 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (107 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 04:26:29 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (121 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (44 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (55 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (8 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (45 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (135 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (67 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (56 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (13 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (112 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 04:42:11 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (110 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (39 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (48 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (11 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (48 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (163 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 21.10 MHz (94 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (27 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (5 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (114 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 04:57:53 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (130 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (49 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (41 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 10.14 MHz (11 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (39 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (148 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 14.10 MHz (60 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (14 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 10.14 MHz (5 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (80 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 05:13:32 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 14.10 MHz (97 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (33 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (44 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 18.11 MHz (6 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 18.11 MHz (32 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (109 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (42 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (11 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 10.14 MHz (6 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 24.93 MHz (63 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 05:29:07 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (108 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (33 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (57 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (39 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (113 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 21.10 MHz (67 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (9 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 10.14 MHz (6 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (85 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 05:44:45 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (131 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (51 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (76 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (20 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (67 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (174 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 24.93 MHz (96 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (30 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (4 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (129 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 06:00:26 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 14.10 MHz (129 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (56 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (77 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (12 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (44 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (137 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (61 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (29 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (4 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (117 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 06:16:06 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (110 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (39 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (64 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (15 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (42 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (132 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 21.10 MHz (84 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (28 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (7 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (119 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 06:31:43 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (109 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (42 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (81 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 18.11 MHz (9 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 18.11 MHz (42 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (126 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 21.10 MHz (96 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (34 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (2 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (116 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 06:47:18 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (91 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (29 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 18.11 MHz (55 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (12 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (40 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (134 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (98 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (31 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (2 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (117 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 07:02:50 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (103 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (32 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (65 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (6 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (37 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (136 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (115 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (23 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (2 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (93 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 07:18:31 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (129 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (49 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (73 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (38 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (98 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (90 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (28 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (3 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (115 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 07:34:12 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 14.10 MHz (129 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (46 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (61 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (15 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (47 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (113 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (93 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (59 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (10 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (122 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 07:49:50 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 14.10 MHz (132 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (57 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (41 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (6 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (27 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (141 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 18.11 MHz (75 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (40 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (7 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (89 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 08:05:28 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 14.10 MHz (63 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (32 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (13 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (7 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (22 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (118 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (38 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (24 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (2 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (53 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 08:20:59 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (84 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (29 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (30 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (4 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (35 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (112 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (46 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (17 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (2 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (59 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 08:36:39 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (98 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (50 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (29 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (5 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (16 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (165 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 18.11 MHz (48 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (37 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 0.00 MHz (1 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (72 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 08:52:21 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (79 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (29 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (10 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (5 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (13 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (139 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (39 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (23 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (2 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (84 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 09:07:59 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 24.93 MHz (67 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 24.93 MHz (26 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (31 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (23 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (196 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (61 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (48 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (2 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (115 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 09:23:37 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (63 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (20 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (14 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (21 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (123 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 21.10 MHz (40 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (47 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 24.93 MHz (8 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (105 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 09:39:10 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (44 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (13 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (24 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (12 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (23 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (114 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (40 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (27 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (7 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (83 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 09:54:44 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 14.10 MHz (74 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (26 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 10.14 MHz (23 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (13 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (28 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (173 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 21.10 MHz (43 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (36 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (6 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (92 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 10:10:26 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (59 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (25 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 10.14 MHz (15 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (20 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (155 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 14.10 MHz (37 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (27 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 7.04 MHz (2 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (65 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 10:26:05 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (45 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (19 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (17 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (11 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (19 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (157 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (49 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (4 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (56 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 10:41:41 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (53 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (19 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (15 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (156 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 14.10 MHz (34 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (7 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 7.04 MHz (2 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (57 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 10:57:15 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (82 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (35 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (18 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (4 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (14 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (83 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 14.10 MHz (34 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (33 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 7.04 MHz (5 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (61 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 11:12:50 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (115 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (49 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (30 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (8 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (20 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (96 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (37 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (49 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (7 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (65 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 11:28:28 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (91 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (39 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (30 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (27 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (87 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (37 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (39 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 7.04 MHz (2 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (60 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 11:44:02 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (106 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (49 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (40 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (10 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (30 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (101 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (33 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (50 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (5 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (84 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 11:59:36 AM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (109 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (44 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (50 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (5 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (34 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (85 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (24 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (32 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (7 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (67 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 12:15:07 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (96 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (33 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (40 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (6 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (22 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (72 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (27 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (33 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (6 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (55 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 12:30:39 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (123 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (54 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (77 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (4 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (42 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (115 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (28 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 28.13 MHz (62 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (5 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (70 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 12:46:14 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 24.93 MHz (89 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (36 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (34 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (4 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (39 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (124 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (34 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (48 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (3 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (60 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 01:01:46 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (125 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (46 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 14.10 MHz (53 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (40 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (154 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (15 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (49 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (12 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (76 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 01:17:19 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (92 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (34 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 18.11 MHz (36 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (13 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (56 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (145 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (32 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (46 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (6 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (59 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 01:32:51 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 14.10 MHz (115 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (45 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (84 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (18 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (69 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (185 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (52 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (51 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (12 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (85 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 01:48:29 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (90 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (45 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (85 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (18 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (66 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (184 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (56 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 28.13 MHz (45 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (8 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (96 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 02:04:05 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 24.93 MHz (67 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (29 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (35 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 24.93 MHz (15 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (63 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (148 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (68 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (40 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (10 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (122 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 02:19:41 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (98 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (38 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (42 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 21.10 MHz (17 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (76 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (110 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (44 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (76 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (13 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (116 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 02:35:19 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (133 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (54 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 21.10 MHz (83 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 21.10 MHz (20 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (77 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (130 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (38 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (32 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (12 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (103 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 02:50:56 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (141 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (54 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 21.10 MHz (84 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 21.10 MHz (41 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (113 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (147 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (51 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (63 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (12 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (129 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 03:06:39 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (150 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (63 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (80 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (37 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (106 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (167 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (43 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 28.13 MHz (65 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (11 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (115 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 03:22:23 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (114 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (49 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (59 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (43 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (106 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (198 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 18.11 MHz (48 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (47 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (23 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (140 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 03:38:09 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (153 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 24.93 MHz (50 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (90 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (46 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (101 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (214 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (40 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (44 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (13 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (141 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 03:53:52 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (123 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (41 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (110 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (42 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (109 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (185 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 24.93 MHz (58 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (53 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (19 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (158 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 04:09:36 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (83 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (35 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (46 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (19 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (57 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (164 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 14.10 MHz (39 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 28.13 MHz (15 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 28.13 MHz (9 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (111 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 04:25:11 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (99 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (42 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (53 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 28.13 MHz (33 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (78 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (143 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (32 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 28.13 MHz (34 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (4 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (121 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 04:40:44 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (129 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (52 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (69 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 21.10 MHz (14 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (51 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (158 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 24.93 MHz (30 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (26 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (17 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (144 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 04:56:29 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (78 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (29 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (42 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 21.10 MHz (8 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (32 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (190 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (36 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (27 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 18.11 MHz (10 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (169 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 05:12:15 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (85 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (38 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (43 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 18.11 MHz (17 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (36 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (158 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (33 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (28 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (12 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (164 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 05:27:53 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (74 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (31 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (44 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 21.10 MHz (22 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (45 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (192 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 21.10 MHz (45 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (40 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 28.13 MHz (4 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (183 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 05:43:33 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (64 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (25 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (58 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 21.10 MHz (13 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (33 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (129 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (42 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (22 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (9 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (154 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 05:59:09 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (78 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (31 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (45 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 21.10 MHz (11 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (32 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (119 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (36 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 28.13 MHz (29 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (11 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (139 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 06:14:46 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (96 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (37 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (44 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (10 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (30 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (148 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 18.11 MHz (36 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (12 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (7 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (184 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 06:30:28 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (77 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (28 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (31 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (24 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (44 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (182 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (43 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (28 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 28.13 MHz (10 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (190 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 06:46:11 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 24.93 MHz (42 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 24.93 MHz (15 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (23 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 18.11 MHz (17 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 21.10 MHz (28 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (155 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (42 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 21.10 MHz (18 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (4 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (139 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 07:02:01 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (54 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 14.10 MHz (21 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (28 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (7 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (22 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (198 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 24.93 MHz (39 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (14 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (3 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (126 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 07:17:42 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (71 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 21.10 MHz (33 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (24 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (13 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 18.11 MHz (28 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (179 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (28 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (16 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 7.04 MHz (5 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (105 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 07:33:25 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 24.93 MHz (69 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 24.93 MHz (26 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (28 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (11 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (29 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (162 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (30 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (21 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 10.14 MHz (7 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 24.93 MHz (85 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 07:49:04 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 18.11 MHz (64 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (26 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (20 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (17 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 24.93 MHz (40 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (133 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 18.11 MHz (25 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (17 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (4 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (85 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 08:04:42 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (57 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (24 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (15 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (9 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 14.10 MHz (26 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 21.10 MHz (173 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (18 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (5 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 21.10 MHz (7 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (90 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 08:20:24 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 28.13 MHz (72 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 28.13 MHz (26 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 28.13 MHz (18 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (14 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 24.93 MHz (34 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (175 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 28.13 MHz (15 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 18.11 MHz (19 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 18.11 MHz (10 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 28.13 MHz (76 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...
+[Thu Aug  6 08:36:10 PM UTC 2026] Fetching last 15 mins of live packet telemetry from wspr.live...
+ -> Processing test mode grid map with path origins...
+ -> Zone: Northeast_1 | Robust MUF: 21.10 MHz (84 spots over 3dB)
+ -> Zone: Mid_Atlantic_2 | Robust MUF: 18.11 MHz (32 spots over 3dB)
+ -> Zone: Mid_Atlantic_3 | Robust MUF: 24.93 MHz (17 spots over 3dB)
+ -> Zone: Southeast_4 | Robust MUF: 14.10 MHz (18 spots over 3dB)
+ -> Zone: South_Central_5 | Robust MUF: 28.13 MHz (41 spots over 3dB)
+ -> Zone: West_Coast_6 | Robust MUF: 28.13 MHz (146 spots over 3dB)
+ -> Zone: Pacific_NW_7 | Robust MUF: 18.11 MHz (21 spots over 3dB)
+ -> Zone: Great_Lakes_8 | Robust MUF: 14.10 MHz (21 spots over 3dB)
+ -> Zone: Midwest_9 | Robust MUF: 14.10 MHz (12 spots over 3dB)
+ -> Zone: Plains_0 | Robust MUF: 24.93 MHz (92 spots over 3dB)
+Success: Clean dashboard metrics updated.
+Sleeping 15 minutes...

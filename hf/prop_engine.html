@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KD4K - Real-Time Propagation Engine</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg-color: #0d1117; --card-bg: #161b22; --border-color: #30363d;
+            --text-main: #c9d1d9; --text-dim: #8b949e; --cyan: #58a6ff; --green: #2ea043;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background-color: var(--bg-color); color: var(--text-main);
+            margin: 0; padding: 20px;
+        }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        h1 { margin: 0; color: var(--cyan); font-size: 1.5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+        .card {
+            background: var(--card-bg); border: 1px solid var(--border-color);
+            border-radius: 6px; padding: 15px; display: flex; flex-direction: column;
+        }
+        .card h3 { margin-top: 0; color: var(--cyan); font-size: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+        .stat-value { font-size: 2.2rem; font-weight: bold; color: var(--green); font-family: monospace; }
+        .stat-label { font-size: 0.8rem; color: var(--text-dim); }
+        .chart-container { position: relative; flex: 1; min-height: 200px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>KD4K Real-Time HF Propagation Engine - OMISS Net Engine</h1>
+    <div style="font-family: monospace; color: var(--text-dim);" id="update-time">Loading engine data...</div>
+</header>
+
+<div class="grid">
+    <div class="card">
+        <h3>Observed Max Usable Frequency (MUF)</h3>
+        <div class="stat-value" id="muf-val">-- MHz</div>
+        <div class="stat-label">Highest band completing active propagation paths across North America</div>
+    </div>
+
+    <div class="card">
+        <h3>Longest Single-Hop Distance</h3>
+        <div class="stat-value" id="max-dist-val">-- km</div>
+        <div class="stat-label" id="max-dist-path">Path: -- &rarr; --</div>
+    </div>
+
+    <div class="card">
+        <h3>Refraction Zone Density</h3>
+        <div class="stat-value" id="midpoint-count">--</div>
+        <div class="stat-label">Active F2-layer reflection points tracked in 15m window</div>
+    </div>
+</div>
+
+<br>
+
+<div class="grid">
+    <div class="card" style="grid-column: span 2;">
+        <h3>Propagation Distance Spread (Skip Zones)</h3>
+        <div class="chart-container">
+            <canvas id="distanceChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script>
+    let distChart;
+
+    function initCharts() {
+        const ctx = document.getElementById('distanceChart').getContext('2d');
+        distChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['< 500km', '500-1000km', '1000-2000km', '2000-3000km', '3000km+'],
+                datasets: [{
+                    label: 'Active Path Count',
+                    data: [0, 0, 0, 0, 0],
+                    backgroundColor: '#58a6ff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { ticks: { color: '#8b949e' }, grid: { color: '#30363d' } },
+                    y: { ticks: { color: '#8b949e' }, grid: { color: '#30363d' } }
+                }
+            }
+        });
+    }
+
+    function loadEngineData() {
+        fetch('/data/hf/pskr_engine.json?v=' + Date.now())
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('update-time').textContent = 'Last Refreshed: ' + data.timestamp;
+
+                const spots = data.spots || [];
+                if (spots.length === 0) return;
+
+                let highestFreq = 0.0;
+                let maxDist = 0;
+                let maxDistPath = "--";
+                let distBins = [0, 0, 0, 0, 0];
+
+                spots.forEach(s => {
+                    // Check Observed MUF
+                    if (s.freq_mhz > highestFreq) highestFreq = s.freq_mhz;
+
+                    // Track Longest Distance
+                    if (s.distance_km > maxDist) {
+                        maxDist = s.distance_km;
+                        maxDistPath = `${s.tx} \u2192 ${s.rx} (${s.band})`;
+                    }
+
+                    // Bin Distances
+                    const d = s.distance_km;
+                    if (d < 500) distBins[0]++;
+                    else if (d < 1000) distBins[1]++;
+                    else if (d < 2000) distBins[2]++;
+                    else if (d < 3000) distBins[3]++;
+                    else distBins[4]++;
+                });
+
+                // Update UI Stats
+                document.getElementById('muf-val').textContent = highestFreq.toFixed(1) + ' MHz';
+                document.getElementById('max-dist-val').textContent = Math.round(maxDist) + ' km';
+                document.getElementById('max-dist-path').textContent = 'Path: ' + maxDistPath;
+                document.getElementById('midpoint-count').textContent = spots.length;
+
+                // Update Chart
+                distChart.data.datasets[0].data = distBins;
+                distChart.update();
+            })
+            .catch(err => console.error("Error fetching engine data:", err));
+    }
+
+    initCharts();
+    loadEngineData();
+    setInterval(loadEngineData, 60000); // Auto-refresh every 60 seconds
+</script>
+
+</body>
+</html>

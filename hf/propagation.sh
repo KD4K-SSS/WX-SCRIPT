@@ -32,6 +32,7 @@ while true; do
         K_INDEX=$(parse_tag "kindex"); K_INDEX=${K_INDEX:-N/A}
         XRAY=$(parse_tag "xray"); XRAY=${XRAY:-N/A}
         SIGNAL_NOISE=$(parse_tag "signalnoise"); SIGNAL_NOISE=${SIGNAL_NOISE:-N/A}
+        echo "$SIGNAL_NOISE" > /var/www/html/data/hf/noise_level.txt
         UPDATED=$(parse_tag "updated"); UPDATED=${UPDATED:-$(date)}
         WIND=$(parse_tag "solarwind"); WIND=${WIND:-N/A}
         IMF=$(parse_tag "magneticfield"); IMF=${IMF:-N/A}
