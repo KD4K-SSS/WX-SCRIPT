@@ -1,3 +1,3 @@
-# WX-SCRIPT
-WEATHER SCRIPT REPO
-Scripts used in Linux (Ubuntu) OS for retrieving, displaying, and speaking weather information.
+# WX and PROPAGATION -SCRIPTING
+WEATHER SCRIPTS - HF PROPAGATION SCRIPTS FOR REALTIMR PROPAGATION
+
